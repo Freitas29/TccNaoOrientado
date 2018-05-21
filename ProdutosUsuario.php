@@ -439,7 +439,7 @@ fieldset{
 
         <div class="card-image col l6 s6 m6">
 
-          <img src="Usuarios/<?php echo $RegUsuario['usrFoto'];?>" onclick="AlteraFoto()">
+          <img src="./Usuarios/<?php echo $RegUsuario['usrFoto'];?>" onclick="AlteraFoto()">
 
            <div class="file-field input-field col s12 m12 l12">
                <div class="btn">
