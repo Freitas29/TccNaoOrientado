@@ -1,0 +1,41 @@
+[33mcommit 1c13d7e17942624636f531cab911a45e6fec34a7[m[33m ([m[1;36mHEAD -> [m[1;32mTccOrientadoObjeto[m[33m)[m
+Author: Arão Freitas <arao.freitas@hotmail.com>
+Date:   Sat Apr 28 00:33:07 2018 -0300
+
+    Exclui tudo
+
+[33mcommit 53dc0e11684cf61609cb4459caad4da7cb029e05[m
+Author: Arão Freitas <arao.freitas@hotmail.com>
+Date:   Sat Apr 28 00:27:41 2018 -0300
+
+    Classe banco de dados adicionada
+
+[33mcommit 21a8f1ff3edc011d01b39114b28784644493fd50[m
+Author: Arão Freitas <arao.freitas@hotmail.com>
+Date:   Sat Apr 28 00:22:59 2018 -0300
+
+    Classe Anuncio add
+
+[33mcommit 7287c1bcdaac8e7a22aed6c531f9d5e11e934972[m
+Author: Arão Freitas <arao.freitas@hotmail.com>
+Date:   Sat Apr 28 00:11:51 2018 -0300
+
+    Adicionei os gets que faltava
+
+[33mcommit 4612b2e29db52471c07a9b326a6a0f564db5b170[m
+Author: Arão Freitas <arao.freitas@hotmail.com>
+Date:   Sat Apr 28 00:00:50 2018 -0300
+
+    Só mudei o nome da classe para letra maiuscula
+
+[33mcommit b9afeb4d30e20d0b4accb2d5690e2a6ce1557ffe[m
+Author: Arão Freitas <arao.freitas@hotmail.com>
+Date:   Fri Apr 27 23:56:38 2018 -0300
+
+    model adicionada
+
+[33mcommit eec0b78159006441dc875743687010233a8cdf75[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Arão Freitas <arao.freitas@hotmail.com>
+Date:   Fri Apr 27 23:31:44 2018 -0300
+
+    Tcc sem orientação
