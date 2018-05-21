@@ -1,5 +1,5 @@
 <?php 
 
-	$oCon = mysqli_connect('localhost','root','','TCC');
+	$oCon = mysqli_connect('localhost','root','1234','TCC');
 
 ?>

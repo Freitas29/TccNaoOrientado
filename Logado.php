@@ -611,7 +611,7 @@
 				
 
 					<div class="col l3 m3 s3">
-						<a href="MostraProduto.php?id_produto=<?php echo $DadosMostra2['ancCodigo'];?>">
+						<a href="MostraProduto.php?id_produto=<?php echo $MostraLivros['ancCodigo'];?>">
 				      <div class="card hoverable" style=" word-wrap: break-word;">
 				        <div class="card-image">
 				         <?php

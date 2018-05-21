@@ -3,7 +3,7 @@
 	 include 'Conexao.php';
 	$Pesquisa = $_POST['palavra'];
 
-	$BuscaAnuncio = "  select ancCodigo,ancTitulo,fotoDescricao,foto_cod from anuncio inner join fotosprodutos on ancCodigo = foto_cod_anuncio where ancTitulo like '%$Pesquisa%' and  foto_cod limit 1,3";
+	$BuscaAnuncio = "select ancCodigo,ancTitulo,fotoDescricao,foto_cod from anuncio inner join fotosprodutos on ancCodigo = foto_cod_anuncio where ancTitulo like '%$Pesquisa%' and foto_cod limit 3,3";
 
 
 	$ResultadoBusca = mysqli_query($oCon,$BuscaAnuncio);

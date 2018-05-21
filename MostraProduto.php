@@ -232,93 +232,9 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
       </div>
 
    
-
-     <?php 
-
-                    if ($RegProduto['ancCategoria_interesse'] == 0) {
-                      echo "Pode escolher todos os produtos para trocar com esse anuncio";
-                    }else{
-                        //Aqui está pegamndo os anuncios que o usuário tem disponível que é igual ao interesse
-                        $IntereseUsuario = $RegProduto['ancCategoria_interesse'];
-
-                        $selectDosAnunciosIgualAoDoUsuario = 'select ancTitulo,ancDesc,ancCodigo,ancCategoria_interesse,Anuncio from anuncio  where ancCategoria_interesse = '.$IntereseUsuario.'  and  ancCod_Criador = '.$_SESSION['Login'];
-
-                        $ResultadoDosAnunciosIgualAoDoUsuario = mysqli_query($oCon,$selectDosAnunciosIgualAoDoUsuario);
-
-                        while ($RegAnuncioIguais = mysqli_fetch_assoc($ResultadoDosAnunciosIgualAoDoUsuario)) {
-                         
-
-                         //começa aqui
-                       
-
-
-                                $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where ancCod_Criador = '.$_SESSION['Login'].'and ancCategoria_interesse = ancCod_Categoria';
-
-                                $DadosDoProdutosAnunciados = mysqli_query($oCon,$SelecionaOsProdutosAnunciados);
-
-                                while ($RegProdutosAnunciado = mysqli_fetch_assoc($DadosDoProdutosAnunciados)) {
-                                  
-
-                                    $anunciosDoUsuario = $RegProdutosAnunciado['ancCodigo'];
-
-
-                            
-                                
-                              ?>
-                              
-
-                              
-                                  <div class="col l3 m3 s3">
-                                    <div class="card" style=" word-wrap: break-word;">
-                                      <div class="card-image">
-                      
-                                         <?php 
-
-                                         $Fotos = "select ancCodigo,fotoDescricao,foto_cod_usuario,foto_cod_anuncio from anuncio inner join fotosprodutos on ancCodigo = fotosprodutos.foto_cod_anuncio where foto_cod_anuncio =".$anunciosDoUsuario.' order by  foto_cod asc limit 1';
-
-                                         $DadosDasFotos = mysqli_query($oCon,$Fotos);
-
-                                         while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
-                                          
-                                          ?>
-                                        <img src="<?php echo $FotosEnd['fotoDescricao'] ?>" id="ImagensAnunciadas">
-                                        
-
-                                        <?php 
-                                       }
-                                       ?>
-                                               
-
-                                      </div>
-
-                                      <div class="card-content">
-                                        <span class="card-title"><?php echo $RegProdutosAnunciado['ancTitulo']?></span>
-                                        <p id="Desc"><?php echo $RegProdutosAnunciado['ancDesc']?></p>
-                                      </div>
-
-                                    </div>
-                                  </div>
-                            
-                                
-                              <?php
-                                
-                              }
-                            
-                              ?>
-                              </div>
                             </div>
 
-                    <?php
-                          //termina aqui
-                        if($RegAnuncioIguais['ancCategoria_interesse'] != $IntereseUsuario){
-                          echo "Produtos irrelevantes";
-                        }
-
-                      }
-                    }
-
-                  ?>
-
+              
  </div>
 </div>
 
@@ -352,7 +268,6 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
 </html>
 <?php
-
 }
 
 mysqli_free_result($DadosDoProduto);
