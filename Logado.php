@@ -161,15 +161,15 @@
 
 			include './conexoesPhp/Conexao.php';
 			
-			$ConteudoCelular = 'select ancTitulo,ancDesc,ancCodigo,nivelAnuncio from anuncio  where ancCod_Categoria=1 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
+			$ConteudoCelular = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=1 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
 			
 			$Usuario = 'select usrEmail,usrApelido,usrFoto from usuario where UsrCodigo='.$_SESSION['Login'];
 			
-			$Conteudo = ' select ancTitulo,ancDesc,ancCodigo,nivelAnuncio from anuncio  where ancCod_Categoria=4 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
+			$Conteudo = ' select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=4 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
 			
 			$Conteudo2 = 'select * from anuncio where ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
 
-			$Livros = 'select ancTitulo,ancDesc,ancCodigo,nivelAnuncio from anuncio  where ancCod_Categoria=2 and ancCod_Criador != '.$_SESSION['Login'].'  order by ancCodigo desc limit 4';
+			$Livros = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=2 and ancCod_Criador != '.$_SESSION['Login'].'  order by ancCodigo desc limit 4';
 
 			$DadosLivros = mysqli_query($oCon,$Livros);
 			
@@ -313,7 +313,7 @@
 				$anuncioCelularNovoCod = $DadosMostraCelular['ancCodigo'];
 
 
-					$DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,nivel,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$anuncioCelularNovoCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
+					$DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$anuncioCelularNovoCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
 
 					$FavoritosMostra = mysqli_query($oCon,$DadosFavoritos);
 
@@ -442,7 +442,7 @@
 				          <?php 
 				     		 }
 
-				     $DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,nivel,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$anuncioGeralCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
+				     $DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$anuncioGeralCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
 
 					$FavoritosMostra = mysqli_query($oCon,$DadosFavoritos);
 
@@ -539,7 +539,7 @@
 				     		 }
 				     		 		 
 
-				     $DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,nivel,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$anuncioGeralNovoCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
+				     $DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$anuncioGeralNovoCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
 
 					$FavoritosMostra = mysqli_query($oCon,$DadosFavoritos);
 
@@ -634,7 +634,7 @@
 				     		 }
 					     		 		 
 
-					     $DadosFavoritos = 'select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,nivel,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$anuncioLivroCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
+					     $DadosFavoritos = 'select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$anuncioLivroCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
 
 						$FavoritosMostra = mysqli_query($oCon,$DadosFavoritos);
 

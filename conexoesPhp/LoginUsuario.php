@@ -4,24 +4,6 @@ session_start();
 include 'Conexao.php';
 	
 
-require_once "../bibliotecas/recaptchalib.php";
-// sua chave secreta
-$secret = "6Lc05VcUAAAAAFV6zbbVkZ2-Yb0iGojUV3I6bZyP";
- 
-// resposta vazia
-$response = null;
- 
-// verifique a chave secreta
-$reCaptcha = new ReCaptcha($secret);
-
-// se submetido, verifique a resposta
-if ($_POST["g-recaptcha-response"]) {
-$response = $reCaptcha->verifyResponse(
-        $_SERVER["REMOTE_ADDR"],
-        $_POST["g-recaptcha-response"]
-    );
-
-  
        
       
 
@@ -68,13 +50,9 @@ if($RegUsuario = mysqli_fetch_assoc($DadosUsuario)){
 	}else{
 		unset ($_SESSION['Login']);
 		header('location:../Index.php');
-	}
-
-
-} else {
-		echo "<script>alert('Captch incorreto!');</script>";
-		header('location:../Index.php');
 }
+
+
 
 mysqli_close($oCon);
 

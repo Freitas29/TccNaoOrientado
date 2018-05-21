@@ -96,8 +96,8 @@ nav .brand-logo.left {
               ?>
           </div>
 
-          
-          <div class="input-field col s12 m12 l12">
+         
+           <div class="input-field col s12 m12 l12">
             <i class="material-icons prefix">https</i>
               <input id="password" type="password" class="validate" name="UsuarioSenha" required>
               <label for="password">Senha</label>
@@ -120,7 +120,6 @@ nav .brand-logo.left {
                 
 
               ?>
-               <div class="g-recaptcha" data-sitekey="6Lc05VcUAAAAAH-V-ktU8PvCYg-ns2XdhsAe3KEE"></div>
           </div>
 
     </div>
