@@ -863,7 +863,7 @@ fieldset{
           
            
 
-            $DadosFavoritos = ' select favoritos_cod,ancTitulo,ancCodigo,ancDesc,favoritos_cod_anuncio,favoritos_cod_usuario,nivel,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo = favoritos_cod_anuncio and  favoritos_cod_usuario ='.$_SESSION['Login'];
+            $DadosFavoritos = ' select favoritos_cod,ancTitulo,ancCodigo,ancDesc,favoritos_cod_anuncio,favoritos_cod_usuario,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo = favoritos_cod_anuncio and  favoritos_cod_usuario ='.$_SESSION['Login'];
 
             $FavoritosMostra = mysqli_query($oCon,$DadosFavoritos);
 
