@@ -114,7 +114,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
   $ProdutoCod = $RegProduto['ancCodigo'];
 
-  $DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,nivel,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$ProdutoCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
+  $DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$ProdutoCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
 
     $FavoritosMostra = mysqli_query($oCon,$DadosFavoritos);
 ?>
@@ -241,7 +241,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                         //Aqui está pegamndo os anuncios que o usuário tem disponível que é igual ao interesse
                         $IntereseUsuario = $RegProduto['ancCategoria_interesse'];
 
-                        $selectDosAnunciosIgualAoDoUsuario = 'select ancTitulo,ancDesc,ancCodigo,ancCategoria_interesse,nivelAnuncio from anuncio  where ancCategoria_interesse = '.$IntereseUsuario.'  and  ancCod_Criador = '.$_SESSION['Login'];
+                        $selectDosAnunciosIgualAoDoUsuario = 'select ancTitulo,ancDesc,ancCodigo,ancCategoria_interesse,Anuncio from anuncio  where ancCategoria_interesse = '.$IntereseUsuario.'  and  ancCod_Criador = '.$_SESSION['Login'];
 
                         $ResultadoDosAnunciosIgualAoDoUsuario = mysqli_query($oCon,$selectDosAnunciosIgualAoDoUsuario);
 
