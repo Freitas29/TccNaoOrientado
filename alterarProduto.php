@@ -170,20 +170,26 @@ function FechaTudo(){
 
         <div class="card horizontal">
 
-        
 
-
-        	<div class="input-field col s12">
+        	<div class="input-field col s12 l12 m12">
 	          <input value="<?php echo $anuncioSql['ancTitulo']?>" id="titulo" type="text" class="validate">
 	          <label for="disabled">Titulo anuncio</label>
 	          <a class="waves-effect waves-light btn" id="AlterarAnuncio">Alterar anuncio</a>
 	        </div>
 
-
-
-     
-
         </div>
+
+
+
+         <div class="card horizontal">
+
+         	<div class="input-field col s12">
+	          <textarea id="descricao" class="materialize-textarea"><?php echo $anuncioSql['ancDesc']?></textarea>
+	          <label for="textarea1">Descrição do Anuncio</label>
+	          <a class="waves-effect waves-light btn" id="AlterarDesc">Alterar Descrição</a>
+	        </div>
+
+         </div>
       
       </div>
     
@@ -215,10 +221,14 @@ $(".button-collapse").sideNav();
 
 <!-- MENU DO USUARIO -->
 <script>
+
+//altera titulo
 $(document).ready(function(){
 	$("#titulo").css("color","#ddd");
 	$("#titulo").prop("disabled",true);
 });
+
+
 
 $(document).ready(function(){
 	$("#AlterarAnuncio").click(function(){
@@ -231,7 +241,28 @@ $(document).ready(function(){
 });
 
 
+//altera descrição
+$(document).ready(function(){
+	$("#descricao").css("color","#ddd");
+	$("#descricao").prop("disabled",true);
+});
 
+
+$(document).ready(function(){
+	$("#AlterarDesc").click(function(){
+
+		$("#descricao").css("color","#000");
+		$("#descricao").prop("disabled",false);
+		
+	});
+
+});
+
+
+
+$(document).ready(function(){
+    $('select').formSelect();
+  });
 
 $(".button").sideNav();
 
