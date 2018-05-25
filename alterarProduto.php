@@ -29,7 +29,7 @@ function FechaTudo(){
   document.getElementById('menu-mobile').style.visibility="visible";
 }
 
-function teste(anuncio){
+function fnAlteraTitulo(anuncio){
    var Objeto = new XMLHttpRequest();
       titulo = document.getElementById("titulo").value;
        with(Objeto){
@@ -43,6 +43,25 @@ function teste(anuncio){
         
     
          Materialize.toast('Titulo Atualizado com sucesso!',4000)
+        
+        }
+    }
+}
+
+function fnAlteraDescricao(codigo){
+   var Objeto = new XMLHttpRequest();
+      descricao = document.getElementById("descricao").value;
+       with(Objeto){
+      
+       open('GET','./conexoesPhp/alteraDescricaoAnuncio.php?codigo='+codigo+'&titulo='+descricao+'');
+      
+       send();
+
+      
+        onload = function(){
+        
+    
+         Materialize.toast('Descrição Atualizada com sucesso!',4000)
         
         }
     }
@@ -283,7 +302,7 @@ $(document).ready(function(){
     var tituloAtual = $("#titulo").val();
     if(tituloAntigo != tituloAtual){
     //ajax
-      teste(<?php echo $anuncio?>);
+      fnAlteraTitulo(<?php echo $anuncio?>);
     //termina ajax
     }else{
        $("#titulo").css("color","#ddd");
@@ -291,6 +310,24 @@ $(document).ready(function(){
     }
     $("#titulo").css("color","#ddd");
     $("#titulo").prop("disabled",true);
+  });
+});
+
+
+$(document).ready(function(){
+  var tituloAntigo = $("#descricao").val();
+  $("#descricao").blur(function(){
+    var tituloAtual = $("#descricao").val();
+    if(tituloAntigo != tituloAtual){
+    //ajax
+      fnAlteraDescricao(<?php echo $anuncio?>);
+    //termina ajax
+    }else{
+       $("#descricao").css("color","#ddd");
+    $("#descricao").prop("disabled",true);
+    }
+    $("#descricao").css("color","#ddd");
+    $("#descricao").prop("disabled",true);
   });
 });
 
