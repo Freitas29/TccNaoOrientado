@@ -637,7 +637,11 @@ fieldset{
                    }
                    ?>
                   
+<<<<<<< HEAD
                     <button data-target="modal4" class="btn-floating btn-large cyan pulse btn modal-trigger right"><a href="AlteraAnuncio.php?anuncio=<?php echo $anunciosDoUsuario?>"><i class="material-icons">create</i></a></button>
+=======
+                      <a href="alterarProduto.php?anuncio=<?php echo $RegProdutosAnunciado['ancCodigo']?>" <button data-target="modal4" class="btn-floating btn-large cyan pulse btn modal-trigger right"><i class="material-icons">create</i></button></a>
+>>>>>>> 3f17160f0c6e51a81ac133b91d7a79cda747d392
                            
 
                   </div>
