@@ -41,7 +41,8 @@ function teste(anuncio){
       
         onload = function(){
         
-        alert(responseText);
+    
+         Materialize.toast('Titulo Atualizado com sucesso!',4000)
         
         }
     }
@@ -284,6 +285,9 @@ $(document).ready(function(){
     //ajax
       teste(<?php echo $anuncio?>);
     //termina ajax
+    }else{
+       $("#titulo").css("color","#ddd");
+    $("#titulo").prop("disabled",true);
     }
     $("#titulo").css("color","#ddd");
     $("#titulo").prop("disabled",true);
