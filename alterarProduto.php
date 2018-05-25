@@ -29,7 +29,23 @@ function FechaTudo(){
   document.getElementById('menu-mobile').style.visibility="visible";
 }
 
+function teste(anuncio){
+   var Objeto = new XMLHttpRequest();
+      titulo = document.getElementById("titulo").value;
+       with(Objeto){
+      
+       open('GET','./conexoesPhp/alteraTituloAnuncio.php?codigo='+anuncio+'&titulo='+titulo+'');
+      
+       send();
 
+      
+        onload = function(){
+        
+        alert(responseText);
+        
+        }
+    }
+}
 
 </script>
 
@@ -172,10 +188,12 @@ function FechaTudo(){
 
 
         	<div class="input-field col s12 l12 m12">
-	          <input value="<?php echo $anuncioSql['ancTitulo']?>" id="titulo" type="text" class="validate">
-	          <label for="disabled">Titulo anuncio</label>
-	          <a class="waves-effect waves-light btn" id="AlterarAnuncio">Alterar anuncio</a>
-	        </div>
+            <form id="formTitulo">
+  	          <input value="<?php echo $anuncioSql['ancTitulo']?>" id="titulo" type="text" class="validate">
+  	          <label for="disabled">Titulo anuncio</label>
+  	          <a class="waves-effect waves-light btn" id="AlterarAnuncio">Alterar anuncio</a>
+  	        </form>
+          </div>
 
         </div>
 
@@ -258,7 +276,19 @@ $(document).ready(function(){
 
 });
 
-
+$(document).ready(function(){
+  var tituloAntigo = $("#titulo").val();
+  $("#titulo").blur(function(){
+    var tituloAtual = $("#titulo").val();
+    if(tituloAntigo != tituloAtual){
+    //ajax
+      teste(<?php echo $anuncio?>);
+    //termina ajax
+    }
+    $("#titulo").css("color","#ddd");
+    $("#titulo").prop("disabled",true);
+  });
+});
 
 $(document).ready(function(){
     $('select').formSelect();

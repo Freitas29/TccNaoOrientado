@@ -4,7 +4,7 @@ session_start();
 
 include 'Conexao.php';
 
-$diretorio = '../Produtos/';
+$diretorio = '	./Produtos/';
 
 $Titulo = $_POST['NomeProduto'];
 
