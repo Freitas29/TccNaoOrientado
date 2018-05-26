@@ -42,7 +42,7 @@ function fnAlteraTitulo(anuncio){
         onload = function(){
         
     
-         Materialize.toast('Titulo Atualizado com sucesso!',4000)
+         Materialize.toast('Titulo Atualizado com sucesso!',4000);
         
         }
     }
@@ -61,7 +61,27 @@ function fnAlteraDescricao(codigo){
         onload = function(){
         
     
-         Materialize.toast('Descrição Atualizada com sucesso!',4000)
+         Materialize.toast('Descrição Atualizada com sucesso!',4000);
+        
+        }
+    }
+}
+
+
+
+function DeletaFoto(codigo){
+   var Objeto = new XMLHttpRequest();
+       with(Objeto){
+      
+       open('GET','./conexoesPhp/deletaFoto.php?codigo='+codigo+'');
+      
+       send();
+
+      
+        onload = function(){
+        
+    
+         location.reload();
         
         }
     }
@@ -208,11 +228,9 @@ function fnAlteraDescricao(codigo){
 
 
         	<div class="input-field col s12 l12 m12">
-            <form id="formTitulo">
   	          <input value="<?php echo $anuncioSql['ancTitulo']?>" id="titulo" type="text" class="validate">
   	          <label for="disabled">Titulo anuncio</label>
   	          <a class="waves-effect waves-light btn" id="AlterarAnuncio">Alterar anuncio</a>
-  	        </form>
           </div>
 
         </div>
@@ -226,6 +244,37 @@ function fnAlteraDescricao(codigo){
 	          <label for="textarea1">Descrição do Anuncio</label>
 	          <a class="waves-effect waves-light btn" id="AlterarDesc">Alterar Descrição</a>
 	        </div>
+
+        </div>
+
+
+        <!-- loop de produtos -->
+
+       <div class="card horizontal">
+
+                  <?php
+                      $sql = "select foto_cod,fotoDescricao,ancCodigo from fotosprodutos inner join usuario on foto_cod_usuario = UsrCodigo inner join anuncio on  foto_cod_anuncio = ancCodigo where foto_cod_anuncio = '$anuncio' and foto_cod_usuario =".$_SESSION['Login'];
+                    
+                      $resultadoFotos = mysqli_query($oCon,$sql);
+
+                      while ($Fotos = mysqli_fetch_assoc($resultadoFotos)) {
+                      
+                      
+                    ?>
+   
+            <div class="card-image" style="margin-right:1%; ">
+              <a class="btn-floating btn-small waves-effect waves-light blue darken-2" onclick="DeletaFoto(<?php echo $Fotos['foto_cod'];?>)"><i class="material-icons">clear</i></a>
+              <img src="<?php echo $Fotos['fotoDescricao']?>">
+
+            </div>
+
+                  <?php
+                    }
+                  ?>
+
+          </div>
+
+          </div>
 
          </div>
       
@@ -324,7 +373,7 @@ $(document).ready(function(){
     //termina ajax
     }else{
        $("#descricao").css("color","#ddd");
-    $("#descricao").prop("disabled",true);
+      $("#descricao").prop("disabled",true);
     }
     $("#descricao").css("color","#ddd");
     $("#descricao").prop("disabled",true);
