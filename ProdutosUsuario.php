@@ -760,7 +760,7 @@ fieldset{
                           <select name="Categoria_Para_Trocar">
 
                             <option value="" disabled selected>Opção de categoria no qual você gostaria de trocar</option>
-                            <option name="Categoria" value="">Nenhum Produto</option>
+
 
                             <?php 
 

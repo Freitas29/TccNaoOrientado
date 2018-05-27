@@ -34,7 +34,7 @@ if (empty($Descricao)) {
 $Categoria = $_POST['Categoria'];
 
 
-if (empty($Descricao)) {
+if (empty($Categoria)) {
 	$_SESSION['VazioCategoria'] = "Por Favor, selecione uma Categoria";
 
 	
@@ -46,7 +46,7 @@ $CategoriaTroca = $_POST['CategoriaParaTrocar'];
 //Verifica se o campo opcional foi escolhido, se foi ele passa 0
 if (empty($_POST['CategoriaParaTrocar'])){
 	
-	$CategoriaTroca = 0;
+	$CategoriaTroca = 7;
 }
 
 $Logado = $_SESSION['Login'];

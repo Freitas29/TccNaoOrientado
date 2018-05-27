@@ -128,6 +128,24 @@ function mudaCategoria(codigo){
 }
 
 
+function mudaCategoriaEscolhe(codigo){
+   var Objeto = new XMLHttpRequest();
+
+    var valor = document.getElementById("categoriaProdutoEscolhe").value;
+       with(Objeto){
+      
+       open('GET','./conexoesPhp/alteraCategoriaProdutoEscolhe.php?codigo='+codigo+'&categoriaEscolhe='+valor+'');
+      
+       send();
+
+      
+        onload = function(){
+         Materialize.toast('Produto no qual você deseja trocar atualizado!',4000);
+        
+        }
+    }
+}
+
 </script>
 
 <body onclick="FechaTudo()" style="background-color: whitesmoke;">
@@ -331,7 +349,7 @@ function mudaCategoria(codigo){
 
            <div class="card horizontal">
 
-            <div class="input-field col s12">
+            <div class="input-field col s12 l12">
               <select id="categoriaProduto">
                 <option value="" selected disabled><?php echo $anuncioSql['ctgNome'] ?></option>
 
@@ -351,6 +369,40 @@ function mudaCategoria(codigo){
               </select>
               <label>Categoria</label>
             </div>
+
+             <div class="input-field col s12 j12">
+              <select id="categoriaProdutoEscolhe">
+
+                <?php 
+                $sqlEscolheProduto = "select ctgNome from anuncio inner join categoria on ancCategoria_interesse = ctgCodigo where ancCodigo = '$anuncio'";
+
+                $resultadoEscolhe = mysqli_query($oCon,$sqlEscolheProduto);
+
+                while($escolheProduto = mysqli_fetch_assoc($resultadoEscolhe)){
+
+
+                ?>
+                <option value="" selected disabled><?php echo $escolheProduto['ctgNome'] ?></option>
+
+
+                <?php
+                }
+                $sqlPegaCategorias = "select ctgNome,ctgCodigo from categoria";
+
+                $resultadoCategorias = mysqli_query($oCon,$sqlPegaCategorias);
+
+                while($Categorias = mysqli_fetch_assoc($resultadoCategorias)){
+
+                ?>
+                <option value="<?php echo $Categorias['ctgCodigo']?>"><?php echo $Categorias['ctgNome']?></option>
+
+                <?php
+                }
+                ?>
+              </select>
+              <label>Categoria interesse</label>
+            </div>
+
 
           </div>
 
@@ -477,4 +529,10 @@ $(document).ready(function(){
 })
 $(".button").sideNav();
 
+
+$(document).ready(function(){
+  $("#categoriaProdutoEscolhe").on("change",function(){
+    mudaCategoriaEscolhe(<?php echo $anuncio ?>);
+  })
+})
 </script>
