@@ -106,6 +106,28 @@ function enviarEstadoProduto(codigo){
         }
     }
 }
+
+function mudaCategoria(codigo){
+
+   var Objeto = new XMLHttpRequest();
+
+    var valor = $("#categoriaProduto").value;
+       with(Objeto){
+      
+       open('GET','./conexoesPhp/alteraCategoriaProduto.php?codigo='+codigo+'&categoria='+valor+'');
+      
+       send();
+
+      
+        onload = function(){
+    
+         Materialize.toast('Estado de uso do produto atualizado com sucesso!',4000);
+        
+        }
+    }
+}
+
+
 </script>
 
 <body onclick="FechaTudo()" style="background-color: whitesmoke;">
@@ -225,7 +247,7 @@ function enviarEstadoProduto(codigo){
 
 <?php
 
-  $sql = "select ancTitulo,ancEstadoItem,ancCod_Categoria,ancDesc from anuncio where ancCodigo = '$anuncio'";
+  $sql = " select ancTitulo,ancEstadoItem,ancDesc,ctgNome from anuncio inner join categoria on ancCod_Categoria = ctgCodigo where ancCodigo = '$anuncio' and ctgCodigo = ancCod_Categoria";
 
   $resultado = mysqli_query($oCon,$sql);
 
@@ -307,6 +329,31 @@ function enviarEstadoProduto(codigo){
 
            </div>
 
+           <div class="card horizontal">
+
+            <div class="input-field col s12">
+              <select id="categoriaProduto">
+                <option value="" selected disabled><?php echo $anuncioSql['ctgNome'] ?></option>
+
+                <?php
+                $sqlPegaCategorias = "select ctgNome,ctgCodigo from categoria";
+
+                $resultadoCategorias = mysqli_query($oCon,$sqlPegaCategorias);
+
+                while($Categorias = mysqli_fetch_assoc($resultadoCategorias)){
+
+                ?>
+                <option value="<?php echo $Categorias['ctgCodigo']?>"><?php echo $Categorias['ctgNome']?></option>
+
+                <?php
+                }
+                ?>
+              </select>
+              <label>Estado item</label>
+            </div>
+
+          </div>
+
           </div>
 
          </div>
@@ -315,7 +362,6 @@ function enviarEstadoProduto(codigo){
     
     </div>
 <?php  	
-
   }
 ?>
 
@@ -420,11 +466,15 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $("#estadoProduto").on("change",function(){
-    var valor = $("#estadoProduto").val();
     enviarEstadoProduto(<?php echo $anuncio ?>);
   });
 });
 
+$(document).ready(function(){
+  $("#categoriaProduto").on("change",function(){
+    mudaCategoria(<?php echo $anuncio ?>);
+  })
+})
 $(".button").sideNav();
 
 </script>
