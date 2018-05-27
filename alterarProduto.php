@@ -121,7 +121,7 @@ function mudaCategoria(codigo){
       
         onload = function(){
     
-         Materialize.toast('Estado de uso do produto atualizado com sucesso!',4000);
+         Materialize.toast('Categoria Atualizada com sucesso!',4000);
         
         }
     }
@@ -349,7 +349,7 @@ function mudaCategoria(codigo){
                 }
                 ?>
               </select>
-              <label>Estado item</label>
+              <label>Categoria</label>
             </div>
 
           </div>
