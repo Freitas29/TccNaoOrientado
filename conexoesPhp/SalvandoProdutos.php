@@ -4,7 +4,7 @@ session_start();
 
 include 'Conexao.php';
 
-$diretorio = '	./Produtos/';
+$diretorio = '../Produtos/';
 
 $Titulo = $_POST['NomeProduto'];
 
@@ -83,7 +83,7 @@ $DadosAnuncio = "insert into anuncio (ancCod_Criador,ancTitulo,ancData,ancEstado
 
 					//Contadno as fotos
 					for ($controle = 0; $controle < count($arquivo['name']); $controle++){
-						$destino = $diretorio.$arquivo['name'][$controle];
+						$destino = $arquivo['name'][$controle];
 						if(move_uploaded_file($arquivo['tmp_name'][$controle], $destino)){
 							echo "Upload realizado com sucesso<br>";
 							$DadosImagens = "insert into fotosprodutos(fotoDescricao,foto_cod_usuario,foto_cod_anuncio)values('$destino','$Logado','$DadoDoUltimoRegistro')";

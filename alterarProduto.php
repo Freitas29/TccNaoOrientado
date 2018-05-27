@@ -264,7 +264,7 @@ function DeletaFoto(codigo){
    
             <div class="card-image" style="margin-right:1%; ">
               <a class="btn-floating btn-small waves-effect waves-light blue darken-2" onclick="DeletaFoto(<?php echo $Fotos['foto_cod'];?>)"><i class="material-icons">clear</i></a>
-              <img src="<?php echo $Fotos['fotoDescricao']?>">
+              <img src="./Produtos/<?php echo $Fotos['fotoDescricao']?>">
 
             </div>
 
