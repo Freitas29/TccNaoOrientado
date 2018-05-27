@@ -87,6 +87,25 @@ function DeletaFoto(codigo){
     }
 }
 
+
+function enviarEstadoProduto(codigo){
+   var Objeto = new XMLHttpRequest();
+
+    valor = document.getElementById("estadoProduto").value;
+       with(Objeto){
+      
+       open('GET','./conexoesPhp/alteraEstadoProduto.php?codigo='+codigo+'&estado='+valor+'');
+      
+       send();
+
+      
+        onload = function(){
+    
+         Materialize.toast('Estado de uso do produto atualizado com sucesso!',4000);
+        
+        }
+    }
+}
 </script>
 
 <body onclick="FechaTudo()" style="background-color: whitesmoke;">
@@ -250,7 +269,7 @@ function DeletaFoto(codigo){
 
         <!-- loop de produtos -->
 
-       <div class="card horizontal">
+         <div class="card horizontal">
 
                   <?php
                       $sql = "select foto_cod,fotoDescricao,ancCodigo from fotosprodutos inner join usuario on foto_cod_usuario = UsrCodigo inner join anuncio on  foto_cod_anuncio = ancCodigo where foto_cod_anuncio = '$anuncio' and foto_cod_usuario =".$_SESSION['Login'];
@@ -262,17 +281,31 @@ function DeletaFoto(codigo){
                       
                     ?>
    
-            <div class="card-image" style="margin-right:1%; ">
-              <a class="btn-floating btn-small waves-effect waves-light blue darken-2" onclick="DeletaFoto(<?php echo $Fotos['foto_cod'];?>)"><i class="material-icons">clear</i></a>
-              <img src="./Produtos/<?php echo $Fotos['fotoDescricao']?>">
+              <div class="card-image" style="margin-right:1%; ">
+                <a class="btn-floating btn-small waves-effect waves-light blue darken-2" onclick="DeletaFoto(<?php echo $Fotos['foto_cod'];?>)"><i class="material-icons">clear</i></a>
+                <img src="./Produtos/<?php echo $Fotos['fotoDescricao']?>">
 
-            </div>
+              </div>
 
                   <?php
                     }
                   ?>
 
-          </div>
+           </div>
+
+           <div class="card horizontal">
+
+             <div class="input-field col s12">
+              <select id="estadoProduto">
+                <option value="" selected disabled><?php echo $anuncioSql['ancEstadoItem'] ?></option>
+                <option value="Usado" ">Usado</option>
+                <option value="Novo">Novo</option>
+              </select>
+              <label>Estado item</label>
+            </div>
+
+
+           </div>
 
           </div>
 
@@ -308,6 +341,10 @@ $(".button-collapse").sideNav();
 
 <!-- MENU DO USUARIO -->
 <script>
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
 
 //altera titulo
 $(document).ready(function(){
@@ -380,9 +417,13 @@ $(document).ready(function(){
   });
 });
 
+
 $(document).ready(function(){
-    $('select').formSelect();
+  $("#estadoProduto").on("change",function(){
+    var valor = $("#estadoProduto").val();
+    enviarEstadoProduto(<?php echo $anuncio ?>);
   });
+});
 
 $(".button").sideNav();
 
