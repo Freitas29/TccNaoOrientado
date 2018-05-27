@@ -16,7 +16,7 @@
 
     	while ($Resultado = mysqli_fetch_assoc($ResultadoBusca)) {
 
-    		echo "<li id='resultadoDasBuscas'><a href='MostraProduto.php?id_produto=".$Resultado['ancCodigo']."' ><img src='".$Resultado['fotoDescricao']."'>".$Resultado['ancTitulo']."</a></li>";
+    		echo "<li id='resultadoDasBuscas'><a href='MostraProduto.php?id_produto=".$Resultado['ancCodigo']."' ><img src='./Produtos/".$Resultado['fotoDescricao']."'>".$Resultado['ancTitulo']."</a></li>";
     	}
     }
 ?>

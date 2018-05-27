@@ -339,7 +339,7 @@
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
 				          	
 				          	?>
-				          <img src="<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 				          
 
 				          <?php 
@@ -436,7 +436,7 @@
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
 				          	
 				          	?>
-				          <img src="<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 				          
 
 				          <?php 
@@ -532,7 +532,7 @@
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
 				          	
 				          	?>
-				          <img src="<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 				          
 
 				          <?php 
@@ -627,7 +627,7 @@
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
 				          	
 				          	?>
-				          <img src="<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 				          
 
 				          <?php 

@@ -137,7 +137,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                   
 
                   ?>
-                  <a class="carousel-item" ><img src="<?php echo $FotosEnd['fotoDescricao'] ?>" id="Imagem" ></a>
+                  <a class="carousel-item" ><img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>" id="Imagem" ></a>
                 
                 <?php 
 
