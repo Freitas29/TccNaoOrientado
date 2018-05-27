@@ -111,7 +111,7 @@ function mudaCategoria(codigo){
 
    var Objeto = new XMLHttpRequest();
 
-    var valor = $("#categoriaProduto").value;
+    var valor = document.getElementById("categoriaProduto").value;
        with(Objeto){
       
        open('GET','./conexoesPhp/alteraCategoriaProduto.php?codigo='+codigo+'&categoria='+valor+'');
