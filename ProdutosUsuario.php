@@ -5,6 +5,7 @@ session_start();
 if((!isset ($_SESSION['Login']))){
 header('location:Index.php');
 }else{
+  header("Content-type: text/html; charset=utf-8");
 ?>
 
 
@@ -339,7 +340,7 @@ fieldset{
 
 
       </div>
-      <a href="#!user"><img class="circle" src="Usuarios/<?php echo $RegUsuario['usrFoto'];?>"></a>
+      <a href="#!user"><img class="circle" src="./Usuarios/<?php echo $RegUsuario['usrFoto'];?>"></a>
 
       <a href="#!name"><span class="white-text name"><?php echo $RegUsuario['usrApelido'];?></span></a>
 
@@ -681,7 +682,7 @@ fieldset{
 
                           <div class="input-field col s6 m6 l6">
 
-                                      <input id="input_text" type="text" class="validate" name="Nome_Produto" data-length="14" maxlength="14">
+                                      <input id="input_text" type="text" class="validate" name="Nome_Produto" data-length="20" maxlength="20">
                                       <span id="Vazio" style="display: none;">Preencha o campo</span>
 
                                       <label for="icon_prefix">Nome do produto</label>

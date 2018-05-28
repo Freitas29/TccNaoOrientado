@@ -84,7 +84,7 @@ $DadosAnuncio = "insert into anuncio (ancCod_Criador,ancTitulo,ancData,ancEstado
 					//Contadno as fotos
 					for ($controle = 0; $controle < count($arquivo['name']); $controle++){
 						$destino = $arquivo['name'][$controle];
-						if(move_uploaded_file($arquivo['tmp_name'][$controle], $destino)){
+						if(move_uploaded_file($arquivo['tmp_name'][$controle],$diretorio.$destino)){
 							echo "Upload realizado com sucesso<br>";
 							$DadosImagens = "insert into fotosprodutos(fotoDescricao,foto_cod_usuario,foto_cod_anuncio)values('$destino','$Logado','$DadoDoUltimoRegistro')";
 							echo "Imagem cadastrada";
@@ -94,6 +94,7 @@ $DadosAnuncio = "insert into anuncio (ancCod_Criador,ancTitulo,ancData,ancEstado
 						}
 							if(mysqli_query($oCon,$DadosImagens)){ 
 								echo "sucesso";
+								header("location:../ProdutosUsuario.php#test-swipe-1");
 						}else{
 							echo "Erro ao realizar upload";
 						}

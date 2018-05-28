@@ -161,11 +161,12 @@
 
 			include './conexoesPhp/Conexao.php';
 			
-			$ConteudoCelular = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=1 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
+			$ConteudoCelular = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=4 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
 			
 			$Usuario = 'select usrEmail,usrApelido,usrFoto from usuario where UsrCodigo='.$_SESSION['Login'];
 			
-			$Conteudo = ' select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=4 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
+			//jogos
+			$Conteudo = ' select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=5 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
 			
 			$Conteudo2 = 'select * from anuncio where ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
 
@@ -686,32 +687,7 @@
 		</div>
 			
 
-				 <div class="row">
-
-				 	<?php
-
-				 	$BuscaCategorias = 'select ctgCodigo,ctgNome from categoria';
-
-				$DadosCategoria = mysqli_query($oCon,$BuscaCategorias);
-
-				while($ResultCategoria = mysqli_fetch_assoc($DadosCategoria)){
-
-				 	?>
-				  <div class="col s2 m2 l2">
-					<div class="card-panel blue darken-2 smal">
-					  <span class="white-text"><?php echo $ResultCategoria['ctgNome']?>
-					  </span>
-					</div>
-				  </div>
-				  
-				  
-				  
-				<?php
-			}
-				?>
-				  
-				</div>
-		
+			
 		
 		
 	</div>
@@ -793,7 +769,6 @@ $(function(){
 
 
 	mysqli_free_result($Dados);
-	mysqli_free_result($DadosCategoria);
 	mysqli_free_result($DadosCelular);
 	mysqli_free_result($DadosUsuario);
 	mysqli_close($oCon);

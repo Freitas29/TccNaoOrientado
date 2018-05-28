@@ -261,9 +261,7 @@ function fnExibeArquivo()
 								  </div>
 
 
-								    <div class="g-recaptcha" data-sitekey="6Lc05VcUAAAAAH-V-ktU8PvCYg-ns2XdhsAe3KEE"></div>
-								    <br>
-								    <br>
+								    
 								</div>
 								
 								 <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" type="submit" name="action">Enviar
