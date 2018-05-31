@@ -301,6 +301,12 @@
   	$SelecionaCategoria = "select ancTitulo,ancCodigo,ancDesc,fotoDescricao from anuncio inner join fotosprodutos on ancCodigo = foto_cod_anuncio where ancCod_Categoria = '$codigo'";
 
   $resultado = mysqli_query($oCon,$SelecionaCategoria);
+  $resultadoDaCategoria = mysqli_num_rows($resultado);
+		if($resultadoDaCategoria <=0){
+		echo "nada encontrado";	
+		}else{
+
+
 
 	  while ($RegCategoria = mysqli_fetch_assoc($resultado)){
 	  		$anuncioCelularNovoCod = $RegCategoria['ancCodigo'];
@@ -358,6 +364,8 @@
 				</div>
 			<?php
 		}
+		}
+		
 			?>
 	 </div>
 	</div>
