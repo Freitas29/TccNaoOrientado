@@ -19,6 +19,12 @@ header('location:Index.php');
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
+<style type="text/css">
+  nav{
+    
+    background-color:#1e88e5 !important;
+  }
+</style>
 <script>
 
 function TiraMenuCelular(){

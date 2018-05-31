@@ -156,8 +156,12 @@
 
 	ul#categorias{
 		display: inline-table;
-		padding:9px;
 	}
+	.dropdown-content li{
+		text-align: center;
+	}
+
+	
 	</style>
 
 	<body onclick="FechaTudo()" style="background-color: white;">
@@ -178,6 +182,7 @@
 
 
 
+			<!-- dropdown de categorias -->
 		<ul id = "categorias" class="dropdown-content">
 			<?php
 				$Categoria = 'select ctgCodigo,ctgNome from categoria where ctgNome != "Nenhum" ';
@@ -185,12 +190,12 @@
 				while($RegCategoria = mysqli_fetch_assoc($DadosCategoria)){
 			?>
 
-         	<li><a href="ResultadoCategoria.php?categoria=<?php echo $RegCategoria['ctgCodigo']?>"></a><?php echo $RegCategoria['ctgNome'] ?></a></li>
+         	<a href="ResultadoCategoria.php?categoria=<?php echo $RegCategoria['ctgCodigo']?>"><li><?php echo $RegCategoria['ctgNome'] ?></li></a>
          	<?php
          }
          	?>
       </ul>
-
+      
 	  <nav class="nav">
     <div class="nav-wrapper container">
   
