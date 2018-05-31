@@ -209,17 +209,19 @@
 			        <div class="input-field" >
 
 			          <input id="pesquisa" type="search" name="pesquisa" onfocus="AtivaBusca()" onblur="DesativaForm()">
-			          <div id="divDaBusca">
+			          
 			          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
 			          <i class="material-icons">close</i>
-			        </div>
+			        
 	       		 </form>
 					<!--traz os dados da busca -->
-	       		
+	       		<div id="divDaBusca">
 		       		 <ul class="resultado" id="ResultadoBusca">
 
 
 		       		 </ul>
+
+		       	 </div>
 	       		 </div>
 	      	</div>
 
