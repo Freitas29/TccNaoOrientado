@@ -227,7 +227,7 @@
 		       		 </ul>
 
 		       	 </div>
-	       		 </div>
+	       	
 	      	</div>
 
 	      <li><a data-activates="slide-out" class="button tooltipped" data-position="bottom" data-tooltip="Clique para abrir o menu de usuário"><?php echo $RegUsuario['usrApelido'];?></a></li>

@@ -27,10 +27,7 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
 
 
 <style type="text/css">
-*{
-  overflow: hidden;
-  word-wrap: break-word;
-}
+
   .carousel .indicators .indicator-item{
     background-color: #1e88e5 !important;
   }
