@@ -704,7 +704,7 @@
 				while($RegCategoria = mysqli_fetch_assoc($DadosCategoria)){
 			?>
 
-         	<li><a href="#"></a><?php echo $RegCategoria['ctgNome'] ?></a></li>
+         	<li><a href="ResultadoCategoria.php?categoria=<?php echo $RegCategoria['ctgCodigo']?>"></a><?php echo $RegCategoria['ctgNome'] ?></a></li>
          	<?php
          }
          	?>
