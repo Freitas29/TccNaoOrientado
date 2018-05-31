@@ -25,6 +25,7 @@
 
 	function FechaTudo(){
 		document.getElementById('menu-mobile').style.visibility="visible";
+		DesativaForm();
 	}
 
 
@@ -67,7 +68,13 @@
 	}
 
 	function DesativaForm(){
-		document.getElementById('divDaBusca').style.display="none";
+		//document.getElementById('resultadoDasBuscas').style.display="none";
+		var x = document.getElementById("ResultadoBusca").getElementsByTagName("LI");
+    	a = x.length;
+		var i;
+		for(i = 0;i<a;i++){
+			document.getElementById('ResultadoBusca').style.display="none"
+		}
 	}
 
 	
@@ -158,6 +165,11 @@
 		display: inline-table;
 		padding:9px;
 	}
+
+	#divDaBusca{
+		width: 100%;
+		height: auto;
+	}
 	</style>
 
 	<body onclick="FechaTudo()" style="background-color: white;">
@@ -196,7 +208,7 @@
 	
 
 	  <nav class="nav">
-    <div class="nav-wrapper container">
+    <div class="nav-wrapper container" >
   
 	      <a href="#!" class="brand-logo left">Logo</a>
 
@@ -210,18 +222,18 @@
 
 	        	<!-- Buscar de produtos pelo site -->
 
-		        <form action="" method="POST" id="formPesquisa">
+		        <form action="" method="POST" id="formPesquisa" >
 			        <div class="input-field" >
 
-			          <input id="pesquisa" type="search" name="pesquisa" onfocus="AtivaBusca()" onblur="DesativaForm()">
+			          <input id="pesquisa" type="search" name="pesquisa" onfocus="AtivaBusca()">
 			          
 			          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
 			          <i class="material-icons">close</i>
 			        
 	       		 </form>
 					<!--traz os dados da busca -->
-	       		<div id="divDaBusca">
-		       		 <ul class="resultado" id="ResultadoBusca">
+	       		<div id="divDaBusca" >
+		       		 <ul class="resultado" id="ResultadoBusca" >
 
 
 		       		 </ul>

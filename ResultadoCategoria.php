@@ -178,7 +178,18 @@
 
 
 
-	
+		<ul id = "categorias" class="dropdown-content">
+			<?php
+				$Categoria = 'select ctgCodigo,ctgNome from categoria where ctgNome != "Nenhum" ';
+				$DadosCategoria = mysqli_query($oCon,$Categoria);
+				while($RegCategoria = mysqli_fetch_assoc($DadosCategoria)){
+			?>
+
+         	<li><a href="ResultadoCategoria.php?categoria=<?php echo $RegCategoria['ctgCodigo']?>"></a><?php echo $RegCategoria['ctgNome'] ?></a></li>
+         	<?php
+         }
+         	?>
+      </ul>
 
 	  <nav class="nav">
     <div class="nav-wrapper container">
