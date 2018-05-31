@@ -153,6 +153,11 @@
 	#ResultadoBusca li a{
 		color: black;
 	}
+
+	ul#categorias{
+		display: inline-table;
+		padding:9px;
+	}
 	</style>
 
 	<body onclick="FechaTudo()" style="background-color: white;">
@@ -228,6 +233,8 @@
 	      <li><a data-activates="slide-out" class="button tooltipped" data-position="bottom" data-tooltip="Clique para abrir o menu de usuário"><?php echo $RegUsuario['usrApelido'];?></a></li>
 		    <li><a href="./conexoesPhp/Deslogar.php">Sair</a></li>
 		     <li><a href="Logado.php">Página Inicial</a></li>
+		     <li><a class="dropdown-button" href="#" data-activates="categorias">Categorias
+         	<i class ="mdi-navigation-arrow-drop-down right"></i></a></li>
 	      </ul>
 
 
@@ -690,7 +697,20 @@
 			
 
 			
-		
+		<ul id = "categorias" class="dropdown-content">
+			<?php
+				$Categoria = 'select ctgCodigo,ctgNome from categoria where ctgNome != "Nenhum" ';
+				$DadosCategoria = mysqli_query($oCon,$Categoria);
+				while($RegCategoria = mysqli_fetch_assoc($DadosCategoria)){
+			?>
+
+         	<li><a href="#"></a><?php echo $RegCategoria['ctgNome'] ?></a></li>
+         	<?php
+         }
+         	?>
+      </ul>
+      
+      
 		
 	</div>
 

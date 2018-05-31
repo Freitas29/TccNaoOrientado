@@ -68,6 +68,11 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
       height: 12%
     }
   }
+
+  nav{
+  
+  background-color:#1e88e5 !important;
+}
 </style>
 
 <script type="text/javascript">
