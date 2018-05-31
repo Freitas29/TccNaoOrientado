@@ -127,6 +127,7 @@ nav{
 
 			
 			    <div class="col l3 m3 s3">
+			    	<a href="MostraProdutoDeslogado.php?id_produto=<?php echo $DadosMostraCelular['ancCodigo'];?>">
 			      <div class="card hoverable">
 			        <div class="card-image">
 			          <?php 
@@ -145,7 +146,7 @@ nav{
 				      }
 				          ?>
 			          
-			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2"  href="MostraProduto.php?id_produto=<?php echo $DadosMostraCelular['ancCodigo'];?>" ><i class="material-icons">favorite_border</i></a>
+			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2"   ><i class="material-icons">favorite_border</i></a>
 			        </div>
 			        <div class="card-content">
 			        	<span class="card-title"><?php echo $DadosMostraCelular['ancTitulo']?></span>
@@ -155,6 +156,7 @@ nav{
 			       
 
 			      </div>
+			      </a>
 			    </div>
 		
 				
@@ -186,6 +188,7 @@ nav{
 
 		
 			    <div class="col l3 m3 s3">
+			    	<a href="MostraProdutoDeslogado.php?id_produto=<?php echo $DadosMostra['ancCodigo'];?>">
 			      <div class="card hoverable">
 			        <div class="card-image">
 			           <?php
@@ -247,6 +250,7 @@ nav{
 			
 
 				<div class="col l3 m3 s3">
+					<a href="MostraProdutoDeslogado.php?id_produto=<?php echo $DadosMostra2['ancCodigo'];?>">
 			      <div class="card hoverable" >
 			        <div class="card-image">
 			         <?php
