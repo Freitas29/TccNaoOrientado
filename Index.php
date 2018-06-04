@@ -85,7 +85,7 @@ nav{
 
 		include './conexoesPhp/Conexao.php';
 		
-		$ConteudoCelular = 'select ancCodigo,ancTitulo,ancDesc from anuncio where ancCod_Categoria=1  order by ancCodigo desc limit 4';
+		$ConteudoCelular = 'select ancCodigo,ancTitulo,ancDesc from anuncio where ancCod_Categoria=4  order by ancCodigo desc limit 4';
 		
 		$Conteudo = 'select * from anuncio limit 4';
 		
@@ -127,6 +127,7 @@ nav{
 
 			
 			    <div class="col l3 m3 s3">
+			    	<a href="MostraProdutoDeslogado.php?id_produto=<?php echo $DadosMostraCelular['ancCodigo'];?>">
 			      <div class="card hoverable">
 			        <div class="card-image">
 			          <?php 
@@ -138,14 +139,14 @@ nav{
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
 				          	
 				          	?>
-				          <img src="<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 				          
 				          <?php
 
 				      }
 				          ?>
 			          
-			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2"  href="MostraProduto.php?id_produto=<?php echo $DadosMostraCelular['ancCodigo'];?>" ><i class="material-icons">favorite_border</i></a>
+			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2"   ><i class="material-icons">favorite_border</i></a>
 			        </div>
 			        <div class="card-content">
 			        	<span class="card-title"><?php echo $DadosMostraCelular['ancTitulo']?></span>
@@ -155,6 +156,7 @@ nav{
 			       
 
 			      </div>
+			      </a>
 			    </div>
 		
 				
@@ -186,6 +188,7 @@ nav{
 
 		
 			    <div class="col l3 m3 s3">
+			    	<a href="MostraProdutoDeslogado.php?id_produto=<?php echo $DadosMostra['ancCodigo'];?>">
 			      <div class="card hoverable">
 			        <div class="card-image">
 			           <?php
@@ -198,7 +201,7 @@ nav{
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
 				          	
 				          	?>
-				          <img src="<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 				          
 
 				          <?php 
@@ -247,6 +250,7 @@ nav{
 			
 
 				<div class="col l3 m3 s3">
+					<a href="MostraProdutoDeslogado.php?id_produto=<?php echo $DadosMostra2['ancCodigo'];?>">
 			      <div class="card hoverable" >
 			        <div class="card-image">
 			         <?php
@@ -259,7 +263,7 @@ nav{
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
 				          	
 				          	?>
-				          <img src="<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 				          
 
 				          <?php 
@@ -284,35 +288,12 @@ nav{
 			
 			}
 
-			$BuscaCategorias = 'select ctgCodigo,ctgNome from categoria';
-
-			$DadosCategoria = mysqli_query($oCon,$BuscaCategorias);
-
+			
 			?>
 			</div>
 			
 	</div>
 	
-
-			 <div class="row">
-		
-			 	<?php while($ResultCategoria = mysqli_fetch_assoc($DadosCategoria)){
-			?>
-
-			 <div class="col s2 m2 l2">
-				<div class="card-panel blue darken-2 smal">
-				  <span class="white-text"><?php echo $ResultCategoria['ctgNome']?>
-				  </span>
-				</div>
-			  </div>
-			  
-			  
-			  
-			<?php
-		}
-			?>
-			  
-			</div>
 	
 	
 	
@@ -352,7 +333,7 @@ mysqli_close($oCon);
 mysqli_free_result($Dados);
 mysqli_free_result($Dados2);
 mysqli_free_result($DadosCelular);
-mysqli_free_result($DadosCategoria);
+
 
 }else{
 

@@ -4,25 +4,7 @@
 	
 	session_start();
 
-	require_once "../bibliotecas/recaptchalib.php";
 
-
-// sua chave secreta
-$secret = "6Lc05VcUAAAAAFV6zbbVkZ2-Yb0iGojUV3I6bZyP";
- 
-// resposta vazia
-$response = null;
- 
-// verifique a chave secreta
-$reCaptcha = new ReCaptcha($secret);
-
-// se submetido, verifique a resposta
-if ($_POST["g-recaptcha-response"]) {
-$response = $reCaptcha->verifyResponse(
-        $_SERVER["REMOTE_ADDR"],
-        $_POST["g-recaptcha-response"]
-    );
-}
 
 	$Redirecionar = header('location:../PaginaDeCadastro.php');
 

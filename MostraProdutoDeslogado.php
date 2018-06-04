@@ -27,10 +27,7 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
 
 
 <style type="text/css">
-*{
-  overflow: hidden;
-  word-wrap: break-word;
-}
+
   .carousel .indicators .indicator-item{
     background-color: #1e88e5 !important;
   }
@@ -75,53 +72,18 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
 }
 </style>
 
-<script type="text/javascript">
-  function enviaFavorito(valor){
-      var Objeto = new XMLHttpRequest();
-      
-      with(Objeto){
-      
-      open('GET','./conexoesPhp/Favoritar.php?id_produto='+valor+'');
-      
-      send();
-        onload = function(){
-           location.reload();
-        }
-      }
-    
-  }
 
-  function TiraFavorito(valor){
-      var Objeto = new XMLHttpRequest();
-      
-      with(Objeto){
-      
-      open('GET','./conexoesPhp/TiraFavoritos.php?id_produto='+valor+'');
-      
-      send();
-
-      
-        onload = function(){
-        
-        location.reload();
-        
-        }
-      }
-    
-  }
-</script>
 
 <body>
 <?php
 	
-	include 'HeaderLogado.php';
+	include 'Header.php';
 if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
   $ProdutoCod = $RegProduto['ancCodigo'];
 
-  $DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$ProdutoCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
-
-    $FavoritosMostra = mysqli_query($oCon,$DadosFavoritos);
+  
+  
 ?>
 
 
@@ -159,27 +121,9 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
               <div class="card-content">
 
-              <?php
-               $linhas = mysqli_num_rows($FavoritosMostra);
-                  if($linhas == 0){
-                    ?>
-                    <a class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A"  onclick="enviaFavorito(<?php echo $RegProduto['ancCodigo'];?>)" id="btnFavoritado"><i class="material-icons left">favorite_border</i>Favoritar</a>
-                
-                    <?php
-                    }elseif($linhas > 0){
+         
 
-                    while($RegFav = mysqli_fetch_assoc($FavoritosMostra)) {
-
-                    ?> 
-
-                    <a class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" id="btnNaoFavoritado" onclick="TiraFavorito(<?php echo $RegProduto['ancCodigo'];?>)"><i class="material-icons left">favorite</i>Desfavoritar</a>
-        
-                    <?php     
-
-                  }
-
-                }
-            ?>
+            
 
 
               <br>        

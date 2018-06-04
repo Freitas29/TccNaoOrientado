@@ -5,6 +5,7 @@ session_start();
 if((!isset ($_SESSION['Login']))){
 header('location:Index.php');
 }else{
+  header("Content-type: text/html; charset=utf-8");
 ?>
 
 
@@ -286,6 +287,10 @@ fieldset{
     }
   }
 
+    ul#categorias{
+    display: inline-table;
+    padding:9px;
+  }
 </style>
 
 <body onclick="FechaTudo()" style="background-color: whitesmoke;">
@@ -311,7 +316,18 @@ fieldset{
     
 ?>
 
+  <ul id = "categorias" class="dropdown-content">
+      <?php
+        $Categoria = 'select ctgCodigo,ctgNome from categoria where ctgNome != "Nenhum" ';
+        $DadosCategoria = mysqli_query($oCon,$Categoria);
+        while($RegCategoria = mysqli_fetch_assoc($DadosCategoria)){
+      ?>
 
+          <li><a href="ResultadoCategoria.php?categoria=<?php echo $RegCategoria['ctgCodigo']?>"></a><?php echo $RegCategoria['ctgNome'] ?></a></li>
+          <?php
+         }
+          ?>
+      </ul>
    <nav>
     <div class="nav-wrapper container">
   
@@ -327,7 +343,8 @@ fieldset{
         <li><a href="./conexoesPhp/Deslogar.php">Sair</a></li>
 
          <li><a href="Logado.php">Página Inicial</a></li>
-
+         <li><a class="dropdown-button" href="#" data-activates="categorias">Categorias
+          <i class ="mdi-navigation-arrow-drop-down right"></i></a></li>
        
       </ul>
 
@@ -339,7 +356,7 @@ fieldset{
 
 
       </div>
-      <a href="#!user"><img class="circle" src="Usuarios/<?php echo $RegUsuario['usrFoto'];?>"></a>
+      <a href="#!user"><img class="circle" src="./Usuarios/<?php echo $RegUsuario['usrFoto'];?>"></a>
 
       <a href="#!name"><span class="white-text name"><?php echo $RegUsuario['usrApelido'];?></span></a>
 
@@ -630,14 +647,15 @@ fieldset{
                      while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
                       
                       ?>
-                    <img src="<?php echo $FotosEnd['fotoDescricao'] ?>" id="ImagensAnunciadas">
+                    <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>" id="ImagensAnunciadas">
                     
 
                     <?php 
                    }
                    ?>
                   
-                    <button data-target="modal4" class="btn-floating btn-large cyan pulse btn modal-trigger right"><i class="material-icons">create</i></button>
+                    <button data-target="modal4" class="btn-floating btn-large cyan pulse btn modal-trigger right"><a href="alterarProduto.php?anuncio=<?php echo $anunciosDoUsuario?>"><i class="material-icons">create</i></a></button>
+
                            
 
                   </div>
@@ -657,6 +675,8 @@ fieldset{
         
           ?>
           </div>
+
+
         </div>
 
       
@@ -678,7 +698,7 @@ fieldset{
 
                           <div class="input-field col s6 m6 l6">
 
-                                      <input id="input_text" type="text" class="validate" name="Nome_Produto" data-length="14" maxlength="14">
+                                      <input id="input_text" type="text" class="validate" name="Nome_Produto" data-length="20" maxlength="20">
                                       <span id="Vazio" style="display: none;">Preencha o campo</span>
 
                                       <label for="icon_prefix">Nome do produto</label>
@@ -757,7 +777,7 @@ fieldset{
                           <select name="Categoria_Para_Trocar">
 
                             <option value="" disabled selected>Opção de categoria no qual você gostaria de trocar</option>
-                            <option name="Categoria" value="">Nenhum Produto</option>
+
 
                             <?php 
 
@@ -890,7 +910,7 @@ fieldset{
                      while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
                       
                       ?>
-                    <img src="<?php echo $FotosEnd['fotoDescricao'] ?>" id="ImagensAnunciadas">
+                    <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>" id="ImagensAnunciadas">
                     
 
                     <?php 
@@ -1011,7 +1031,6 @@ $(".button").sideNav();
   $(document).ready(function(){
     $('.modal2').modal();
   });
-
 
 
 

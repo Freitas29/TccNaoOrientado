@@ -25,6 +25,7 @@
 
 	function FechaTudo(){
 		document.getElementById('menu-mobile').style.visibility="visible";
+		DesativaForm();
 	}
 
 
@@ -67,7 +68,13 @@
 	}
 
 	function DesativaForm(){
-		document.getElementById('divDaBusca').style.display="none";
+		//document.getElementById('resultadoDasBuscas').style.display="none";
+		var x = document.getElementById("ResultadoBusca").getElementsByTagName("LI");
+    	a = x.length;
+		var i;
+		for(i = 0;i<a;i++){
+			document.getElementById('ResultadoBusca').style.display="none"
+		}
 	}
 
 	
@@ -162,6 +169,7 @@
 		color: black;
 	}
 
+<<<<<<< HEAD
 	.imgDaBarraDeBusca{
    		 width: 100%;
     	height: auto;
@@ -181,6 +189,18 @@
 		background-color:white !important;
 		color: #3c3737; 
 		margin-bottom: 3%;
+=======
+	ul#categorias{
+		display: inline-table;
+	}
+	.dropdown-content li{
+		text-align: center;
+	}
+
+	#divDaBusca{
+		width: 100%;
+		height: auto;
+>>>>>>> de833459dc032e1d38c7cd0f8a719111efd2d889
 	}
 	</style>
 
@@ -190,11 +210,12 @@
 
 			include './conexoesPhp/Conexao.php';
 			
-			$ConteudoCelular = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=1 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
+			$ConteudoCelular = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=4 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
 			
 			$Usuario = 'select usrEmail,usrApelido,usrFoto from usuario where UsrCodigo='.$_SESSION['Login'];
 			
-			$Conteudo = ' select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=4 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
+			//jogos
+			$Conteudo = ' select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=5 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
 			
 			$Conteudo2 = 'select * from anuncio where ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
 
@@ -219,7 +240,7 @@
 	
 
 	  <nav class="nav">
-    <div class="nav-wrapper container">
+    <div class="nav-wrapper container" >
   
 	      <a href="#!" class="brand-logo left">Logo</a>
 
@@ -233,27 +254,30 @@
 
 	        	<!-- Buscar de produtos pelo site -->
 
-		        <form action="" method="POST" id="formPesquisa">
+		        <form action="" method="POST" id="formPesquisa" >
 			        <div class="input-field" >
 
-			          <input id="pesquisa" type="search" name="pesquisa" onfocus="AtivaBusca()" onblur="DesativaForm()">
-			          <div id="divDaBusca">
+			          <input id="pesquisa" type="search" name="pesquisa" onfocus="AtivaBusca()">
+			          
 			          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
 			          <i class="material-icons">close</i>
-			        </div>
+			        
 	       		 </form>
 					<!--traz os dados da busca -->
-	       		
-		       		 <ul class="resultado" id="ResultadoBusca">
+	       		<div id="divDaBusca" >
+		       		 <ul class="resultado" id="ResultadoBusca" >
 
 
 		       		 </ul>
-	       		 </div>
+
+		       	 </div>
+	       	
 	      	</div>
 
 	      <li><a data-activates="slide-out" class="button tooltipped" data-position="bottom" data-tooltip="Clique para abrir o menu de usuário"><?php echo $RegUsuario['usrApelido'];?></a></li>
 		    <li><a href="./conexoesPhp/Deslogar.php">Sair</a></li>
 		     <li><a href="Logado.php">Página Inicial</a></li>
+		     <li><a class="dropdown-button" href="#" data-activates="categorias">Categorias</a></li>
 	      </ul>
 
 
@@ -318,43 +342,6 @@
 	          
 
 
-<a clas="open_left" data-activates="nav-left"></a>
-<div class="side-nav fixed" id="nav-left"></div>
-<a clas="open_right" data-activates="nav-right"></a>
-<div class="side-nav fixed" id="nav-right">
-	<!-- dados aquiiii -->
-
-	<div class="imgDaBarraDeBusca">
-
-		<img src="logo.jpg">
-
-			
-
-	</div>
-	<h5>Categorias</h5>
-	<?php
-
-				 	$BuscaCategorias = 'select ctgCodigo,ctgNome from categoria';
-
-				$DadosCategoria = mysqli_query($oCon,$BuscaCategorias);
-
-				while($ResultCategoria = mysqli_fetch_assoc($DadosCategoria)){
-
-				 	?>
-				  
-
-				
-				
-				  		<a class="waves-effect waves-light btn-large blue text hoverable"><?php echo $ResultCategoria['ctgNome']?></a>
-				  		
-				  		
-				  
-				<?php
-				}
-				?>
-
-</div>
-
 
 		
 	<div class="container">	
@@ -408,7 +395,7 @@
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
 				          	
 				          	?>
-				          <img src="<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 				          
 
 				          <?php 
@@ -505,7 +492,7 @@
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
 				          	
 				          	?>
-				          <img src="<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 				          
 
 				          <?php 
@@ -601,7 +588,7 @@
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
 				          	
 				          	?>
-				          <img src="<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 				          
 
 				          <?php 
@@ -696,7 +683,7 @@
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
 				          	
 				          	?>
-				          <img src="<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 				          
 
 				          <?php 
@@ -755,7 +742,25 @@
 		</div>
 			
 
+<<<<<<< HEAD
 		
+=======
+			<!-- dropdown de categorias -->
+		<ul id = "categorias" class="dropdown-content">
+			<?php
+				$Categoria = 'select ctgCodigo,ctgNome from categoria where ctgNome != "Nenhum" ';
+				$DadosCategoria = mysqli_query($oCon,$Categoria);
+				while($RegCategoria = mysqli_fetch_assoc($DadosCategoria)){
+			?>
+
+         	<a href="ResultadoCategoria.php?categoria=<?php echo $RegCategoria['ctgCodigo']?>"><li><?php echo $RegCategoria['ctgNome'] ?></li></a>
+         	<?php
+         }
+         	?>
+      </ul>
+      
+      
+>>>>>>> de833459dc032e1d38c7cd0f8a719111efd2d889
 		
 	</div>
 
@@ -844,7 +849,6 @@ $(function(){
 
 
 	mysqli_free_result($Dados);
-	mysqli_free_result($DadosCategoria);
 	mysqli_free_result($DadosCelular);
 	mysqli_free_result($DadosUsuario);
 	mysqli_close($oCon);

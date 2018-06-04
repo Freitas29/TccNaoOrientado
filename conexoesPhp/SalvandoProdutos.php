@@ -34,7 +34,7 @@ if (empty($Descricao)) {
 $Categoria = $_POST['Categoria'];
 
 
-if (empty($Descricao)) {
+if (empty($Categoria)) {
 	$_SESSION['VazioCategoria'] = "Por Favor, selecione uma Categoria";
 
 	
@@ -46,7 +46,7 @@ $CategoriaTroca = $_POST['CategoriaParaTrocar'];
 //Verifica se o campo opcional foi escolhido, se foi ele passa 0
 if (empty($_POST['CategoriaParaTrocar'])){
 	
-	$CategoriaTroca = 0;
+	$CategoriaTroca = 7;
 }
 
 $Logado = $_SESSION['Login'];
@@ -83,8 +83,8 @@ $DadosAnuncio = "insert into anuncio (ancCod_Criador,ancTitulo,ancData,ancEstado
 
 					//Contadno as fotos
 					for ($controle = 0; $controle < count($arquivo['name']); $controle++){
-						$destino = $diretorio.$arquivo['name'][$controle];
-						if(move_uploaded_file($arquivo['tmp_name'][$controle], $destino)){
+						$destino = $arquivo['name'][$controle];
+						if(move_uploaded_file($arquivo['tmp_name'][$controle],$diretorio.$destino)){
 							echo "Upload realizado com sucesso<br>";
 							$DadosImagens = "insert into fotosprodutos(fotoDescricao,foto_cod_usuario,foto_cod_anuncio)values('$destino','$Logado','$DadoDoUltimoRegistro')";
 							echo "Imagem cadastrada";
@@ -94,6 +94,7 @@ $DadosAnuncio = "insert into anuncio (ancCod_Criador,ancTitulo,ancData,ancEstado
 						}
 							if(mysqli_query($oCon,$DadosImagens)){ 
 								echo "sucesso";
+								header("location:../ProdutosUsuario.php#test-swipe-1");
 						}else{
 							echo "Erro ao realizar upload";
 						}
