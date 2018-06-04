@@ -86,6 +86,14 @@
 	}
 
 
+	.side-nav.fixed {
+    left: 0;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    position: fixed;
+    width: 14%;
+}
+
 
 
 	.card .card-content p {
@@ -152,6 +160,27 @@
 
 	#ResultadoBusca li a{
 		color: black;
+	}
+
+	.imgDaBarraDeBusca{
+   		 width: 100%;
+    	height: auto;
+    	box-shadow: 1px 1px 1px 1px #ddd;
+    	margin-bottom: 2%;
+	}
+
+	.imgDaBarraDeBusca img{
+		width: 70%;
+	    height: 20%;
+	    position: relative;
+	    left: 20%;
+	}
+
+	#nav-right a{
+		width: 100%;
+		background-color:white !important;
+		color: #3c3737; 
+		margin-bottom: 3%;
 	}
 	</style>
 
@@ -287,6 +316,46 @@
 
 <!--   AQUI COMEÇA TODO O CONTEUDO DO SITE -->
 	          
+
+
+<a clas="open_left" data-activates="nav-left"></a>
+<div class="side-nav fixed" id="nav-left"></div>
+<a clas="open_right" data-activates="nav-right"></a>
+<div class="side-nav fixed" id="nav-right">
+	<!-- dados aquiiii -->
+
+	<div class="imgDaBarraDeBusca">
+
+		<img src="logo.jpg">
+
+			
+
+	</div>
+	<h5>Categorias</h5>
+	<?php
+
+				 	$BuscaCategorias = 'select ctgCodigo,ctgNome from categoria';
+
+				$DadosCategoria = mysqli_query($oCon,$BuscaCategorias);
+
+				while($ResultCategoria = mysqli_fetch_assoc($DadosCategoria)){
+
+				 	?>
+				  
+
+				
+				
+				  		<a class="waves-effect waves-light btn-large blue text hoverable"><?php echo $ResultCategoria['ctgNome']?></a>
+				  		
+				  		
+				  
+				<?php
+				}
+				?>
+
+</div>
+
+
 		
 	<div class="container">	
 		<div class="row">
@@ -686,32 +755,6 @@
 		</div>
 			
 
-				 <div class="row">
-
-				 	<?php
-
-				 	$BuscaCategorias = 'select ctgCodigo,ctgNome from categoria';
-
-				$DadosCategoria = mysqli_query($oCon,$BuscaCategorias);
-
-				while($ResultCategoria = mysqli_fetch_assoc($DadosCategoria)){
-
-				 	?>
-				  <div class="col s2 m2 l2">
-					<div class="card-panel blue darken-2 smal">
-					  <span class="white-text"><?php echo $ResultCategoria['ctgNome']?>
-					  </span>
-					</div>
-				  </div>
-				  
-				  
-				  
-				<?php
-			}
-				?>
-				  
-				</div>
-		
 		
 		
 	</div>
@@ -777,6 +820,14 @@ $(function(){
 	});
 });
 
+
+	$(".open_left").sideNav({
+  		edge: 'left'
+	});
+	
+	$(".open_right").sideNav({
+  		edge: 'right'
+	});
 
 
 
