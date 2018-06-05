@@ -160,6 +160,13 @@
 	.dropdown-content li{
 		text-align: center;
 	}
+	.naoenco {
+   	    height: auto;
+    	width: 250px;
+    	position: relative;
+    	top: 250px;
+    	left: 40%; 
+	}
 
 	
 	</style>
@@ -319,7 +326,9 @@
   $resultado = mysqli_query($oCon,$SelecionaCategoria);
   $resultadoDaCategoria = mysqli_num_rows($resultado);
 		if($resultadoDaCategoria <=0){
-		echo "nada encontrado";	
+
+		// resultado com imagem nessa parte do codigo
+		echo "<img class='naoenco'src='./imagens/nothing-found.png'/>";	
 		}else{
 
 
