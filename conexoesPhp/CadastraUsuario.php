@@ -14,6 +14,8 @@
 	
 	$Nome = $_POST['NomeUsu'];
 
+	$Telefone = $_POST['TelefoneUsu'];
+
 	$CEP = $_POST['CEP'];
 	
 	$Logradouro = $_POST['Logradouro'];
@@ -59,6 +61,10 @@ if (empty($Senha)) {
 
 	$Redirecionar;
 
+}
+
+if(empty($Telefone)){
+	$Telefone = "0000 0000";
 }
 
 if (empty($CEP)) {
@@ -112,7 +118,7 @@ if (empty($Estado)) {
 	//Enviando para o banco
 	
 	
-	$CadastrandoUsuario = "insert into usuario(usrEmail,usrApelido,usrSenha,usrCEP,usrFoto,usrLogradouro,usrUf,usrBairro,usrLocalidade)values('$Email','$Nome','$Senha','$CEP','$Img','$Logradouro','$Cidade','$Bairro','$Estado')";
+	$CadastrandoUsuario = "insert into usuario(usrEmail,usrApelido,usrSenha,usrTelefone,usrCEP,usrFoto,usrLogradouro,usrUf,usrBairro,usrLocalidade)values('$Email','$Nome','$Senha','$Telefone','$CEP','$Img','$Logradouro','$Cidade','$Bairro','$Estado')";
 	
 	print_r($CadastrandoUsuario);
 	

@@ -150,7 +150,15 @@ function fnExibeArquivo()
 
 									  ?>
 								</div>
+
 								
+								<div class="input-field col s12 m12 l12">
+									<i class="material-icons prefix">phone</i>
+									   <input id="icon_telephone" type="tel" class="validate" name="TelefoneUsu" required>
+									  <label for="icon_telephone">Telefone(opcional)</label>
+
+								</div>
+
 								<div class="input-field col s12 m12 l12">
 									<i class="material-icons prefix">https</i>
 									  <input id="password" type="password"  class="validate" name="SenhaUsu" required>
