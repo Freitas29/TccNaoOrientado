@@ -306,6 +306,8 @@
 		    <li><div class="divider"></div></li>
 		    <li><a class="subheader" >Favoritos</a></li>
 		    <li><a class="waves-effect" href="ProdutosUsuario.php#test-swipe-3">Seus Produtos Favoritados</a></li>
+		      <li><a class="subheader">Trocas</a></li>
+     		<li><a class="waves-effect" href="#!">Pedidos para troca</a></li>
 		  </ul>
 <!-- 
 		  MENU MOBILE -->

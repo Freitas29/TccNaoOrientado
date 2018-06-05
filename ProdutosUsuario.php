@@ -379,6 +379,10 @@ fieldset{
 
     <li><a class="waves-effect" href="#test-swipe-3">Seus produtos favoritos</a></li>
 
+      <li><a class="subheader">Trocas</a></li>
+
+     <li><a class="waves-effect" href="#!">Pedidos para troca</a></li>
+
   </ul>
 
   

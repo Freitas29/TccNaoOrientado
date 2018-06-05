@@ -98,6 +98,10 @@ $DadosUsuario = mysqli_query($oCon,$Usuario);
 
     <li><a class="waves-effect" href="#!">Seus produtos favoritados</a></li>
 
+     <li><a class="subheader">Trocas</a></li>
+
+     <li><a class="waves-effect" href="#!">Pedidos para troca</a></li>
+
   </ul>
 
   
