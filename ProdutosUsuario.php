@@ -300,7 +300,7 @@ fieldset{
    include './conexoesPhp/Conexao.php';
     
     
-    $Usuario = 'select usrEmail,usrApelido,usrFoto,usrCEP,usrLogradouro,usrUf,usrBairro,usrLocalidade from usuario where UsrCodigo='.$_SESSION['Login'];
+    $Usuario = 'select usrEmail,usrApelido,usrFoto,usrTelefone,usrCEP,usrLogradouro,usrUf,usrBairro,usrLocalidade from usuario where UsrCodigo='.$_SESSION['Login'];
     
     $Categoria = 'select ctgCodigo,ctgNome from categoria';
 
@@ -593,6 +593,40 @@ fieldset{
               </div>
             </div>
  </form>
+              
+              <p><strong>Telefone: </strong> <?php echo $RegUsuario['usrTelefone'] ?></p>
+
+               <div class="card-action">
+              <button data-target="modalTel" class="btn modal-trigger">Mudar Telefone</button>
+
+              </div>
+
+               <div id="modalTel" class="modal">
+
+              <div class="modal-content">
+
+
+                <h4>Telefone</h4>
+
+          <form action="./conexoesPhp/AlteraTelefone.php" method="POST">
+                  
+                          <!-- Telefone para trocar -->
+                    
+
+                <div class="input-field col s12 m12 l12">
+                    <input id="Telefone" type="text"  class="validate" name="AtualizaTel" placeholder="<?php echo $RegUsuario['usrTelefone']?>" required maxlength="15">
+                    <label for="icon_prefix">Telefone</label>
+                    
+                </div>           
+
+              </div>
+                <div class="modal-footer">
+                  <button>Alterar</button>
+                </div>
+            </div>
+              
+          </form>
+
 
         </div>
 
