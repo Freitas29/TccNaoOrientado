@@ -149,6 +149,7 @@
     display: none;
     position: absolute;
     top: 100%;
+    z-index: 999;
 	}
 
 	#ResultadoBusca li{
@@ -307,7 +308,7 @@
 		    <li><a class="subheader" >Favoritos</a></li>
 		    <li><a class="waves-effect" href="ProdutosUsuario.php#test-swipe-3">Seus Produtos Favoritados</a></li>
 		      <li><a class="subheader">Trocas</a></li>
-     		<li><a class="waves-effect" href="#!">Pedidos para troca</a></li>
+     		<li><a class="waves-effect" href="efetuaTroca.php">Pedidos para troca</a></li>
 		  </ul>
 <!-- 
 		  MENU MOBILE -->
