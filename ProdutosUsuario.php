@@ -316,7 +316,7 @@ fieldset{
     
 ?>
 
-  <ul id = "categorias" class="dropdown-content">
+  <ul id="categorias" class="dropdown-content">
       <?php
         $Categoria = 'select ctgCodigo,ctgNome from categoria where ctgNome != "Nenhum" ';
         $DadosCategoria = mysqli_query($oCon,$Categoria);
@@ -378,6 +378,10 @@ fieldset{
     <li><a class="subheader">Favoritos</a></li>
 
     <li><a class="waves-effect" href="#test-swipe-3">Seus produtos favoritos</a></li>
+
+      <li><a class="subheader">Trocas</a></li>
+
+     <li><a class="waves-effect" href="#!">Pedidos para troca</a></li>
 
   </ul>
 

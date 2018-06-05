@@ -5,7 +5,7 @@ include './conexoesPhp/Conexao.php';
 
 $Id_Produto = $_GET['id_produto'];
 
-$Produto = "select anuncio.ancTitulo,ancCodigo,ancEstadoItem,ancDesc,ancCategoria_interesse,usuario.usrApelido,usrLocalidade,categoria.ctgNome from ((anuncio inner join usuario on ancCod_Criador = usuario.usrCodigo) inner join categoria on anuncio.ancCod_Categoria = categoria.ctgCodigo)where ancCodigo =".$Id_Produto;
+$Produto = "select anuncio.ancTitulo,ancCodigo,ancEstadoItem,ancDesc,ancCategoria_interesse,usuario.usrApelido,usrLocalidade,usuario.usrTelefone,categoria.ctgNome from ((anuncio inner join usuario on ancCod_Criador = usuario.usrCodigo) inner join categoria on anuncio.ancCod_Categoria = categoria.ctgCodigo)where ancCodigo =".$Id_Produto;
 
 $DadosDoProduto = mysqli_query($oCon,$Produto);
 
@@ -210,10 +210,10 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
                 </p>
 
-                <p>
-                    <?php echo $RegProduto['usrApelido'] ?>
+                <h5>
+                    Telefone: <?php echo $RegProduto['usrTelefone'] ?>
 
-                </p>
+                </h5>
 
                 <h5>Categoria</h5>
 
