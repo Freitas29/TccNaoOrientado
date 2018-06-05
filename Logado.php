@@ -169,7 +169,6 @@
 		color: black;
 	}
 
-<<<<<<< HEAD
 	.imgDaBarraDeBusca{
    		 width: 100%;
     	height: auto;
@@ -189,7 +188,7 @@
 		background-color:white !important;
 		color: #3c3737; 
 		margin-bottom: 3%;
-=======
+	}
 	ul#categorias{
 		display: inline-table;
 	}
@@ -200,8 +199,7 @@
 	#divDaBusca{
 		width: 100%;
 		height: auto;
->>>>>>> de833459dc032e1d38c7cd0f8a719111efd2d889
-	}
+
 	</style>
 
 	<body onclick="FechaTudo()" style="background-color: white;">
@@ -742,9 +740,7 @@
 		</div>
 			
 
-<<<<<<< HEAD
-		
-=======
+
 			<!-- dropdown de categorias -->
 		<ul id = "categorias" class="dropdown-content">
 			<?php
@@ -760,8 +756,6 @@
       </ul>
       
       
->>>>>>> de833459dc032e1d38c7cd0f8a719111efd2d889
-		
 	</div>
 
 

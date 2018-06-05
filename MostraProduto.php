@@ -210,6 +210,11 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
                 </p>
 
+                <p>
+                    <?php echo $RegProduto['usrApelido'] ?>
+
+                </p>
+
                 <h5>Categoria</h5>
 
                 <p>
