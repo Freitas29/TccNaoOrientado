@@ -184,7 +184,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
               <br>        
               <br>      
-              <a class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A"><i class="material-icons left">chat</i>Conversar com Usuário</a>
+              <a class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A"><i class="material-icons left">chat</i>Pedir Troca</a>
                      
 
                <div class="card-content">

@@ -152,7 +152,37 @@ function mudaCategoriaEscolhe(codigo){
     }
 }
 
+
+function fnAdicionaFoto(){
+  document.getElementById('AdicionaFoto').click();
+}
+
+function teste(){
+  var campo = document.getElementById('AdicionaFoto');
+  if(campo.value.length > 0){
+
+    var arquivo = new FileReader();
+
+    arquivo.onloadend = function(){
+      document.getElementById("visualizacao").src = arquivo.result;
+    }
+
+    arquivo.readAsDataURL(campo.files[0]);
+
+    alert(campo.value);
+  }else{
+    alert("Não tem");
+  }
+}
 </script>
+
+<style>
+
+#FotosAlterar{
+  padding:2%;
+}
+
+</style>
 
 <body onclick="FechaTudo()" style="background-color: whitesmoke;">
 
@@ -319,7 +349,7 @@ function mudaCategoriaEscolhe(codigo){
 
         <!-- loop de produtos -->
 
-         <div class="card horizontal">
+         <div class="card horizontal" id="FotosAlterar">
 
                   <?php
                       $sql = "select foto_cod,fotoDescricao,ancCodigo from fotosprodutos inner join usuario on foto_cod_usuario = UsrCodigo inner join anuncio on  foto_cod_anuncio = ancCodigo where foto_cod_anuncio = '$anuncio' and foto_cod_usuario =".$_SESSION['Login'];
@@ -333,7 +363,7 @@ function mudaCategoriaEscolhe(codigo){
    
               <div class="card-image" style="margin-right:1%; ">
                 <a class="btn-floating btn-small waves-effect waves-light blue darken-2" onclick="DeletaFoto(<?php echo $Fotos['foto_cod'];?>)"><i class="material-icons">clear</i></a>
-                <img src="./Produtos/<?php echo $Fotos['fotoDescricao']?>">
+                <img id="visualizacao" src="./Produtos/<?php echo $Fotos['fotoDescricao']?>">
 
               </div>
 
@@ -341,6 +371,10 @@ function mudaCategoriaEscolhe(codigo){
                     }
                   ?>
 
+                  <!-- adicionar mais fotos -->
+                  <a class="btn halfway-fab waves-effect waves-light red" onclick="fnAdicionaFoto()"><i class="material-icons" >add</i></a>
+
+                  <input type="file" style="display:none;" id="AdicionaFoto" onchange="teste()">
            </div>
 
            <div class="card horizontal">
