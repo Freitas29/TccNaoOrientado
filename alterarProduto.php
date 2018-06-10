@@ -240,22 +240,21 @@ function teste(){
 
     </div></li>
 
-     <li><a href="#test-swipe-4">Seus Dados</a></li>
+     <li><a href="ProdutosUsuario.php#test-swipe-4">Seus Dados</a></li>
 
-      <li><a href="#test-swipe-2">Anunciar um Novo Produto</a></li>
+    <li><a href="ProdutosUsuario.php#test-swipe-2">Seus produtos anunciados</a></li>
 
-       <li><a href="#test-swipe-1">Seus Produtos</a></li>
+    <li><a href="ProdutosUsuario.php#test-swipe-1">Anunciar um novo produto</a></li>
 
     <li><div class="divider"></div></li>
 
-    <li><a class="subheader">Favoritos</a></li>
+    <li><a class="ProdutosUsuario">Favoritos</a></li>
 
-    <li><a class="waves-effect" href="#test-swipe-3">Seus produtos favoritos</a></li>
+    <li><a class="waves-effect" href="ProdutosUsuario.php#test-swipe-3">Seus produtos favoritados</a></li>
 
-      <li><a class="subheader">Trocas</a></li>
+     <li><a class="subheader">Trocas</a></li>
 
      <li><a class="waves-effect" href="#!">Pedidos para troca</a></li>
-
   </ul>
 
   
