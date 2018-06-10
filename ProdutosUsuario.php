@@ -218,6 +218,25 @@ function Enviar(){
     
   }
 
+  function validaTel(valor){
+  var d1 = valor.charAt(0);
+  var d2 = valor.charAt(1);
+  var d3 = valor.charAt(2);
+  var d4 = valor.charAt(4);
+  var d5 = valor.charAt(5);
+  var d6 = valor.charAt(6);
+  var d7 = valor.charAt(7);
+  var final = "("+d1.concat(d2,")")+d3+" "+d4+valor.substring(4,5)+d5+valor.substring(6,6)+d6+"-"+d7+valor.substring(8);
+  document.getElementById('CampoValue').value =final;
+  document.getElementById('TELE').style.display="block";
+  document.getElementById('TelPrincipal').style.display="none";
+}
+
+function ComValida(){
+  document.getElementById('TELE').style.display="none";
+  document.getElementById('TelPrincipal').style.display="block";
+}
+
 
 </script>
 
@@ -619,11 +638,19 @@ fieldset{
                           <!-- Telefone para trocar -->
                     
 
-                <div class="input-field col s12 m12 l12">
-                    <input id="Telefone" type="text"  class="validate" name="AtualizaTel" placeholder="<?php echo $RegUsuario['usrTelefone']?>" required maxlength="15">
+                <div class="input-field col s12 m12 l12" id="TelPrincipal">
+                    <input id="Telefone" type="text"  class="validate" name="AtualizaTel" placeholder="<?php echo $RegUsuario['usrTelefone']?>" required maxlength="15" onblur="validaTel(this.value)">
                     <label for="icon_prefix">Telefone</label>
                     
-                </div>           
+                </div>   
+
+                <div class="input-field col s12 m12 l12" style="display:none;" id="TELE" onclick="ComValida()">
+                  <p>Telefone(opcional)</p>
+                  <i class="material-icons prefix">phone</i>
+                     <input type="text"  maxlength="15" id="CampoValue">
+
+                </div>
+        
 
               </div>
                 <div class="modal-footer">
