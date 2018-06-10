@@ -205,7 +205,7 @@ function teste(){
    <nav>
     <div class="nav-wrapper container">
   
-      <a href="#!" class="brand-logo center">Logo</a>
+      <a href="#!" class="brand-logo left"><img src="logo.png" style="width: 35%;"></a>
 
       <a href="#" data-activates="menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 
