@@ -320,6 +320,27 @@ $(document).ready(function(){
     $('.modal').modal();
   });
 
+$(function(){
+	$("#pesquisa").keyup(function(){
+		var pesquisa = $(this).val();
+
+		//verifica se algo foi digitado
+		if(pesquisa != ''){
+			var dados = {
+			palavra : pesquisa
+		}
+		
+	
+		$.post('./conexoesPhp/BarraDeBuscaDeslogado.php',dados,function(retorna){
+			$(".resultado").html(retorna);
+			$(".resultado").css("display","inline-grid");
+		});
+	}else{
+		(".resultado").html('');	
+		$(".resultado").css("display","none");
+	}
+	});
+});
 
 </script>
 

@@ -17,6 +17,67 @@
 nav .brand-logo.left {
     right: 0.5rem !important;
 }
+
+#ResultadoBusca{
+  background-color: #1e88e5;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 100%;
+    z-index: 999;
+  }
+
+  #ResultadoBusca li{
+  z-index: 1;
+    background-color: #fdfdfd;
+    color: black;
+    box-shadow: 1px 1px 1px 1px #ddd;
+    padding: 5px;
+  }
+
+  #ResultadoBusca li img{
+    width: 10%;
+      height: auto;
+      margin-right: 3%;
+  }
+
+  #ResultadoBusca li a{
+    color: black;
+  }
+
+  .imgDaBarraDeBusca{
+       width: 100%;
+      height: auto;
+      box-shadow: 1px 1px 1px 1px #ddd;
+      margin-bottom: 2%;
+  }
+
+  .imgDaBarraDeBusca img{
+    width: 70%;
+      height: 20%;
+      position: relative;
+      left: 20%;
+  }
+
+  #nav-right a{
+    width: 100%;
+    background-color:white !important;
+    color: #3c3737; 
+    margin-bottom: 3%;
+  }
+  ul#categorias{
+    display: inline-table;
+  }
+  .dropdown-content li{
+    text-align: center;
+  }
+
+  #divDaBusca{
+    width: 100%;
+    height: auto;
+  }
 </style>
 
 <body style="background-color: whitesmoke;">
@@ -31,13 +92,23 @@ nav .brand-logo.left {
       <ul class="right hide-on-med-and-down" style="width: 70%;">
       <li style="width: 59%;">
         <div class="nav-wrapper">
-        <form action="./conexoesPhp/BarraDeBusca.php" method="POST">
-        <div class="input-field">
-          <input id="search" type="search" name="Pesquisa">
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-        </form>
+        <form action="" method="POST" id="formPesquisa" >
+              <div class="input-field" >
+
+                <input id="pesquisa" type="search" name="pesquisa" onfocus="AtivaBusca()">
+                
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              
+             </form>
+          <!--traz os dados da busca -->
+            <div id="divDaBusca" >
+               <ul class="resultado" id="ResultadoBusca" >
+
+
+               </ul>
+
+             </div>
       </div>
       </li>
         <li><a class="modal-trigger" href="#modal1">Entrar</a></li>
@@ -46,19 +117,6 @@ nav .brand-logo.left {
         <li><a href="mobile.html">Mobile</a></li>
       </ul>
       <ul class="side-nav" id="menu-mobile">
-    
-    
-      <nav>
-      <div class="nav-wrapper">
-        <form action="./conexoesPhp/BarraDeBusca.php" method="POST">
-        <div class="input-field">
-          <input id="search" type="search" name="Pesquisa">
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-        </form>
-      </div>
-    </nav>
 
         <li><a href="sass.html">Sass</a></li>
         <li><a href="Index.php">Página Inicial</a></li>
