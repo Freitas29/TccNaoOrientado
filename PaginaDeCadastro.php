@@ -109,6 +109,20 @@ function fnExibeArquivo()
 		document.getElementById('imgGG').style.display = "";
 	}
 }
+
+function validaTel(valor){
+	var d1 = valor.charAt(0);
+	var d2 = valor.charAt(1);
+	var d3 = valor.charAt(2);
+	var d4 = valor.charAt(4);
+	var d5 = valor.charAt(5);
+	var d6 = valor.charAt(6);
+	var d7 = valor.charAt(7);
+	var final = "("+d1.concat(d2,")")+d3+" "+d4+valor.substring(4,5)+d5+valor.substring(6,6)+d6+"-"+d7+valor.substring(8);
+	document.getElementById('TELE').value = final;
+}
+
+
 </script>
 
 <div class="container" style="margin-top: 2%">
@@ -154,7 +168,8 @@ function fnExibeArquivo()
 								
 								<div class="input-field col s12 m12 l12">
 									<i class="material-icons prefix">phone</i>
-									   <input id="icon_telephone" type="tel" class="validate" name="TelefoneUsu" required>
+									   <input id="icon_telephone" type="tel" class="validate" name="TelefoneUsu" id="TelefoneUsu" required maxlength="15" onkeyup="validaTel(this.value)" onblur="fnValida()">
+									   <input type="text" id="TELE" maxlength="15">
 									  <label for="icon_telephone">Telefone(opcional)</label>
 
 								</div>

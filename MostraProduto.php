@@ -260,8 +260,6 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
 <script type="text/javascript">
  
-
-
    $('.carousel.carousel-slider').carousel({
     fullWidth: true,
      padding:200,
