@@ -308,6 +308,8 @@ fieldset{
 
     $DadosCategoria = mysqli_query($oCon,$Categoria);
 
+    $DadosCategoriaEscolhe = mysqli_query($oCon,$Categoria);
+
     $DadosCategoriaTroca = mysqli_query($oCon,$Categoria);
 
     $DadosUsuario = mysqli_query($oCon,$Usuario);
@@ -781,7 +783,7 @@ fieldset{
 
                                       <?php 
 
-                                      while($RegCategoria = mysqli_fetch_assoc($DadosCategoria)){
+                                      while($RegCategoria = mysqli_fetch_assoc($DadosCategoriaEscolhe)){
                                       ?>
 
 
@@ -870,7 +872,7 @@ fieldset{
 
                                  <span>Selecione as fotos do seu produto</span>
 
-                                 <input type="file" multiple name="FotoProduto[]">
+                                 <input type="file" multiple name="FotoProduto[]" required>
 
                               </div>
 

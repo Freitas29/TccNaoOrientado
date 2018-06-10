@@ -169,7 +169,7 @@ function teste(){
 
     arquivo.readAsDataURL(campo.files[0]);
 
-    alert(campo.value);
+    document.getElementById("enviaFoto").click();
   }else{
     alert("Não tem");
   }
@@ -305,7 +305,7 @@ function teste(){
 
 <?php
 
-  $sql = " select ancTitulo,ancEstadoItem,ancDesc,ctgNome from anuncio inner join categoria on ancCod_Categoria = ctgCodigo where ancCodigo = '$anuncio' and ctgCodigo = ancCod_Categoria";
+  $sql = " select ancCodigo,ancTitulo,ancEstadoItem,ancDesc,ctgNome from anuncio inner join categoria on ancCod_Categoria = ctgCodigo where ancCodigo = '$anuncio' and ctgCodigo = ancCod_Categoria";
 
   $resultado = mysqli_query($oCon,$sql);
 
@@ -361,20 +361,29 @@ function teste(){
                       
                     ?>
    
-              <div class="card-image" style="margin-right:1%; ">
+              <div class="card-image" style="margin-right:1%;width: 25%;height:  50%;">
                 <a class="btn-floating btn-small waves-effect waves-light blue darken-2" onclick="DeletaFoto(<?php echo $Fotos['foto_cod'];?>)"><i class="material-icons">clear</i></a>
-                <img id="visualizacao" src="./Produtos/<?php echo $Fotos['fotoDescricao']?>">
+                <img src="./Produtos/<?php echo $Fotos['fotoDescricao']?>">
+
+                
+                
 
               </div>
 
                   <?php
                     }
                   ?>
+                  <form action="./conexoesPhp/adicionaFoto.php" method="post" enctype="multipart/form-data">
+
+                  <img id="visualizacao">
+                  <input type="text" name="codigoAnuncio" value="<?php echo $anuncioSql['ancCodigo']?>" style="visibility: hidden;">
+                  <button id="enviaFoto" style="visibility: hidden;" ></button>
 
                   <!-- adicionar mais fotos -->
                   <a class="btn halfway-fab waves-effect waves-light red" onclick="fnAdicionaFoto()"><i class="material-icons" >add</i></a>
 
-                  <input type="file" style="display:none;" id="AdicionaFoto" onchange="teste()">
+                  <input type="file" style="display:none;" id="AdicionaFoto" onchange="teste()" name="fotoProdutoNova">
+                  </form>
            </div>
 
            <div class="card horizontal">
