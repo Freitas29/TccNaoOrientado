@@ -119,9 +119,15 @@ function validaTel(valor){
 	var d6 = valor.charAt(6);
 	var d7 = valor.charAt(7);
 	var final = "("+d1.concat(d2,")")+d3+" "+d4+valor.substring(4,5)+d5+valor.substring(6,6)+d6+"-"+d7+valor.substring(8);
-	document.getElementById('TELE').value = final;
+	document.getElementById('CampoValue').value =final;
+	document.getElementById('TELE').style.display="block";
+	document.getElementById('TelPrincipal').style.display="none";
 }
 
+function ComValida(){
+	document.getElementById('TELE').style.display="none";
+	document.getElementById('TelPrincipal').style.display="block";
+}
 
 </script>
 
@@ -166,11 +172,19 @@ function validaTel(valor){
 								</div>
 
 								
-								<div class="input-field col s12 m12 l12">
+								<div class="input-field col s12 m12 l12" id="TelPrincipal">
+									<p>Telefone(opcional)</p>
 									<i class="material-icons prefix">phone</i>
-									   <input id="icon_telephone" type="tel" class="validate" name="TelefoneUsu" id="TelefoneUsu" required maxlength="15" onkeyup="validaTel(this.value)" onblur="fnValida()">
-									   <input type="text" id="TELE" maxlength="15">
-									  <label for="icon_telephone">Telefone(opcional)</label>
+									   <input id="icon_telephone" type="tel" class="validate" name="TelefoneUsu" id="TelefoneUsu" required maxlength="15" onblur="validaTel(this.value)">
+									   
+
+								</div>
+
+							
+								<div class="input-field col s12 m12 l12" style="display:none;" id="TELE" onclick="ComValida()">
+									<p>Telefone(opcional)</p>
+									<i class="material-icons prefix">phone</i>
+									   <input type="text"  maxlength="15" id="CampoValue">
 
 								</div>
 
