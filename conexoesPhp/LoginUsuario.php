@@ -11,7 +11,7 @@ $Login = $_POST['UsuarioLogin'];
 
 $Senha = md5($_POST['UsuarioSenha']);
 
-$Redirecionar = header('location:../Index.php');
+$Redirecionar = header('location:../index.php');
 
 
 if (empty($Login)) {
@@ -49,7 +49,7 @@ if($RegUsuario = mysqli_fetch_assoc($DadosUsuario)){
 		header('location:../Logado.php');
 	}else{
 		unset ($_SESSION['Login']);
-		header('location:../Index.php');
+		header('location:../index.php');
 }
 
 
