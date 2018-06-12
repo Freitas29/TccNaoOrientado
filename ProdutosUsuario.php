@@ -246,6 +246,30 @@ function ComValida(){
 }
 
 
+function MostraFoto(){
+   var campo = document.getElementById('AdicionaFoto');
+  if(campo.files.length > 0){
+
+    for(contador = 0; contador < campo.files.length;contador++){
+      alert(campo.files[contador].name);
+    }
+
+    var arquivo = new FileReader();
+
+    arquivo.onloadend = function(){
+      document.getElementById("visualizacao").src = arquivo.result;
+    }
+
+
+    arquivo.readAsDataURL(campo.files[0]);
+
+    document.getElementById("enviaFoto").click();
+  }else{
+    alert("Não tem");
+  }
+}
+
+
 </script>
 
 <style>
@@ -907,7 +931,9 @@ fieldset{
 
                                  <span>Selecione as fotos do seu produto</span>
 
-                                 <input type="file" multiple name="FotoProduto[]" required>
+                                 <input type="file" multiple name="FotoProduto[]" required onchange="MostraFoto()" id="AdicionaFoto">
+
+                                  
 
                               </div>
 
@@ -918,6 +944,7 @@ fieldset{
                               </div>
 
                              
+                              <img id="visualizacao[]">
 
                               <button onclick="Enviar()" class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" style="float: right;">Enviar Dados</button>
 

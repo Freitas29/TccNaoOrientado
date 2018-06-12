@@ -112,14 +112,14 @@ nav .brand-logo.left {
       </div>
       </li>
         <li><a class="modal-trigger" href="#modal1">Entrar</a></li>
-        <li><a href="Index.php">Página Inicial</a></li>
+        <li><a href="index.php">Página Inicial</a></li>
         <li><a href="PaginaDeCadastro.php">Cadastrar</a></li>
         <li><a href="mobile.html">Mobile</a></li>
       </ul>
       <ul class="side-nav" id="menu-mobile">
 
         <li><a href="sass.html">Sass</a></li>
-        <li><a href="Index.php">Página Inicial</a></li>
+        <li><a href="index.php">Página Inicial</a></li>
         <li><a href="collapsible.html">Javascript</a></li>
         <li><a href="mobile.html">Mobile</a></li>
       </ul>
