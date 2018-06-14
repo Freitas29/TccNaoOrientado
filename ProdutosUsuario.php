@@ -66,7 +66,7 @@ function FechaTudo(){
            document.getElementById('PrimeiroField').style.display="none";
            document.getElementById('SegundoField').style.display="block";
            document.getElementById('Vazio').style.display="none";
-           document.all.Nome_Produto.value,length.trim();
+           document.all.Nome_Produto.value.length.trim();
             }
         }
 }
@@ -247,26 +247,24 @@ function ComValida(){
 
 
 function MostraFoto(){
-   var campo = document.getElementById('AdicionaFoto');
-  if(campo.files.length > 0){
-
+    let campo = document.getElementById('AdicionaFoto');
+ 
     for(contador = 0; contador < campo.files.length;contador++){
       alert(campo.files[contador].name);
+      let arquivo = new FileReader();
+      
+      arquivo.onloadend = function(){
+        let campo = document.getElementById('AdicionaFoto');
+        document.getElementById("visualizacao").src = campo.files[contador].name;
+        let x = document.createElement("IMG");
+        x.setAttribute("src",arquivo.result);
+        document.body.appendChild(x);
+      }
+
+
     }
 
-    var arquivo = new FileReader();
 
-    arquivo.onloadend = function(){
-      document.getElementById("visualizacao").src = arquivo.result;
-    }
-
-
-    arquivo.readAsDataURL(campo.files[0]);
-
-    document.getElementById("enviaFoto").click();
-  }else{
-    alert("Não tem");
-  }
 }
 
 
@@ -944,7 +942,7 @@ fieldset{
                               </div>
 
                              
-                              <img id="visualizacao[]">
+                              <img id="visualizacao">
 
                               <button onclick="Enviar()" class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" style="float: right;">Enviar Dados</button>
 
