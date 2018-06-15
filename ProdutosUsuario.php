@@ -66,7 +66,7 @@ function FechaTudo(){
            document.getElementById('PrimeiroField').style.display="none";
            document.getElementById('SegundoField').style.display="block";
            document.getElementById('Vazio').style.display="none";
-           document.all.Nome_Produto.value,length.trim();
+           document.all.Nome_Produto.value.length.trim();
             }
         }
 }
@@ -237,6 +237,28 @@ function ComValida(){
   document.getElementById('TELE').style.display="none";
   document.getElementById('TelPrincipal').style.display="block";
    
+}
+
+
+function MostraFoto(){
+    let campo = document.getElementById('AdicionaFoto');
+ 
+    for(contador = 0; contador < campo.files.length;contador++){
+      alert(campo.files[contador].name);
+      let arquivo = new FileReader();
+      
+      arquivo.onloadend = function(){
+        let campo = document.getElementById('AdicionaFoto');
+        document.getElementById("visualizacao").src = campo.files[contador].name;
+        let x = document.createElement("IMG");
+        x.setAttribute("src",arquivo.result);
+        document.body.appendChild(x);
+      }
+
+
+    }
+
+
 }
 
 
@@ -901,7 +923,9 @@ fieldset{
 
                                  <span>Selecione as fotos do seu produto</span>
 
-                                 <input type="file" multiple name="FotoProduto[]" required>
+                                 <input type="file" multiple name="FotoProduto[]" required onchange="MostraFoto()" id="AdicionaFoto">
+
+                                  
 
                               </div>
 
@@ -912,6 +936,7 @@ fieldset{
                               </div>
 
                              
+                              <img id="visualizacao">
 
                               <button onclick="Enviar()" class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" style="float: right;">Enviar Dados</button>
 
