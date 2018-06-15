@@ -219,9 +219,6 @@ function Enviar(){
   }
 
   function validaTel(valor){
-  
-
-
   var d1 = valor.charAt(0);
   var d2 = valor.charAt(1);
   var d3 = valor.charAt(2);
@@ -237,12 +234,9 @@ function Enviar(){
 }
 
 function ComValida(){
-  if(valor.length <=0){
-    valor.value = "";
-  }else{
   document.getElementById('TELE').style.display="none";
   document.getElementById('TelPrincipal').style.display="block";
-   }
+   
 }
 
 
