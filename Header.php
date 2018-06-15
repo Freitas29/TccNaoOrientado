@@ -80,7 +80,22 @@ nav .brand-logo.left {
   }
 </style>
 
-<body style="background-color: whitesmoke;">
+<script type="text/javascript">
+  function FechaTudo(){
+    DesativaForm();
+  }
+
+  function DesativaForm(){
+    var x = document.getElementById("ResultadoBusca").getElementsByTagName("LI");
+      a = x.length;
+    var i;
+    for(i = 0;i<a;i++){
+      document.getElementById('ResultadoBusca').style.display="none";
+    }
+  }
+</script>
+
+<body style="background-color: whitesmoke;" onclick="FechaTudo()">
 <nav class="nav">
     <div class="nav-wrapper container">
   
