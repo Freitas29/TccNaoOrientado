@@ -73,7 +73,7 @@
     	a = x.length;
 		var i;
 		for(i = 0;i<a;i++){
-			document.getElementById('ResultadoBusca').style.display="none"
+			document.getElementById('ResultadoBusca').style.display="none";
 		}
 	}
 
