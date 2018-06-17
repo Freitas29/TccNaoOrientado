@@ -70,6 +70,21 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
   
   background-color:#1e88e5 !important;
 }
+
+nav .input-field {
+    margin: 0;
+    height: auto !important;
+}
+
+.nav-wrapper .input-field input[type=search] {
+    height: inherit;
+    padding-left: 4rem;
+    width: calc(100% - 4rem);
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-bottom: 0px;
+  }
 </style>
 
 
@@ -212,6 +227,28 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
     $('.carousel').carousel('next');
     setTimeout(autoplay, 3000);
      }
+
+     $(function(){
+  $("#pesquisa").keyup(function(){
+    var pesquisa = $(this).val();
+
+    //verifica se algo foi digitado
+    if(pesquisa != ''){
+      var dados = {
+      palavra : pesquisa
+    }
+    
+  
+    $.post('./conexoesPhp/BarraDeBuscaDeslogado.php',dados,function(retorna){
+      $(".resultado").html(retorna);
+      $(".resultado").css("display","inline-grid");
+    });
+  }else{
+    (".resultado").html('');  
+    $(".resultado").css("display","none");
+  }
+  });
+});
 </script>
 
 
