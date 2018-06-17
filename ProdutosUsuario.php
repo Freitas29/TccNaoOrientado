@@ -66,7 +66,6 @@ function FechaTudo(){
            document.getElementById('PrimeiroField').style.display="none";
            document.getElementById('SegundoField').style.display="block";
            document.getElementById('Vazio').style.display="none";
-           document.all.Nome_Produto.value,length.trim();
             }
         }
 }
@@ -238,6 +237,21 @@ function ComValida(){
 }
 
 
+function MostraFoto(){
+    let campo = document.getElementById('AdicionaFoto');
+    for(contador = 0; contador < campo.files.length;contador++){
+      alert(campo.files[contador].name);
+      let arquivo = new FileReader();
+      alert(campo);
+      arquivo.onloadend = function(){
+        let campo = document.getElementById('AdicionaFoto');
+        let x = document.createElement("IMG");
+        x.setAttribute("src",arquivo.result);
+        document.body.appendChild(x);
+      }
+    }
+}
+
 </script>
 
 <style>
@@ -260,6 +274,10 @@ fieldset{
   border:none;
 }
 
+fieldset p{
+  font-size: 25px;
+    color: #1e88e5;
+}
 #Vazio{
   color:red;
 }
@@ -760,7 +778,7 @@ fieldset{
                     <fieldset id="PrimeiroField">
 
                       <blockquote>
-                        <h5>Informe o nome do seu produto</h5>
+                        <p>TITULO <label> USO </label><label> CATEGORIA </label><label> INTERESSE </label><label> DESCRIÇÃO </label><label> FOTOS</label></p>
                       </blockquote>
 
                           <div class="input-field col s6 m6 l6">
@@ -781,7 +799,7 @@ fieldset{
                     <fieldset id="SegundoField">
                       
                       <blockquote>
-                        <h5>Informe o estado de uso do seu produto(Novo ou usado).</h5>
+                         <p><label>TITULO </label> USO <label> CATEGORIA </label><label> INTERESSE </label><label> DESCRIÇÃO </label><label> FOTOS</label></p>
                       </blockquote>
 
                        <div class="input-field col s6 m6 l6">
@@ -801,7 +819,7 @@ fieldset{
                     <fieldset  id="TerceiroField">
                       
                       <blockquote>
-                        <h5>Selecione a categoria do seu produto</h5>
+                       <p><label>TITULO </label> <label>USO </label> CATEGORIA <label> INTERESSE </label><label> DESCRIÇÃO </label><label> FOTOS</label></p>
                       </blockquote>
 
                        <div class="input-field col s6 m6 l6">
@@ -833,9 +851,8 @@ fieldset{
                     <fieldset id="QuartoField">
 
                       <blockquote>
-                        <h5>Selecione um tipo de categoria na qual você gostaria da trocar.</h5>
+                       <p><label>TITULO </label> <label>USO </label><label> CATEGORIA</label> INTERESSE <label> DESCRIÇÃO </label><label> FOTOS</label></p>
                         <h5>Este item é opcional</h5>
-                        <span>Está opção só ira fazer com que outros usuários possam achar os produtos que deseja mais rapido, assim como você</span>
                       </blockquote>
                       
 
@@ -872,7 +889,7 @@ fieldset{
                       <fieldset id="QuintoField">
                           
                           <blockquote>
-                            <h5>Deixe uma descrição, especificando cada detalhe do seu produto.</h5>
+                              <p><label>TITULO </label> <label>USO </label><label> CATEGORIA</label> <label>INTERESSE</label>  DESCRIÇÃO <label> FOTOS</label></p>
                           </blockquote>
                              <div class="input-field col s12 m12 l12">
                                 <textarea id="textarea1" class="materialize-textarea" data-length="250" name="Descricao_Produto" required></textarea>
@@ -890,7 +907,9 @@ fieldset{
 
                       <fieldset id="SextoField">
                         
-                        <h1>Sexto</h1>
+                        <blockquote>
+                              <p><label>TITULO </label> <label>USO </label><label> CATEGORIA</label> <label>INTERESSE</label><label> DESCRIÇÃO </label> FOTOS</p>
+                          </blockquote>
 
                         <div class="file-field input-field col s12 m12 l12">
 
@@ -899,7 +918,7 @@ fieldset{
 
                                  <span>Selecione as fotos do seu produto</span>
 
-                                 <input type="file" multiple name="FotoProduto[]" required>
+                                 <input type="file" multiple name="FotoProduto[]" required id="AdicionaFoto">
 
                               </div>
 

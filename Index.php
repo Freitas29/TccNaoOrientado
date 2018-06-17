@@ -78,7 +78,25 @@ nav{
 
 </style>
 
-<body style="background-color: white;">
+<script type="text/javascript">
+	function FechaTudo(){
+		document.getElementById('menu-mobile').style.visibility="visible";
+		DesativaForm();
+	}
+
+	function DesativaForm(){
+		//document.getElementById('resultadoDasBuscas').style.display="none";
+		var x = document.getElementById("ResultadoBusca").getElementsByTagName("LI");
+    	a = x.length;
+		var i;
+		for(i = 0;i<a;i++){
+			document.getElementById('ResultadoBusca').style.display="none"
+		}
+	}
+</script>
+
+
+<body style="background-color: white;" onclick="FechaTudo()">
 
 <?php
 
