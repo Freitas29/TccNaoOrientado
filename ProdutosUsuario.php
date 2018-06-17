@@ -319,7 +319,9 @@ fieldset p{
 #Vazio_Quinto{
   color:red;
 }
-
+ul#categorias{
+    display: inline-table;
+  }
 
   .card .card-image #ImagensAnunciadas {
       display: block;
