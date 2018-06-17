@@ -66,10 +66,8 @@ function FechaTudo(){
            document.getElementById('PrimeiroField').style.display="none";
            document.getElementById('SegundoField').style.display="block";
            document.getElementById('Vazio').style.display="none";
-<<<<<<< HEAD
-=======
            document.all.Nome_Produto.value.length.trim();
->>>>>>> 5e736e63ad3a0eb5aeac3aa9f6687e4c1e8756e8
+
             }
         }
 }
@@ -567,7 +565,7 @@ fieldset p{
                 <form action="./conexoesPhp/AlteraEmail.php" method="POST">
 
                   <div class="input-field col s12 m12 l12">
-                    <input type="email"  class="validate" name="NovoEmail" placeholder="<?php echo $RegUsuario['usrEmail'] ?>" required>
+                    <input type="email"  class="validate" name="NovoEmail" value="<?php echo $RegUsuario['usrEmail'] ?>" required>
                     <label for="icon_prefix">Novo Email</label>
                 </div>
 
@@ -595,7 +593,7 @@ fieldset p{
                 <form action="./conexoesPhp/AlteraNome.php" method="POST">
 
                   <div class="input-field col s12 m12 l12">
-                    <input  type="text"  class="validate" name="NovoNome" placeholder="<?php echo $RegUsuario['usrApelido'] ?>" required>
+                    <input  type="text"  class="validate" name="NovoNome" value="<?php echo $RegUsuario['usrApelido'] ?>" required>
                     <label for="icon_prefix">Novo Nome</label>
                 </div>
 
@@ -633,27 +631,27 @@ fieldset p{
                           <!-- Estado onde será anunciado -->
                         <div class="input-field col s12 m12 l12">
                     <i class="material-icons prefix">location_on</i>
-                    <input type="text"  class="validate" name="CEP" maxlength="9" id="CEP" required placeholder="<?php echo $RegUsuario['usrCEP'] ?>">
+                    <input type="text"  class="validate" name="CEP" maxlength="9" id="CEP" required value="<?php echo $RegUsuario['usrCEP'] ?>">
                     <label for="icon_prefix">Digite seu cep</label>
                 </div>
 
                  <div class="input-field col s12 m12 l12">
-                    <input id="Logradouro" type="text"  class="validate" name="Logradouro" required placeholder="<?php echo $RegUsuario['usrLogradouro'] ?>" onclick="fnObtemDados()">
+                    <input id="Logradouro" type="text"  class="validate" name="Logradouro" required value="<?php echo $RegUsuario['usrLogradouro'] ?>" onclick="fnObtemDados()">
                     <label for="icon_prefix">Rua</label>
                 </div>
 
                 <div class="input-field col s12 m12 l12">
-                    <input id="Cidade" type="text"  class="validate" name="Cidade" placeholder="<?php echo $RegUsuario['usrUf'] ?>" required>
+                    <input id="Cidade" type="text"  class="validate" name="Cidade" value="<?php echo $RegUsuario['usrUf'] ?>" required>
                     <label for="icon_prefix">Cidade</label>
                 </div>
 
                 <div class="input-field col s12 m12 l12">
-                    <input id="Bairro" type="text"  class="validate" name="Bairro" placeholder="<?php echo $RegUsuario['usrBairro'] ?>" required>
+                    <input id="Bairro" type="text"  class="validate" name="Bairro" value="<?php echo $RegUsuario['usrBairro'] ?>" required>
                     <label for="icon_prefix">Bairro</label>
                 </div>
 
                 <div class="input-field col s12 m12 l12">
-                    <input id="Estado" type="text"  class="validate" name="Estado" placeholder="<?php echo $RegUsuario['usrLocalidade']?>" required maxlength="2">
+                    <input id="Estado" type="text"  class="validate" name="Estado" value="<?php echo $RegUsuario['usrLocalidade']?>" required maxlength="2">
                     <label for="icon_prefix">Estado</label>
                     <button onclick="fnObtemDados()" style="visibility: hidden;">Pesquisar</button>
                 </div>           
@@ -946,13 +944,11 @@ fieldset p{
 
                                  <span>Selecione as fotos do seu produto</span>
 
-<<<<<<< HEAD
                                  <input type="file" multiple name="FotoProduto[]" required id="AdicionaFoto">
-=======
+
                                  <input type="file" multiple name="FotoProduto[]" required onchange="MostraFoto()" id="AdicionaFoto">
 
                                   
->>>>>>> 5e736e63ad3a0eb5aeac3aa9f6687e4c1e8756e8
 
                               </div>
 
