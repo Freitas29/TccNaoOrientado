@@ -66,6 +66,10 @@ function FechaTudo(){
            document.getElementById('PrimeiroField').style.display="none";
            document.getElementById('SegundoField').style.display="block";
            document.getElementById('Vazio').style.display="none";
+<<<<<<< HEAD
+=======
+           document.all.Nome_Produto.value.length.trim();
+>>>>>>> 5e736e63ad3a0eb5aeac3aa9f6687e4c1e8756e8
             }
         }
 }
@@ -229,11 +233,35 @@ function Enviar(){
   document.getElementById('CampoValue').value =final;
   document.getElementById('TELE').style.display="block";
   document.getElementById('TelPrincipal').style.display="none";
+ 
 }
 
 function ComValida(){
   document.getElementById('TELE').style.display="none";
   document.getElementById('TelPrincipal').style.display="block";
+   
+}
+
+
+function MostraFoto(){
+    let campo = document.getElementById('AdicionaFoto');
+ 
+    for(contador = 0; contador < campo.files.length;contador++){
+      alert(campo.files[contador].name);
+      let arquivo = new FileReader();
+      
+      arquivo.onloadend = function(){
+        let campo = document.getElementById('AdicionaFoto');
+        document.getElementById("visualizacao").src = campo.files[contador].name;
+        let x = document.createElement("IMG");
+        x.setAttribute("src",arquivo.result);
+        document.body.appendChild(x);
+      }
+
+
+    }
+
+
 }
 
 
@@ -918,7 +946,13 @@ fieldset p{
 
                                  <span>Selecione as fotos do seu produto</span>
 
+<<<<<<< HEAD
                                  <input type="file" multiple name="FotoProduto[]" required id="AdicionaFoto">
+=======
+                                 <input type="file" multiple name="FotoProduto[]" required onchange="MostraFoto()" id="AdicionaFoto">
+
+                                  
+>>>>>>> 5e736e63ad3a0eb5aeac3aa9f6687e4c1e8756e8
 
                               </div>
 
@@ -929,6 +963,7 @@ fieldset p{
                               </div>
 
                              
+                              <img id="visualizacao">
 
                               <button onclick="Enviar()" class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" style="float: right;">Enviar Dados</button>
 
