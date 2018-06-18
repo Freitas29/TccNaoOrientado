@@ -5,7 +5,7 @@ include './conexoesPhp/Conexao.php';
 
 $Id_Produto = $_GET['id_produto'];
 
-$Produto = "select anuncio.ancTitulo,ancCodigo,ancEstadoItem,ancDesc,ancCategoria_interesse,usuario.usrApelido,usrLocalidade,usuario.usrTelefone,categoria.ctgNome from ((anuncio inner join usuario on ancCod_Criador = usuario.usrCodigo) inner join categoria on anuncio.ancCod_Categoria = categoria.ctgCodigo)where ancCodigo =".$Id_Produto;
+$Produto = "select anuncio.ancTitulo,ancCodigo,ancEstadoItem,ancDesc,ancCategoria_interesse,usuario.usrApelido,usrEmail,usrLocalidade,usuario.usrTelefone,categoria.ctgNome from ((anuncio inner join usuario on ancCod_Criador = usuario.usrCodigo) inner join categoria on anuncio.ancCod_Categoria = categoria.ctgCodigo)where ancCodigo =".$Id_Produto;
 
 $DadosDoProduto = mysqli_query($oCon,$Produto);
 
@@ -109,6 +109,11 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
       }
     
   }
+
+
+  function Teste(A){
+    alert(A);
+  }
 </script>
 
 <body>
@@ -120,6 +125,16 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
   $ProdutoCod = $RegProduto['ancCodigo'];
 
   $DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$ProdutoCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
+
+
+  //pega o email do usuario logado
+
+    $DadosUsuarioLogado = "select usrEmail,usrApelido from usuario where UsrCodigo =".$_SESSION['Login'];
+
+    $ResultadoLogado = mysqli_query($oCon,$DadosUsuarioLogado);
+
+    if($RegLogado = mysqli_fetch_assoc($ResultadoLogado)){
+
 
     $FavoritosMostra = mysqli_query($oCon,$DadosFavoritos);
 ?>
@@ -186,6 +201,16 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
               <br>      
               <a class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A"><i class="material-icons left">chat</i>Pedir Troca</a>
                      
+
+                     <div>
+                      <form action="./conexoesPhp/enviaEmail.php" method="post">
+                       <input name="emailUsuarioProduto" value="<?php echo $RegProduto['usrEmail'] ?>">
+                       <input name="emailUsuarioLogado" value="<?php echo $RegLogado['usrEmail']?>">
+                       <input name="tituloAnuncio" value="<?php echo $RegProduto['ancTitulo']?>">
+                       <input  name="nomeUsuario" value="<?php echo $RegProduto['usrApelido']?>">
+                       <button id="btnEnviaEmail"></button>
+                      </form>
+                     </div>
 
                <div class="card-content">
 
@@ -278,6 +303,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
 </html>
 <?php
+}
 }
 
 mysqli_free_result($DadosDoProduto);
