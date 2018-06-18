@@ -74,6 +74,9 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
   background-color:#1e88e5 !important;
 }
 
+#MostraEnvio{
+  display: none;
+}
 
 
 </style>
@@ -128,6 +131,8 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
         
         if(confirm("Deseja realmente selecionar este produto?")){
           document.getElementById('ProdutoEscolhido').value = responseText;
+          document.getElementById('MostraEnvio').style.display="block";
+
         }else{
            document.getElementById('ProdutoEscolhido').value = "não";
         }
@@ -167,7 +172,9 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
     
     <div class="container">
         
-
+    <blockquote id="MostraEnvio">
+      Enviado com sucesso
+    </blockquote>
         <div class="card horizontal">
 
                 <div class="card-image col s12 m12 l12">
@@ -391,9 +398,12 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
     $('.carousel').carousel('next');
     setTimeout(autoplay, 3000);
      }
+
  $(document).ready(function(){
     $('.modal').modal();
+    
   });
+
 
 </script>
 
