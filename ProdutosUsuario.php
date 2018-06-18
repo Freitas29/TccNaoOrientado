@@ -946,8 +946,6 @@ ul#categorias{
 
                                  <span>Selecione as fotos do seu produto</span>
 
-                                 <input type="file" multiple name="FotoProduto[]" required id="AdicionaFoto">
-
                                  <input type="file" multiple name="FotoProduto[]" required onchange="MostraFoto()" id="AdicionaFoto">
 
                                   

@@ -19,7 +19,7 @@ $mail->Password = "informatica";
 $mail->setFrom("{$emailLogado}", "{$nome}");
 $mail->addAddress("{$emailProduto}");
 $mail->Subject = "Usuário {$nome} deseja trocar com você";
-$mail->msgHTML("<html>de: {$nome}<br/>email: {$emailProduto}<br/>mensagem: {$titulo}\nEntre em contato com ele(a) pelo numero: {$telefone}</html>");
+$mail->msgHTML("<html>de: {$nome}<br/>email: {$emailProduto}<br/>mensagem: {$titulo}<br/>Entre em contato com ele(a) pelo numero: {$telefone}</html>");
 $mail->AltBody = "de: {$nome}\nemail:{$emailProduto}\nProduto no qual ele deseja trocar: {$titulo}\nEntre em contato com ele(a) pelo numero: {$telefone}";
 
 if($mail->send()) {

@@ -73,6 +73,9 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
   
   background-color:#1e88e5 !important;
 }
+
+
+
 </style>
 
 <script type="text/javascript">
@@ -111,8 +114,27 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
   }
 
 
-  function Teste(A){
-    alert(A);
+  function EscolheAnuncio(valor){
+   var Objeto = new XMLHttpRequest();
+      
+      with(Objeto){
+      
+      open('GET','./conexoesPhp/pegaAnuncioSeleciona.php?codigoAnuncio='+valor+'');
+      
+      send();
+
+      
+        onload = function(){
+        
+        if(confirm("Deseja realmente selecionar este produto?")){
+          document.getElementById('ProdutoEscolhido').value = responseText;
+        }else{
+           document.getElementById('ProdutoEscolhido').value = "não";
+        }
+        
+        
+        }
+      }
   }
 </script>
 
@@ -199,8 +221,79 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
               <br>        
               <br>      
-              <a class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A"><i class="material-icons left">chat</i>Pedir Troca</a>
-                     
+              
+                   <button data-target="modal1" class="btn modal-trigger blue darken-2 waves-effect waves-light btn  N/A-text text-N/A">Pedir troca</button>
+
+                   <div id="modal1" class="modal" id="Modal">
+                      <div class="modal-content">
+                        <h4>Escolha o produto que no qual você deseja trocar com este usuário</h4>
+
+
+
+                         <?php
+          
+            $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where ancCod_Criador = '.$_SESSION['Login'];
+
+            $DadosDoProdutosAnunciados = mysqli_query($oCon,$SelecionaOsProdutosAnunciados);
+
+            while ($RegProdutosAnunciado = mysqli_fetch_assoc($DadosDoProdutosAnunciados)) {
+              
+
+                $anunciosDoUsuario = $RegProdutosAnunciado['ancCodigo'];
+
+
+        
+            
+          ?>
+          
+
+          
+              <div class="col l3 m3 s3" onclick="EscolheAnuncio(<?php echo $RegProdutosAnunciado['ancCodigo']?>)">
+                <div class="card" style=" word-wrap: break-word;">
+                  <div class="card-image" style="max-width: 100% !important;">
+  
+                     <?php 
+
+                     $Fotos = "select ancCodigo,fotoDescricao,foto_cod_usuario,foto_cod_anuncio from anuncio inner join fotosprodutos on ancCodigo = fotosprodutos.foto_cod_anuncio where foto_cod_anuncio =".$anunciosDoUsuario.' order by  foto_cod asc limit 1';
+
+                     $DadosDasFotos = mysqli_query($oCon,$Fotos);
+
+                     while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
+                      
+                      ?>
+                    <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>" style=" border-radius: 2px 0 0 2px;max-width: 100%;width: 100% !important;">
+                    
+
+                    <?php 
+                   }
+                   ?>
+                  </div>
+
+                  <div class="card-content">
+                    <span class="card-title"><?php echo $RegProdutosAnunciado['ancTitulo']?></span>
+                    <p id="Desc"><?php echo $RegProdutosAnunciado['ancDesc']?></p>
+                  </div>
+
+                </div>
+              </div>
+        
+            
+          <?php
+            
+          }
+        
+          ?>
+          </div>
+
+
+
+
+                        <p></p>
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                      </div>
+                    </div>
 
                      <div>
                       <form action="./conexoesPhp/enviaEmail.php" method="post">
@@ -209,6 +302,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                        <input name="tituloAnuncio" value="<?php echo $RegProduto['ancTitulo']?>">
                        <input  name="nomeUsuario" value="<?php echo $RegProduto['usrApelido']?>">
                        <input  name="Telefone" value="<?php echo $RegProduto['usrTelefone']?>">
+                       <input name="ProdutoEscolhidoNome"  id="ProdutoEscolhido">
                        <button id="btnEnviaEmail"></button>
                       </form>
                      </div>
@@ -297,7 +391,9 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
     $('.carousel').carousel('next');
     setTimeout(autoplay, 3000);
      }
-
+ $(document).ready(function(){
+    $('.modal').modal();
+  });
 
 </script>
 
