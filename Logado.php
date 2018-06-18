@@ -143,7 +143,6 @@
 
 	#ResultadoBusca{
 	background-color: #1e88e5;
-    z-index: 1;
     width: 100%;
     height: 100%;
     display: none;

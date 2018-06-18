@@ -271,6 +271,8 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
     $('.carousel').carousel('next');
     setTimeout(autoplay, 3000);
      }
+
+
 </script>
 
 

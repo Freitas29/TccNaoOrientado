@@ -25,6 +25,7 @@
 
 	function FechaTudo(){
 		document.getElementById('menu-mobile').style.visibility="visible";
+		DesativaForm();
 	}
 
 
@@ -66,10 +67,15 @@
 			document.getElementById('divDaBusca').style.display="inline-grid";
 	}
 
-	function DesativaForm(){
-		document.getElementById('divDaBusca').style.display="none";
+		function DesativaForm(){
+		//document.getElementById('resultadoDasBuscas').style.display="none";
+		var x = document.getElementById("ResultadoBusca").getElementsByTagName("LI");
+    	a = x.length;
+		var i;
+		for(i = 0;i<a;i++){
+			document.getElementById('ResultadoBusca').style.display="none";
+		}
 	}
-
 	
 
 	</script>
@@ -128,7 +134,7 @@
 
 	#ResultadoBusca{
 	background-color: #1e88e5;
-    z-index: 1;
+     z-index: 999;
     width: 100%;
     height: 100%;
     display: none;
