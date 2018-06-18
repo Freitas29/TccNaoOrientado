@@ -4,6 +4,7 @@ $emailProduto = $_POST["emailUsuarioProduto"];
 $emailLogado = $_POST["emailUsuarioLogado"];
 $titulo = $_POST["tituloAnuncio"];
 $nome = $_POST["nomeUsuario"];
+$telefone = $_POST["Telefone"];
 require_once("../PHPMailerAutoload.php");
 
 $mail = new PHPMailer();
@@ -18,8 +19,8 @@ $mail->Password = "informatica";
 $mail->setFrom("{$emailLogado}", "{$nome}");
 $mail->addAddress("{$emailProduto}");
 $mail->Subject = "Usuário {$nome} deseja trocar com você";
-$mail->msgHTML("<html>de: {$nome}<br/>email: {$emailProduto}<br/>mensagem: {$titulo}</html>");
-$mail->AltBody = "de: {$nome}\nemail:{$emailProduto}\nProduto no qual ele deseja trocar: {$titulo}";
+$mail->msgHTML("<html>de: {$nome}<br/>email: {$emailProduto}<br/>mensagem: {$titulo}\nEntre em contato com ele(a) pelo numero: {$telefone}</html>");
+$mail->AltBody = "de: {$nome}\nemail:{$emailProduto}\nProduto no qual ele deseja trocar: {$titulo}\nEntre em contato com ele(a) pelo numero: {$telefone}";
 
 if($mail->send()) {
     echo "Mensagem enviada com sucesso";

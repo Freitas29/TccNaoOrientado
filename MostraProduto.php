@@ -208,6 +208,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                        <input name="emailUsuarioLogado" value="<?php echo $RegLogado['usrEmail']?>">
                        <input name="tituloAnuncio" value="<?php echo $RegProduto['ancTitulo']?>">
                        <input  name="nomeUsuario" value="<?php echo $RegProduto['usrApelido']?>">
+                       <input  name="Telefone" value="<?php echo $RegProduto['usrTelefone']?>">
                        <button id="btnEnviaEmail"></button>
                       </form>
                      </div>
