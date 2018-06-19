@@ -292,13 +292,25 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                         <p></p>
                       </div>
                     
-               
+                    <?php 
+
+                    $selecionaNomeUsuario = 'select usrApelido,usrEmail from usuario where UsrCodigo =  '.$_SESSION['Login'];
+                    
+                    $resultadoNome = mysqli_query($oCon,$selecionaNomeUsuario);
+
+                    if($RegNome = mysqli_fetch_assoc($resultadoNome)){
+                      $nomeUsuario = $RegNome['usrApelido'];
+                    
+
+
+                    ?>
+
                      <div style="visibility: hidden;display: none;">
                       <form action="./conexoesPhp/enviaEmail.php" method="post">
                        <input name="emailUsuarioProduto" value="<?php echo $RegProduto['usrEmail'] ?>">
                        <input name="emailUsuarioLogado" value="<?php echo $RegLogado['usrEmail']?>">
                        <input name="tituloAnuncio" value="<?php echo $RegProduto['ancTitulo']?>">
-                       <input  name="nomeUsuario" value="<?php echo $_SESSION['Login']?>">
+                       <input  name="nomeUsuario" value="<?php echo $nomeUsuario ?>">
                        <input  name="Telefone" value="<?php echo $RegProduto['usrTelefone']?>">
                        <input  name="codigo" value="<?php echo $RegProduto['UsrCodigo']?>">
                        <input name="ProdutoEscolhidoNome"  id="ProdutoEscolhido">
@@ -306,6 +318,9 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                       </form>
                      </div>
 
+                     <?php
+                     }
+                     ?>
                <div class="card-content">
 
                 <h5>Nome Do Produto</h5>
