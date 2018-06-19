@@ -1,6 +1,12 @@
 <head>
  <meta charset="UTF-8">
 </head>
+
+<style type="text/css">
+	#imgEmai{
+		width: 20%;
+	}
+</style>
 <?php
 session_start();
 $emailProduto = $_POST["emailUsuarioProduto"];
@@ -9,6 +15,8 @@ $titulo = $_POST["tituloAnuncio"];
 $nome = $_POST["nomeUsuario"];
 $telefone = $_POST["Telefone"];
 $codigo = $_POST["codigo"];
+$foto= $_POST["fotoUsuarioProduto"];
+
 
 require_once("../PHPMailerAutoload.php");
 $mail = new PHPMailer();
@@ -22,7 +30,14 @@ $mail->Password = "informatica";
 $mail->setFrom("{$emailLogado}", "{$nome}");
 $mail->addAddress("{$emailProduto}");
 $mail->Subject = "Usuário {$nome} deseja trocar com você";
-$mail->msgHTML("<html>de: {$nome}<br/>email: {$emailProduto}<br/>mensagem: {$titulo}<br/>Entre em contato com ele(a) pelo numero: {$telefone}</html>");
+$mail->msgHTML("<html>Usuário {$nome} deseja trocar com você!
+	<br/>
+	E-mail de contato: {$emailProduto}<br/>
+	Produto: {$titulo} <br/>
+	Entre em contato com ele(a) pelo numero: {$telefone}<br/>
+	<img src='http://localhost/TccNaoOrientado/Produtos/{$foto}' style='width:30%;'><br/>
+	Deseja ver o anuncio?<a href='http://localhost/TccNaoOrientado/MostraProduto.php?id_produto=$codigo'>fdks</a></html>");
+
 $mail->AltBody = "de: {$nome}\nemail:{$emailProduto}\nProduto no qual ele deseja trocar: {$titulo}\nEntre em contato com ele(a) pelo numero: {$telefone}";
 if($mail->send()) {
     echo "Mensagem enviada com sucesso";

@@ -182,6 +182,8 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
                   while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
                   
+                    //Para mandar ao email
+                    $FotoEmail = $FotosEnd['fotoDescricao'];
 
                   ?>
                   <a class="carousel-item" ><img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>" id="Imagem" ></a>
@@ -312,6 +314,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                      <div style="visibility: hidden;display: none;">
                       <form action="./conexoesPhp/enviaEmail.php" method="post">
                        <input name="emailUsuarioProduto" value="<?php echo $RegProduto['usrEmail'] ?>">
+                       <input name="fotoUsuarioProduto" value="<?php echo $FotoEmail ?>">
                        <input name="emailUsuarioLogado" value="<?php echo $RegLogado['usrEmail']?>">
                        <input name="tituloAnuncio" value="<?php echo $RegProduto['ancTitulo']?>">
                        <input  name="nomeUsuario" value="<?php echo $nomeUsuario ?>">
