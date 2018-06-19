@@ -26,7 +26,8 @@ $mail->msgHTML("<html>de: {$nome}<br/>email: {$emailProduto}<br/>mensagem: {$tit
 $mail->AltBody = "de: {$nome}\nemail:{$emailProduto}\nProduto no qual ele deseja trocar: {$titulo}\nEntre em contato com ele(a) pelo numero: {$telefone}";
 if($mail->send()) {
     echo "Mensagem enviada com sucesso";
-    header("location:../efetuaTroca.php");
+	header("location:../MostraProduto.php?id_produto=$codigo");
+	$_SESSION['Enviado'] = "Pedido de troca enviado ao com sucesso!";
 } else {
     echo "Erro ao enviar  " . $mail->ErrorInfo;
     

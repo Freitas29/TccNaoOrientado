@@ -167,8 +167,12 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
  <div class="row">
     
     <div class="container">
-        
-
+    <?php
+         if (!empty($_SESSION['Enviado'])) {
+                      echo "<p style='color:#4caf50'>".$_SESSION['Enviado'];
+                      unset($_SESSION['Enviado']);
+                    }
+      ?>
         <div class="card horizontal">
 
                 <div class="card-image col s12 m12 l12">
@@ -312,7 +316,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                        <input name="tituloAnuncio" value="<?php echo $RegProduto['ancTitulo']?>">
                        <input  name="nomeUsuario" value="<?php echo $nomeUsuario ?>">
                        <input  name="Telefone" value="<?php echo $RegProduto['usrTelefone']?>">
-                       <input  name="codigo" value="<?php echo $RegProduto['UsrCodigo']?>">
+                       <input  name="codigo" value="<?php echo $ProdutoCod; ?>">
                        <input name="ProdutoEscolhidoNome"  id="ProdutoEscolhido">
                        <button id="btnEnviaEmail"></button>
                       </form>
@@ -320,7 +324,11 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
                      <?php
                      }
+
+                   
                      ?>
+
+
                <div class="card-content">
 
                 <h5>Nome Do Produto</h5>
