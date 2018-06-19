@@ -292,7 +292,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                         <p></p>
                       </div>
                     
-
+               
                      <div style="visibility: hidden;display: none;">
                       <form action="./conexoesPhp/enviaEmail.php" method="post">
                        <input name="emailUsuarioProduto" value="<?php echo $RegProduto['usrEmail'] ?>">
