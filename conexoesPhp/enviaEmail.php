@@ -15,6 +15,7 @@ $titulo = $_POST["tituloAnuncio"];
 $nome = $_POST["nomeUsuario"];
 $telefone = $_POST["Telefone"];
 $codigo = $_POST["codigo"];
+$codigoProdutoEscolhidoParaTrocar = $_POST["codigoProdutoEscolhidoParaTrocar"];
 $foto= $_POST["fotoUsuarioProduto"];
 
 
@@ -33,10 +34,11 @@ $mail->Subject = "Usuário {$nome} deseja trocar com você";
 $mail->msgHTML("<html>Usuário {$nome} deseja trocar com você!
 	<br/>
 	E-mail de contato: {$emailProduto}<br/>
-	Produto: {$titulo} <br/>
+	Seu Produto: {$titulo} <br/>
 	Entre em contato com ele(a) pelo numero: {$telefone}<br/>
-	<img src='http://localhost/TccNaoOrientado/Produtos/{$foto}' style='width:30%;'><br/>
-	Deseja ver o anuncio?<a href='http://localhost/TccNaoOrientado/MostraProduto.php?id_produto=$codigo'>fdks</a></html>");
+	Produto no qual ele quer trocar com você: <br><img src='http://localhost/TccNaoOrientado/Produtos/{$foto}' style='width:30%;'><br/>
+	Deseja ver o anuncio?<br>
+	<a href='http://localhost/TccNaoOrientado/MostraProduto.php?id_produto=$codigoProdutoEscolhidoParaTrocar'>fdks</a></html>");
 
 $mail->AltBody = "de: {$nome}\nemail:{$emailProduto}\nProduto no qual ele deseja trocar: {$titulo}\nEntre em contato com ele(a) pelo numero: {$telefone}";
 if($mail->send()) {

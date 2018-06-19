@@ -249,6 +249,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                 $anunciosDoUsuario = $RegProdutosAnunciado['ancCodigo'];
 
 
+
         
             
           ?>
@@ -267,6 +268,9 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
                      while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
                       
+                      //Foto para enviar no e-mail
+                      $FotoDoAnuncio =  $FotosEnd['fotoDescricao'];
+
                       ?>
                     <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>" style=" border-radius: 2px 0 0 2px;max-width: 100%;width: 100% !important;">
                     
@@ -314,12 +318,13 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                      <div style="visibility: hidden;display: none;">
                       <form action="./conexoesPhp/enviaEmail.php" method="post">
                        <input name="emailUsuarioProduto" value="<?php echo $RegProduto['usrEmail'] ?>">
-                       <input name="fotoUsuarioProduto" value="<?php echo $FotoEmail ?>">
+                       <input name="fotoUsuarioProduto" value="<?php echo $FotoDoAnuncio ?>">
                        <input name="emailUsuarioLogado" value="<?php echo $RegLogado['usrEmail']?>">
                        <input name="tituloAnuncio" value="<?php echo $RegProduto['ancTitulo']?>">
                        <input  name="nomeUsuario" value="<?php echo $nomeUsuario ?>">
                        <input  name="Telefone" value="<?php echo $RegProduto['usrTelefone']?>">
                        <input  name="codigo" value="<?php echo $ProdutoCod; ?>">
+                       <input  name="codigoProdutoEscolhidoParaTrocar" value="<?php echo $anunciosDoUsuario; ?>">
                        <input name="ProdutoEscolhidoNome"  id="ProdutoEscolhido">
                        <button id="btnEnviaEmail"></button>
                       </form>
