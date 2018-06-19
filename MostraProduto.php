@@ -128,6 +128,7 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
         
         if(confirm("Deseja realmente selecionar este produto?")){
           document.getElementById('ProdutoEscolhido').value = responseText;
+          document.getElementById('btnEnviaEmail').click();
         }else{
            document.getElementById('ProdutoEscolhido').value = "não";
         }
@@ -290,18 +291,16 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
                         <p></p>
                       </div>
-                      <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-                      </div>
-                    </div>
+                    
 
-                     <div>
+                     <div style="visibility: hidden;display: none;">
                       <form action="./conexoesPhp/enviaEmail.php" method="post">
                        <input name="emailUsuarioProduto" value="<?php echo $RegProduto['usrEmail'] ?>">
                        <input name="emailUsuarioLogado" value="<?php echo $RegLogado['usrEmail']?>">
                        <input name="tituloAnuncio" value="<?php echo $RegProduto['ancTitulo']?>">
-                       <input  name="nomeUsuario" value="<?php echo $RegProduto['usrApelido']?>">
+                       <input  name="nomeUsuario" value="<?php echo $_SESSION['Login']?>">
                        <input  name="Telefone" value="<?php echo $RegProduto['usrTelefone']?>">
+                       <input  name="codigo" value="<?php echo $RegProduto['UsrCodigo']?>">
                        <input name="ProdutoEscolhidoNome"  id="ProdutoEscolhido">
                        <button id="btnEnviaEmail"></button>
                       </form>
