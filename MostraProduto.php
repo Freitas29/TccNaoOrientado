@@ -130,9 +130,7 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
         onload = function(){
         
         if(confirm("Deseja realmente selecionar este produto?")){
-          document.getElementById('ProdutoEscolhido').value = responseText;
           document.getElementById('ProdutoEscolhidoTabela').value = valor;
-           //document.getElementById('btnEnviaEmail').click();
           document.getElementById('enviaTroca').click();
         }else{
            document.getElementById('ProdutoEscolhido').value = "não";
@@ -142,7 +140,6 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
         }
       }
   }
-
                     
  
 </script>
@@ -182,6 +179,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
          if (!empty($_SESSION['Enviado'])) {
                       echo "<p style='color:#4caf50'>".$_SESSION['Enviado'];
                       unset($_SESSION['Enviado']);
+                      echo "FJKLDSJLKFSDLKF";
                     }
       ?>
         <div class="card horizontal">
@@ -260,9 +258,9 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                 $anunciosDoUsuario = $RegProdutosAnunciado['ancCodigo'];
                 $tituloDoUsuarioLogado = $RegProdutosAnunciado['ancTitulo'];
 
+                $anuncioEnvia = $RegProdutosAnunciado['ancCodigo'];
 
-
-        
+                
             
           ?>
           
@@ -328,20 +326,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                     ?>
 
 
-                     <div style="visibility: hidden;display: none;">
-                      <form action="./conexoesPhp/enviaEmail.php" method="post">
-                       <input name="emailUsuarioProduto" value="<?php echo $RegProduto['usrEmail'] ?>">
-                       <input name="fotoUsuarioProduto" value="<?php echo $FotoDoAnuncio ?>">
-                       <input name="emailUsuarioLogado" value="<?php echo $RegLogado['usrEmail']?>">
-                       <input name="tituloAnuncio" value="<?php echo $tituloDoUsuarioLogado?>">
-                       <input  name="nomeUsuario" value="<?php echo $nomeUsuario ?>">
-                       <input  name="Telefone" value="<?php echo $RegNome['usrTelefone']?>">
-                       <input  name="codigo" value="<?php echo $ProdutoCod; ?>">
-                       <input  name="codigoProdutoEscolhidoParaTrocar" value="<?php echo $anunciosDoUsuario; ?>">
-                       <input name="ProdutoEscolhidoNome"  id="ProdutoEscolhido">
-                       <button id="btnEnviaEmail"></button>
-                      </form>
-                     </div>
+                   
 
                      <!--Essa div é para enviar ao trocas-->
                      <div style="visibility: hidden;display: none;">
@@ -349,6 +334,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                        <input name="usuarioEnvia" value="<?php echo $_SESSION['Login'];?>">
                        <input name="usuarioRecebe" value="<?php echo $CodigoUsuarioLogado ?>">
                        <input name="anuncioRecebe" value="<?php echo $ProdutoCod; ?>"">
+                       <input name="codigo" value="<?php echo $ProdutoCod; ?>"">
                        <input name="anuncioEnvia" id="ProdutoEscolhidoTabela">
                        <button id="enviaTroca"></button>
                      </form>
