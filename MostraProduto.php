@@ -5,7 +5,7 @@ include './conexoesPhp/Conexao.php';
 
 $Id_Produto = $_GET['id_produto'];
 
-$Produto = "select anuncio.ancTitulo,ancCodigo,ancEstadoItem,ancDesc,ancCategoria_interesse,usuario.usrApelido,usrEmail,usrLocalidade,usuario.usrTelefone,categoria.ctgNome from ((anuncio inner join usuario on ancCod_Criador = usuario.usrCodigo) inner join categoria on anuncio.ancCod_Categoria = categoria.ctgCodigo)where ancCodigo =".$Id_Produto;
+$Produto = "select anuncio.ancTitulo,ancCodigo,ancEstadoItem,ancDesc,ancCategoria_interesse,usuario.usrApelido,usrEmail,UsrCodigo,usrLocalidade,usuario.usrTelefone,categoria.ctgNome from ((anuncio inner join usuario on ancCod_Criador = usuario.usrCodigo) inner join categoria on anuncio.ancCod_Categoria = categoria.ctgCodigo)where ancCodigo =".$Id_Produto;
 
 $DadosDoProduto = mysqli_query($oCon,$Produto);
 
@@ -131,7 +131,9 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
         
         if(confirm("Deseja realmente selecionar este produto?")){
           document.getElementById('ProdutoEscolhido').value = responseText;
-         document.getElementById('btnEnviaEmail').click();
+          document.getElementById('ProdutoEscolhidoTabela').value = valor;
+           //document.getElementById('btnEnviaEmail').click();
+          document.getElementById('enviaTroca').click();
         }else{
            document.getElementById('ProdutoEscolhido').value = "não";
         }
@@ -140,6 +142,9 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
         }
       }
   }
+
+                    
+ 
 </script>
 
 <body>
@@ -150,7 +155,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
   $ProdutoCod = $RegProduto['ancCodigo'];
   $NomeUsuarioLogado = $RegProduto['usrApelido'];
-
+  $CodigoUsuarioLogado = $RegProduto['UsrCodigo'];
   $DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$ProdutoCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
 
 
@@ -322,6 +327,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
                     ?>
 
+
                      <div style="visibility: hidden;display: none;">
                       <form action="./conexoesPhp/enviaEmail.php" method="post">
                        <input name="emailUsuarioProduto" value="<?php echo $RegProduto['usrEmail'] ?>">
@@ -337,6 +343,16 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                       </form>
                      </div>
 
+                     <!--Essa div é para enviar ao trocas-->
+                     <div style="visibility: hidden;display: none;">
+                      <form action="./conexoesPhp/cadastraTroca.php" method="post">
+                       <input name="usuarioEnvia" value="<?php echo $_SESSION['Login'];?>">
+                       <input name="usuarioRecebe" value="<?php echo $CodigoUsuarioLogado ?>">
+                       <input name="anuncioRecebe" value="<?php echo $ProdutoCod; ?>"">
+                       <input name="anuncioEnvia" id="ProdutoEscolhidoTabela">
+                       <button id="enviaTroca"></button>
+                     </form>
+                    </div>
                      <?php
                      }
 
