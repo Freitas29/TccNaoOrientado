@@ -208,24 +208,9 @@
 
 			include './conexoesPhp/Conexao.php';
 			
-			$ConteudoCelular = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=4 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
+			
 			
 			$Usuario = 'select usrEmail,usrApelido,usrFoto from usuario where UsrCodigo='.$_SESSION['Login'];
-			
-			//jogos
-			$Conteudo = ' select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=5 and ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
-			
-			$Conteudo2 = 'select * from anuncio where ancCod_Criador != '.$_SESSION['Login'].' order by ancCodigo desc limit 4';
-
-			$Livros = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=2 and ancCod_Criador != '.$_SESSION['Login'].'  order by ancCodigo desc limit 4';
-
-			$DadosLivros = mysqli_query($oCon,$Livros);
-			
-			$Dados = mysqli_query($oCon,$Conteudo);
-			
-			$Dados2 = mysqli_query($oCon,$Conteudo2);
-			
-			$DadosCelular = mysqli_query($oCon,$ConteudoCelular);
 			
 			$DadosUsuario = mysqli_query($oCon,$Usuario);
 
@@ -336,6 +321,26 @@
      
     
   </nav>
+
+<!--Conteudo do ste começa aqui -->
+
+<?php
+
+//Trocado é diferente de um pois tudo que for igual a 1 significa que ele já foi trocado e não aparecera no select
+	$DadosQuemRecebe = "select ancTitulo,usrApelido,anuncioRecebe from anuncio inner join trocas on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and trocado != 1";
+	$ResultadoQuemRecebe = mysqli_query($oCon,$DadosQuemRecebe);
+
+	$LinhasResultantes = mysqli_num_rows($ResultadoQuemRecebe);
+
+	if($LinhasResultantes == 0){
+		echo "Nâo tem";
+	}else{
+		while($RegQuemRecebe = mysqli_fetch_assoc($ResultadoQuemRecebe)){
+			echo $RegQuemRecebe['ancTitulo'];
+		}
+	}
+
+?>
 
   <div class="container">
 
