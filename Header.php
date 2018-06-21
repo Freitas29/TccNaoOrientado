@@ -6,6 +6,7 @@
 <meta charset="utf-8">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+<script src="./Materialize/js/materialize.js"></script>
 <style type="text/css">
   nav{
   
@@ -92,7 +93,9 @@ nav .brand-logo.left {
     for(i = 0;i<a;i++){
       document.getElementById('ResultadoBusca').style.display="none";
     }
+	
   }
+ 
 </script>
 
 <body style="background-color: whitesmoke;" onclick="FechaTudo()">
@@ -129,14 +132,14 @@ nav .brand-logo.left {
         <li><a class="modal-trigger" href="#modal1">Entrar</a></li>
         <li><a href="index.php">Página Inicial</a></li>
         <li><a href="PaginaDeCadastro.php">Cadastrar</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
+		<li><a href="Sobre.php">Sobre</a></li>
       </ul>
-      <ul class="side-nav" id="menu-mobile">
+      <ul class="side-nav" id="menu-mobile" >
 
         <li><a href="sass.html">Sass</a></li>
         <li><a href="index.php">Página Inicial</a></li>
         <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
+	  <li><a href="Sobre.php">Sobre</a></li>
       </ul>
     </div>
      
@@ -201,6 +204,13 @@ nav .brand-logo.left {
     </div>
     </form>
   </div>
-          
+  <script src="jQuery.js"></script>
+  
+  <script>
+// Modal de login
+$(document).ready(function(){
+ $('.modal').modal();
+ });
+ </script>
 
 </body>
