@@ -131,12 +131,7 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
         
         if(confirm("Deseja realmente selecionar este produto?")){
           document.getElementById('ProdutoEscolhido').value = responseText;
-<<<<<<< HEAD
-          document.getElementById('MostraEnvio').style.display="block";
-
-=======
-          document.getElementById('btnEnviaEmail').click();
->>>>>>> 07804767ee3943b1c4af855a39c8f3aa57866fc3
+         document.getElementById('btnEnviaEmail').click();
         }else{
            document.getElementById('ProdutoEscolhido').value = "não";
         }
@@ -154,6 +149,7 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
 if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
   $ProdutoCod = $RegProduto['ancCodigo'];
+  $NomeUsuarioLogado = $RegProduto['usrApelido'];
 
   $DadosFavoritos = ' select favoritos_cod,favoritos_cod_anuncio,favoritos_cod_usuario,ancCodigo from favoritos inner join anuncio on favoritos_cod_anuncio = ancCodigo where ancCodigo ='.$ProdutoCod.' and  favoritos_cod_usuario ='.$_SESSION['Login'];
 
@@ -175,19 +171,14 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
  <div class="row">
     
     <div class="container">
-<<<<<<< HEAD
-        
-    <blockquote id="MostraEnvio">
-      Enviado com sucesso
-    </blockquote>
-=======
+
+  
     <?php
          if (!empty($_SESSION['Enviado'])) {
                       echo "<p style='color:#4caf50'>".$_SESSION['Enviado'];
                       unset($_SESSION['Enviado']);
                     }
       ?>
->>>>>>> 07804767ee3943b1c4af855a39c8f3aa57866fc3
         <div class="card horizontal">
 
                 <div class="card-image col s12 m12 l12">
@@ -262,6 +253,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
               
 
                 $anunciosDoUsuario = $RegProdutosAnunciado['ancCodigo'];
+                $tituloDoUsuarioLogado = $RegProdutosAnunciado['ancTitulo'];
 
 
 
@@ -319,7 +311,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                     
                     <?php 
 
-                    $selecionaNomeUsuario = 'select usrApelido,usrEmail from usuario where UsrCodigo =  '.$_SESSION['Login'];
+                    $selecionaNomeUsuario = 'select usrApelido,usrEmail,usrTelefone from usuario where UsrCodigo =  '.$_SESSION['Login'];
                     
                     $resultadoNome = mysqli_query($oCon,$selecionaNomeUsuario);
 
@@ -335,9 +327,9 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                        <input name="emailUsuarioProduto" value="<?php echo $RegProduto['usrEmail'] ?>">
                        <input name="fotoUsuarioProduto" value="<?php echo $FotoDoAnuncio ?>">
                        <input name="emailUsuarioLogado" value="<?php echo $RegLogado['usrEmail']?>">
-                       <input name="tituloAnuncio" value="<?php echo $RegProduto['ancTitulo']?>">
+                       <input name="tituloAnuncio" value="<?php echo $tituloDoUsuarioLogado?>">
                        <input  name="nomeUsuario" value="<?php echo $nomeUsuario ?>">
-                       <input  name="Telefone" value="<?php echo $RegProduto['usrTelefone']?>">
+                       <input  name="Telefone" value="<?php echo $RegNome['usrTelefone']?>">
                        <input  name="codigo" value="<?php echo $ProdutoCod; ?>">
                        <input  name="codigoProdutoEscolhidoParaTrocar" value="<?php echo $anunciosDoUsuario; ?>">
                        <input name="ProdutoEscolhidoNome"  id="ProdutoEscolhido">
