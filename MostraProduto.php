@@ -131,8 +131,12 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
         
         if(confirm("Deseja realmente selecionar este produto?")){
           document.getElementById('ProdutoEscolhido').value = responseText;
+<<<<<<< HEAD
           document.getElementById('MostraEnvio').style.display="block";
 
+=======
+          document.getElementById('btnEnviaEmail').click();
+>>>>>>> 07804767ee3943b1c4af855a39c8f3aa57866fc3
         }else{
            document.getElementById('ProdutoEscolhido').value = "não";
         }
@@ -171,10 +175,19 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
  <div class="row">
     
     <div class="container">
+<<<<<<< HEAD
         
     <blockquote id="MostraEnvio">
       Enviado com sucesso
     </blockquote>
+=======
+    <?php
+         if (!empty($_SESSION['Enviado'])) {
+                      echo "<p style='color:#4caf50'>".$_SESSION['Enviado'];
+                      unset($_SESSION['Enviado']);
+                    }
+      ?>
+>>>>>>> 07804767ee3943b1c4af855a39c8f3aa57866fc3
         <div class="card horizontal">
 
                 <div class="card-image col s12 m12 l12">
@@ -184,6 +197,8 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
                   while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
                   
+                    //Para mandar ao email
+                    $FotoEmail = $FotosEnd['fotoDescricao'];
 
                   ?>
                   <a class="carousel-item" ><img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>" id="Imagem" ></a>
@@ -249,6 +264,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                 $anunciosDoUsuario = $RegProdutosAnunciado['ancCodigo'];
 
 
+
         
             
           ?>
@@ -267,6 +283,9 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
                      while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
                       
+                      //Foto para enviar no e-mail
+                      $FotoDoAnuncio =  $FotosEnd['fotoDescricao'];
+
                       ?>
                     <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>" style=" border-radius: 2px 0 0 2px;max-width: 100%;width: 100% !important;">
                     
@@ -297,22 +316,41 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
                         <p></p>
                       </div>
-                      <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-                      </div>
-                    </div>
+                    
+                    <?php 
 
-                     <div>
+                    $selecionaNomeUsuario = 'select usrApelido,usrEmail from usuario where UsrCodigo =  '.$_SESSION['Login'];
+                    
+                    $resultadoNome = mysqli_query($oCon,$selecionaNomeUsuario);
+
+                    if($RegNome = mysqli_fetch_assoc($resultadoNome)){
+                      $nomeUsuario = $RegNome['usrApelido'];
+                    
+
+
+                    ?>
+
+                     <div style="visibility: hidden;display: none;">
                       <form action="./conexoesPhp/enviaEmail.php" method="post">
                        <input name="emailUsuarioProduto" value="<?php echo $RegProduto['usrEmail'] ?>">
+                       <input name="fotoUsuarioProduto" value="<?php echo $FotoDoAnuncio ?>">
                        <input name="emailUsuarioLogado" value="<?php echo $RegLogado['usrEmail']?>">
                        <input name="tituloAnuncio" value="<?php echo $RegProduto['ancTitulo']?>">
-                       <input  name="nomeUsuario" value="<?php echo $RegProduto['usrApelido']?>">
+                       <input  name="nomeUsuario" value="<?php echo $nomeUsuario ?>">
                        <input  name="Telefone" value="<?php echo $RegProduto['usrTelefone']?>">
+                       <input  name="codigo" value="<?php echo $ProdutoCod; ?>">
+                       <input  name="codigoProdutoEscolhidoParaTrocar" value="<?php echo $anunciosDoUsuario; ?>">
                        <input name="ProdutoEscolhidoNome"  id="ProdutoEscolhido">
                        <button id="btnEnviaEmail"></button>
                       </form>
                      </div>
+
+                     <?php
+                     }
+
+                   
+                     ?>
+
 
                <div class="card-content">
 

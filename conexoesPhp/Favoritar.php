@@ -5,7 +5,11 @@
 session_start();
 
 if(!isset($_SESSION['Login'])){
-	echo "Faça login primeiro";
+	header ("location:../PaginaDeLogin.php");
+	echo "<script>
+	alert(faça o login);
+			<script>
+	";
 }else{
 
 $FavoritoCod = $_GET['id_produto'];
