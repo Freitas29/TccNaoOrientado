@@ -77,7 +77,19 @@
 		}
 	}
 
-
+function SalvaRegistro(valor){
+	var Objeto = new XMLHttpRequest();
+			
+			with(Objeto){
+			
+			open('GET','./conexoesPhp/efetuaTrocaDoProduto.php?id_produto='+valor+'');
+			
+			send();
+				onload = function(){
+					 alert(responseText);
+				}
+			}
+} 
 	
 
 	</script>
@@ -372,7 +384,7 @@
 				        <div class="card-content">
 				        	<span class="card-title"><?php echo $RegQuemEnvia['ancTitulo']?></span>
 				          	<p id="Desc"><?php echo $RegQuemEnvia['ancDesc']?></p>
-				          	<button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A">Aceitar</button>
+				          	<button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php $RegQuemEnvia['ancCodigo'] ?>)">Aceitar</button>
 				        
 				        </div>
 
