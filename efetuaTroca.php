@@ -86,7 +86,7 @@ function SalvaRegistro(valor){
 			
 			send();
 				onload = function(){
-					 alert(responseText);
+					 location.reload();
 				}
 			}
 } 
@@ -530,7 +530,7 @@ function SalvaRegistro(valor){
 									          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 									          
 									          <?php
-					}
+													}
 									          ?>
 									        </div>
 											</a>
@@ -540,11 +540,11 @@ function SalvaRegistro(valor){
 									         
 									        </div>
 							<?php
-						}
+						
 
 
 
-
+				 }
 
 
 					?>
@@ -552,7 +552,7 @@ function SalvaRegistro(valor){
 				    </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php echo $RegQuemRecebe['ancCodigo'] ?>)">Aceitar</button>
     </div>
   </div>
 
@@ -570,6 +570,7 @@ function SalvaRegistro(valor){
 
 
   <?php
+ 
   	}
   ?>
 
