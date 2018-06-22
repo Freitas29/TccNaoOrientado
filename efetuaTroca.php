@@ -77,19 +77,22 @@
 		}
 	}
 
-function SalvaRegistro(valor){
+function SalvaRegistro(valor,valor2){
 	var Objeto = new XMLHttpRequest();
-			
+			alert(valor);
+			alert(valor2);
 			with(Objeto){
 			
-			open('GET','./conexoesPhp/efetuaTrocaDoProduto.php?id_produto='+valor+'');
+			open('GET','./conexoesPhp/efetuaTrocaDoProduto.php?id_produto='+valor+'&id_produto2='+valor2+'');
 			
 			send();
 				onload = function(){
-					 location.reload();
+					alert(responseText);
 				}
 			}
 } 
+
+
 	
 
 	</script>
@@ -359,13 +362,13 @@ function SalvaRegistro(valor){
 <?php
 
 //Trocado é diferente de um pois tudo que for igual a 1 significa que ele já foi trocado e não aparecera no select
-	$DadosQuemRecebe = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and trocado != 1";
+	$DadosQuemRecebe = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas t on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and t.trocado != 1";
 	$ResultadoQuemRecebe = mysqli_query($oCon,$DadosQuemRecebe);
 
 	$LinhasResultantesQuemRecebe = mysqli_num_rows($ResultadoQuemRecebe);
 
 		//Aqui já que não trouxe nenhum resultado verificarei se ele tem algum produto que foi solcitado a outro usuário
-		$DadosQuemEnvia = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas on anuncioRecebe = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioEnvia = ".$_SESSION['Login']."  and trocado != 1";
+		$DadosQuemEnvia = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas t on anuncioRecebe = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioEnvia = ".$_SESSION['Login']."  and t.trocado != 1";
 		$ResultadoQuemEnvia = mysqli_query($oCon,$DadosQuemEnvia);
 		$LinhasResultantesQuemEnvia = mysqli_num_rows($ResultadoQuemEnvia);
 		while($RegQuemEnvia = mysqli_fetch_assoc($ResultadoQuemEnvia)){
@@ -379,11 +382,15 @@ function SalvaRegistro(valor){
 
 				    <div class="col l3 m3 s3">
  					<a  href="MostraProduto.php?id_produto=<?php echo $RegQuemEnvia['ancCodigo'];?>" >
+
 				      <div class="card hoverable" style=" word-wrap: break-word;" >
 
 				        <div class="card-image">
 
-				        	 <?php 
+				        	 <?php
+				        	  
+			                    
+
 				        	 //Nessa linha eu estou fazendo um select para pegar as fotos dos anuncios, porem, trazendo apenas uma
 				        	 $Fotos = "select ancCodigo,fotoDescricao,foto_cod_usuario,foto_cod_anuncio from anuncio inner join fotosprodutos on ancCodigo = fotosprodutos.foto_cod_anuncio where foto_cod_anuncio =".$RegQuemEnvia['ancCodigo'].' order by  foto_cod asc limit 1';
 
@@ -454,9 +461,7 @@ function SalvaRegistro(valor){
 				        <div class="card-content">
 				        	<span class="card-title"><?php echo $RegQuemRecebe['ancTitulo']?></span>
 				          <p id="Desc"><?php echo $RegQuemRecebe['ancDesc']?></p>
-				          <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php $RegQuemEnvia['ancCodigo'] ?>)">Aceitar</button>
-				          <hr>
-				          <button data-target="modal1" class="btn modal-trigger">Qual ele deseja</button>
+				          <button data-target="modal1" class="btn modal-trigger">Finalizar</button>
 				        </div>
 
 				       
@@ -539,20 +544,12 @@ function SalvaRegistro(valor){
 									          <p id="Desc"><?php echo $Reg['ancDesc']?></p>
 									         
 									        </div>
-							<?php
-						
-
-
-
-				 }
-
-
-					?>
+			
 				  	
 				    </div>
     </div>
     <div class="modal-footer">
-      <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php echo $RegQuemRecebe['ancCodigo'] ?>)">Aceitar</button>
+      <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php echo $RegQuemRecebe['ancCodigo'].",". $Reg['ancCodigo'] ?>)">Aceitar</button>
     </div>
   </div>
 
@@ -570,7 +567,7 @@ function SalvaRegistro(valor){
 
 
   <?php
- 
+  }
   	}
   ?>
 
