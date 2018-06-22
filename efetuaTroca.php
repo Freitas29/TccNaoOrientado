@@ -12,7 +12,7 @@
 	<head>
 	<!-- Css do materialize -->
 	<link rel="stylesheet" href="./Materialize/css/materialize.css">
-
+  
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
@@ -353,7 +353,9 @@ function SalvaRegistro(valor){
 		$ResultadoQuemEnvia = mysqli_query($oCon,$DadosQuemEnvia);
 		$LinhasResultantesQuemEnvia = mysqli_num_rows($ResultadoQuemEnvia);
 		while($RegQuemEnvia = mysqli_fetch_assoc($ResultadoQuemEnvia)){
-			
+
+			//Essas variáveis serão usadas para mostrar num modal qual é o anuncio que o usuário atual recebeu solicitaçao para troca
+
 			?>
 
 			<!-- Estilo dos cards e as fotos -->
@@ -366,7 +368,6 @@ function SalvaRegistro(valor){
 				        <div class="card-image">
 
 				        	 <?php 
-
 				        	 //Nessa linha eu estou fazendo um select para pegar as fotos dos anuncios, porem, trazendo apenas uma
 				        	 $Fotos = "select ancCodigo,fotoDescricao,foto_cod_usuario,foto_cod_anuncio from anuncio inner join fotosprodutos on ancCodigo = fotosprodutos.foto_cod_anuncio where foto_cod_anuncio =".$RegQuemEnvia['ancCodigo'].' order by  foto_cod asc limit 1';
 
@@ -377,7 +378,9 @@ function SalvaRegistro(valor){
 				          	
 				          	?>
 				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
-				          
+				          <?php
+				      }
+				          ?>
 
 				        </div>
 				        </a>
@@ -423,10 +426,12 @@ function SalvaRegistro(valor){
 
 				        	 //Aquie eu estou fazendo o loop para trazer as fotos
 				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
-				          	
+				          
 				          	?>
 				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
-				          
+				          <?php
+				      }
+				          ?>
 
 				        </div>
 						</a>
@@ -434,7 +439,8 @@ function SalvaRegistro(valor){
 				        	<span class="card-title"><?php echo $RegQuemRecebe['ancTitulo']?></span>
 				          <p id="Desc"><?php echo $RegQuemRecebe['ancDesc']?></p>
 				          <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php $RegQuemEnvia['ancCodigo'] ?>)">Aceitar</button>
-				          
+				          <hr>
+				          <button data-target="modal1" class="btn modal-trigger">Qual ele deseja</button>
 				        </div>
 
 				       
@@ -442,15 +448,100 @@ function SalvaRegistro(valor){
 				    
 				  	
 				    </div>
-<?php
-		
+
+				     <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+					     <div class="col l3 m3 s3" style="display: -webkit-inline-box;">
+					 					<a  href="MostraProduto.php?id_produto=<?php echo $RegQuemRecebe['ancCodigo'];?>" >
+									      <div class="card hoverable" style=" word-wrap: break-word;" >
+
+									        <div class="card-image">
+
+									        	 <?php 
+
+									        	 //Nessa linha eu estou fazendo um select para pegar as fotos dos anuncios, porem, trazendo apenas uma
+									        	 $Fotos = "select ancCodigo,fotoDescricao,ancDesc,ancCodigo,foto_cod_usuario,foto_cod_anuncio from anuncio inner join fotosprodutos on ancCodigo = fotosprodutos.foto_cod_anuncio where foto_cod_anuncio =".$RegQuemRecebe['ancCodigo'].' order by  foto_cod asc limit 1';
+
+									        	 $DadosDasFotos = mysqli_query($oCon,$Fotos);
+
+									        	 //Aquie eu estou fazendo o loop para trazer as fotos
+									        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
+									          
+									          	?>
+									          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
+									          
+									          <?php
+					}
+									          ?>
+									        </div>
+											</a>
+									        <div class="card-content">
+									        	<span class="card-title"><?php echo $RegQuemRecebe['ancTitulo']?></span>
+									          <p id="Desc"><?php echo $RegQuemRecebe['ancDesc']?></p>
+									         
+									        </div>
+
+				       
+				      	</div>
+
+				      	
+				      	<i class="material-icons">cached</i>
+				    
+				    <?php
+						//Esse bloco traz o anuncio do usuário atual que está sendo solicitado para ser trocado
+						$anuncioEscolhido = ' select ancTitulo,ancCodigo,ancDesc,ancTitulo from anuncio inner join trocas on anuncioRecebe = ancCodigo where anuncioEnvia = '.$RegQuemRecebe['ancCodigo'];
+						$ResultadoDoProdutoNoQualFoiSelecionado = mysqli_query($oCon,$anuncioEscolhido);
+
+						if($Reg = mysqli_fetch_assoc($ResultadoDoProdutoNoQualFoiSelecionado)){
+							?>
+							<a  href="MostraProduto.php?id_produto=<?php echo $Reg['ancCodigo'];?>" >
+									      <div class="card hoverable" style=" word-wrap: break-word;" >
+
+									        <div class="card-image">
+
+									        	 <?php 
+
+									        	 //Nessa linha eu estou fazendo um select para pegar as fotos dos anuncios, porem, trazendo apenas uma
+									        	 $Fotos = "select ancCodigo,fotoDescricao,ancDesc,ancCodigo,foto_cod_usuario,foto_cod_anuncio from anuncio inner join fotosprodutos on ancCodigo = fotosprodutos.foto_cod_anuncio where foto_cod_anuncio =".$Reg['ancCodigo'].' order by  foto_cod asc limit 1';
+
+									        	 $DadosDasFotos = mysqli_query($oCon,$Fotos);
+
+									        	 //Aquie eu estou fazendo o loop para trazer as fotos
+									        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
+									          
+									          	?>
+									          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
+									          
+									          <?php
+					}
+									          ?>
+									        </div>
+											</a>
+									        <div class="card-content">
+									        	<span class="card-title"><?php echo $Reg['ancTitulo']?></span>
+									          <p id="Desc"><?php echo $Reg['ancDesc']?></p>
+									         
+									        </div>
+							<?php
+						}
 
 
-	}
-}
 
 
-?>
+
+
+					?>
+				  	
+				    </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+
+
 
   
 
@@ -463,6 +554,19 @@ function SalvaRegistro(valor){
 
 
   <?php
-
-}
+  	}
   ?>
+
+</body>
+<!-- jquery -->
+<script src="./javascript/jQuery.js"></script>
+<!-- Materialize JavaScript -->
+<script src="./Materialize/js/materialize.js"></script>
+<script>
+
+	$(document).ready(function(){
+    $('.modal').modal();
+  });
+          
+	
+</script>
