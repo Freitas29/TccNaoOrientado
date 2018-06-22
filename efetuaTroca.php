@@ -212,6 +212,22 @@ function SalvaRegistro(valor){
 	#divDaBusca{
 		width: 100%;
 		height: auto;
+	}
+	.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1500%;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
 
 	</style>
 
@@ -485,9 +501,9 @@ function SalvaRegistro(valor){
 				       
 				      	</div>
 
-				      	
+				      	<div>
 				      	<i class="material-icons">cached</i>
-				    
+				    	</div>
 				    <?php
 						//Esse bloco traz o anuncio do usuário atual que está sendo solicitado para ser trocado
 						$anuncioEscolhido = ' select ancTitulo,ancCodigo,ancDesc,ancTitulo from anuncio inner join trocas on anuncioRecebe = ancCodigo where anuncioEnvia = '.$RegQuemRecebe['ancCodigo'];
