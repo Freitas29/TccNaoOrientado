@@ -331,7 +331,7 @@
 <?php
 
 //Trocado é diferente de um pois tudo que for igual a 1 significa que ele já foi trocado e não aparecera no select
-	$DadosQuemRecebe = "select ancTitulo,usrApelido,ancCodigo from anuncio inner join trocas on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and trocado != 1";
+	$DadosQuemRecebe = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and trocado != 1";
 	$ResultadoQuemRecebe = mysqli_query($oCon,$DadosQuemRecebe);
 
 	$LinhasResultantesQuemRecebe = mysqli_num_rows($ResultadoQuemRecebe);
@@ -371,7 +371,8 @@
 
 				        <div class="card-content">
 				        	<span class="card-title"><?php echo $RegQuemEnvia['ancTitulo']?></span>
-				          <p id="Desc"><?php echo $RegQuemEnvia['ancDesc']?></p>
+				          	<p id="Desc"><?php echo $RegQuemEnvia['ancDesc']?></p>
+				          	<button>Aceitar</button>	
 				        </div>
 
 				       
@@ -390,13 +391,49 @@
 	}
 	
 		while($RegQuemRecebe = mysqli_fetch_assoc($ResultadoQuemRecebe)){
-			echo $RegQuemRecebe['ancTitulo'];
-			echo "Aceitar";
+
+			?>
+
+
+			  <div class="col l3 m3 s3">
+ 					<a  href="MostraProduto.php?id_produto=<?php echo $RegQuemRecebe['ancCodigo'];?>" >
+				      <div class="card hoverable" style=" word-wrap: break-word;" >
+
+				        <div class="card-image">
+
+				        	 <?php 
+
+				        	 //Nessa linha eu estou fazendo um select para pegar as fotos dos anuncios, porem, trazendo apenas uma
+				        	 $Fotos = "select ancCodigo,fotoDescricao,ancDesc,ancCodigo,foto_cod_usuario,foto_cod_anuncio from anuncio inner join fotosprodutos on ancCodigo = fotosprodutos.foto_cod_anuncio where foto_cod_anuncio =".$RegQuemRecebe['ancCodigo'].' order by  foto_cod asc limit 1';
+
+				        	 $DadosDasFotos = mysqli_query($oCon,$Fotos);
+
+				        	 //Aquie eu estou fazendo o loop para trazer as fotos
+				        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
+				          	
+				          	?>
+				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
+				          
+
+				        </div>
+
+				        <div class="card-content">
+				        	<span class="card-title"><?php echo $RegQuemRecebe['ancTitulo']?></span>
+				          <p id="Desc"><?php echo $RegQuemRecebe['ancDesc']?></p>
+				          <p>Pedido pendente</p>
+				        </div>
+
+				       
+				      </div>
+				    
+				  	</a>
+				    </div>
+<?php
 		
 
 
 	}
-
+}
 
 
 ?>
