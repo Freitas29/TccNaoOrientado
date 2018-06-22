@@ -306,7 +306,7 @@ function teste(){
 
 <?php
 
-  $sql = " select ancCodigo,ancTitulo,ancEstadoItem,ancDesc,ctgNome from anuncio inner join categoria on ancCod_Categoria = ctgCodigo where ancCodigo = '$anuncio' and ctgCodigo = ancCod_Categoria";
+  $sql = " select ancCodigo,ancTitulo,ancEstadoItem,ancDesc,ctgNome from anuncio inner join categoria on ancCod_Categoria = ctgCodigo where trocado = 0 and ancCodigo = '$anuncio' and ctgCodigo = ancCod_Categoria";
 
   $resultado = mysqli_query($oCon,$sql);
 

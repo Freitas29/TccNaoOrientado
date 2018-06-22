@@ -330,7 +330,7 @@
 	  <div class="row">
 	  	<?php
 	  	$codigo = $_GET['categoria'];
-  	$SelecionaCategoria = "select ancTitulo,ancCodigo,ancDesc,fotoDescricao from anuncio inner join fotosprodutos on ancCodigo = foto_cod_anuncio where ancCod_Categoria = '$codigo'";
+  	$SelecionaCategoria = "select ancTitulo,ancCodigo,ancDesc,fotoDescricao from anuncio inner join fotosprodutos on ancCodigo = foto_cod_anuncio where trocado = 0 ancCod_Categoria = '$codigo'";
 
   $resultado = mysqli_query($oCon,$SelecionaCategoria);
   $resultadoDaCategoria = mysqli_num_rows($resultado);

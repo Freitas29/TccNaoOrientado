@@ -5,7 +5,7 @@ include './conexoesPhp/Conexao.php';
 
 $Id_Produto = $_GET['id_produto'];
 
-$Produto = "select anuncio.ancTitulo,ancCodigo,ancEstadoItem,ancDesc,ancCategoria_interesse,usuario.usrApelido,usrEmail,UsrCodigo,usrLocalidade,usuario.usrTelefone,categoria.ctgNome from ((anuncio inner join usuario on ancCod_Criador = usuario.usrCodigo) inner join categoria on anuncio.ancCod_Categoria = categoria.ctgCodigo)where ancCodigo =".$Id_Produto;
+$Produto = "select anuncio.ancTitulo,ancCodigo,ancEstadoItem,ancDesc,ancCategoria_interesse,usuario.usrApelido,usrEmail,UsrCodigo,usrLocalidade,usuario.usrTelefone,categoria.ctgNome from ((anuncio inner join usuario on ancCod_Criador = usuario.usrCodigo) inner join categoria on anuncio.ancCod_Categoria = categoria.ctgCodigo)where trocado = 0 and ancCodigo =".$Id_Produto;
 
 $DadosDoProduto = mysqli_query($oCon,$Produto);
 
@@ -248,7 +248,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
                          <?php
           
-            $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where ancCod_Criador = '.$_SESSION['Login'];
+            $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where trocado = 0 and ancCod_Criador = '.$_SESSION['Login'];
 
             $DadosDoProdutosAnunciados = mysqli_query($oCon,$SelecionaOsProdutosAnunciados);
 
