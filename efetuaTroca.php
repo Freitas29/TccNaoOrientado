@@ -368,17 +368,18 @@
 				          
 
 				        </div>
-
+				        </a>
 				        <div class="card-content">
 				        	<span class="card-title"><?php echo $RegQuemEnvia['ancTitulo']?></span>
 				          	<p id="Desc"><?php echo $RegQuemEnvia['ancDesc']?></p>
-				          	<button>Aceitar</button>	
+				          	<button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A">Aceitar</button>
+				        
 				        </div>
 
 				       
 				      </div>
 				    
-				  	</a>
+				  	
 				    </div>
 
 
@@ -416,17 +417,17 @@
 				          
 
 				        </div>
-
+						</a>
 				        <div class="card-content">
 				        	<span class="card-title"><?php echo $RegQuemRecebe['ancTitulo']?></span>
 				          <p id="Desc"><?php echo $RegQuemRecebe['ancDesc']?></p>
-				          <p>Pedido pendente</p>
+				          <button class="btn disabled">Pedido Pendente</button>
 				        </div>
 
 				       
 				      </div>
 				    
-				  	</a>
+				  	
 				    </div>
 <?php
 		
