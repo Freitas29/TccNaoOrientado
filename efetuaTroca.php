@@ -333,8 +333,6 @@
 
 	$LinhasResultantesQuemRecebe = mysqli_num_rows($ResultadoQuemRecebe);
 
-	if($LinhasResultantesQuemRecebe == 0){
-
 		//Aqui já que não trouxe nenhum resultado verificarei se ele tem algum produto que foi solcitado a outro usuário
 		$DadosQuemEnvia = "select ancTitulo,usrApelido,anuncioRecebe from anuncio inner join trocas on anuncioRecebe = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioEnvia = ".$_SESSION['Login']."  and trocado != 1";
 		$ResultadoQuemEnvia = mysqli_query($oCon,$DadosQuemEnvia);
@@ -346,11 +344,11 @@
 		if($LinhasResultantesQuemEnvia == 0 && $LinhasResultantesQuemRecebe == 0){
 		echo "Você ainda não tem nenhum pedido de troca ou alguma troca pendente!";
 	}
-	}else{
+	
 		while($RegQuemRecebe = mysqli_fetch_assoc($ResultadoQuemRecebe)){
 			echo $RegQuemRecebe['ancTitulo'];
 			echo "Aceitar";
-		}
+		
 
 
 	}
