@@ -384,7 +384,7 @@ function SalvaRegistro(valor){
 				        <div class="card-content">
 				        	<span class="card-title"><?php echo $RegQuemEnvia['ancTitulo']?></span>
 				          	<p id="Desc"><?php echo $RegQuemEnvia['ancDesc']?></p>
-				          	<button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php $RegQuemEnvia['ancCodigo'] ?>)">Aceitar</button>
+				        	<button class="btn disabled">Pedido Pendente</button>  	
 				        
 				        </div>
 
@@ -433,7 +433,8 @@ function SalvaRegistro(valor){
 				        <div class="card-content">
 				        	<span class="card-title"><?php echo $RegQuemRecebe['ancTitulo']?></span>
 				          <p id="Desc"><?php echo $RegQuemRecebe['ancDesc']?></p>
-				          <button class="btn disabled">Pedido Pendente</button>
+				          <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php $RegQuemEnvia['ancCodigo'] ?>)">Aceitar</button>
+				          
 				        </div>
 
 				       
