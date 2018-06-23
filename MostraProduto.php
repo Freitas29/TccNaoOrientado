@@ -146,8 +146,8 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
 
 <body>
 <?php
-	
-	include 'HeaderLogado.php';
+  
+  include 'HeaderLogado.php';
 if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
   $ProdutoCod = $RegProduto['ancCodigo'];
@@ -237,9 +237,43 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
               <br>        
               <br>      
-              
-                   <button data-target="modal1" class="btn modal-trigger blue darken-2 waves-effect waves-light btn  N/A-text text-N/A">Pedir troca</button>
 
+              <?php
+
+
+                  $DadosQuemEnvia = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas t on anuncioRecebe = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioEnvia = ".$_SESSION['Login']."  and t.trocado != 1 and anuncioRecebe =".$Id_Produto;
+                    $ResultadoQuemEnvia = mysqli_query($oCon,$DadosQuemEnvia);
+                    $LinhasResultantesQuemEnvia = mysqli_num_rows($ResultadoQuemEnvia);
+                    if($RegQuemEnvia = mysqli_fetch_assoc($ResultadoQuemEnvia)){
+
+
+              ?>
+              
+                   <button  class="btn disabled">Pedido pendente</button>
+                   <?php
+                 }
+                  ?>
+                   
+                  <?php
+          
+
+                 $DadosQuemRecebe = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas t on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and t.trocado != 1 and anuncioEnvia =".$Id_Produto;
+                  $ResultadoQuemRecebe = mysqli_query($oCon,$DadosQuemRecebe);
+                   $LinhasResultantesQuemRecebe = mysqli_num_rows($ResultadoQuemRecebe);
+                  if($RegQuemRecebe = mysqli_fetch_assoc($ResultadoQuemRecebe)){
+                  ?>
+                 <a href="efetuaTroca.php"><button class="btn blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" >Finalizar</button></a>
+                  <?php
+
+                 }
+
+                 if($LinhasResultantesQuemRecebe == 0 and $LinhasResultantesQuemEnvia==0){
+                  ?>
+                    <button data-target="modal1" class="btn modal-trigger blue darken-2 waves-effect waves-light btn  N/A-text text-N/A">Pedir troca</button>
+                  <?php
+                 }
+
+                 ?>
                    <div id="modal1" class="modal" id="Modal">
                       <div class="modal-content">
                         <h4>Escolha o produto que no qual você deseja trocar com este usuário</h4>
@@ -409,7 +443,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
 
 </body>
 
-	<!-- jquery -->
+  <!-- jquery -->
 <script src="./javascript/jQuery.js"></script>
 
 <!-- Materialize JavaScript -->
