@@ -317,14 +317,15 @@ function SalvaRegistro(valor,valor2){
 		   	 </div>
 			</li>
 
-		    <li><a href="ProdutosUsuario.php#test-swipe-4">Seus Dados</a></li>
-		    <li><a href="ProdutosUsuario.php#test-swipe-2">Anunciar um Novo Produto</a></li>
-		     <li><a href="ProdutosUsuario.php#test-swipe-1">Seus Produtos</a></li>
-		    <li><div class="divider"></div></li>
-		    <li><a class="subheader" >Favoritos</a></li>
-		    <li><a class="waves-effect" href="ProdutosUsuario.php#test-swipe-3">Seus Produtos Favoritados</a></li>
-		      <li><a class="subheader">Trocas</a></li>
-     		<li><a class="waves-effect" href="#!">Pedidos para troca</a></li>
+		   <li><a href="ProdutosUsuario.php#test-swipe-4">Seus Dados</a></li>
+        <li><a href="ProdutosUsuario.php#test-swipe-2">Anunciar um Novo Produto</a></li>
+         <li><a href="ProdutosUsuario.php#test-swipe-1">Seus Produtos</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="subheader" >Favoritos</a></li>
+        <li><a class="waves-effect" href="ProdutosUsuario.php#test-swipe-3">Seus Produtos Favoritados</a></li>
+          <li><a class="subheader">Trocas</a></li>
+        <li><a class="waves-effect" href="efetuaTroca.php">Pedidos para troca</a></li>
+        <li><a class="waves-effect" href="produtosTrocados.php">Produtos trocados</a></li>
 		  </ul>
 <!-- 
 		  MENU MOBILE -->

@@ -309,6 +309,8 @@
 		    <li><a class="waves-effect" href="ProdutosUsuario.php#test-swipe-3">Seus Produtos Favoritados</a></li>
 		      <li><a class="subheader">Trocas</a></li>
      		<li><a class="waves-effect" href="efetuaTroca.php">Pedidos para troca</a></li>
+     		<li><a class="waves-effect" href="produtosTrocados.php">Produtos trocados</a></li>
+
 		  </ul>
 <!-- 
 		  MENU MOBILE -->
