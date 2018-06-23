@@ -407,14 +407,11 @@
 
 </body>
 <!-- jquery -->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	  crossorigin="anonymous"></script>
-
+<script src="./javascript/jQuery.js"></script>
 
 
 	<!-- para realizar o gif do golfinho -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<!-- Materialize JavaScript -->
 	<script src="./Materialize/js/materialize.js"></script>
 <script type="text/javascript">
