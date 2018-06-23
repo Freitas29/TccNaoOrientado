@@ -356,6 +356,15 @@ ul#categorias{
     display: inline-table;
     padding:9px;
   }
+  fieldset p {
+    font-size: 36px;
+    color: #1e88e5;
+}
+
+label {
+    font-size: 30px;
+    color: #9e9e9e;
+}
 </style>
 
 <body onclick="FechaTudo()" style="background-color: whitesmoke;">
