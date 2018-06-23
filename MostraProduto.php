@@ -239,7 +239,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
               <br>      
 
               <?php
-
+              //Aqui eu verifico se o usuario solicitou a troca de anuncio. Se sim, ele mostra o button de pendente
 
                   $DadosQuemEnvia = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas t on anuncioRecebe = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioEnvia = ".$_SESSION['Login']."  and t.trocado != 1 and anuncioRecebe =".$Id_Produto;
                     $ResultadoQuemEnvia = mysqli_query($oCon,$DadosQuemEnvia);
@@ -255,7 +255,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                   ?>
                    
                   <?php
-          
+            //Verifico se ele recebeu um pedido de troca, se sim, ele tem a opção de finalizar a troca
 
                  $DadosQuemRecebe = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas t on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and t.trocado != 1 and anuncioEnvia =".$Id_Produto;
                   $ResultadoQuemRecebe = mysqli_query($oCon,$DadosQuemRecebe);
@@ -266,7 +266,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                   <?php
 
                  }
-
+                 //Aqui eu verifico se algum dos selects acima trouxe algo, se não quer dizer que ele pode fazer um pedido de troca
                  if($LinhasResultantesQuemRecebe == 0 and $LinhasResultantesQuemEnvia==0){
                   ?>
                     <button data-target="modal1" class="btn modal-trigger blue darken-2 waves-effect waves-light btn  N/A-text text-N/A">Pedir troca</button>
