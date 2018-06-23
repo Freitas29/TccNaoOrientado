@@ -53,7 +53,7 @@ $Logado = $_SESSION['Login'];
 
 
 //Insere os anuncios
-$DadosAnuncio = "insert into anuncio (ancCod_Criador,ancTitulo,ancData,ancEstadoItem,ancDesc,ancCod_Categoria,ancCategoria_interesse)values ('$Logado','$Titulo',now(),'$EstadoItem','$Descricao',$Categoria,$CategoriaTroca)";
+$DadosAnuncio = "insert into anuncio (ancCod_Criador,ancTitulo,ancData,ancEstadoItem,ancDesc,ancCod_Categoria,ancCategoria_interesse,trocado)values ('$Logado','$Titulo',now(),'$EstadoItem','$Descricao',$Categoria,$CategoriaTroca,0)";
 
 	
 			if(mysqli_query($oCon,$DadosAnuncio)){
