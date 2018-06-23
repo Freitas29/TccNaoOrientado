@@ -93,7 +93,19 @@ function SalvaRegistro(valor,valor2){
 } 
 
 
-	
+function reinserir(valor){
+	var Objeto = new XMLHttpRequest();
+		
+			with(Objeto){
+			
+			open('GET','./conexoesPhp/reinserirAnuncio.php?id_produto='+valor+'');
+			
+			send();
+				onload = function(){
+					alert(responseText);
+				}
+			}
+}
 
 	</script>
 
@@ -401,7 +413,7 @@ function SalvaRegistro(valor,valor2){
                   <div class="card-content">
                     <span class="card-title"><?php echo $RegProdutosAnunciado['ancTitulo']?></span>
                     <p id="Desc"><?php echo $RegProdutosAnunciado['ancDesc']?></p>
-                    <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A">Reinserir anuncio</button>
+                    <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="reinserir(<?php echo $RegProdutosAnunciado['ancCodigo']?>)">Reinserir anuncio</button>
                   </div>
 
                 </div>
