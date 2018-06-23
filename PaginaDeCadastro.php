@@ -286,3 +286,11 @@ function ComValida(){
 <!-- Materialize JavaScript -->
 <script src="./Materialize/js/materialize.js"></script>
 
+<script>
+
+	$(document).ready(function(){
+    $('.modal').modal();
+  });
+          
+	
+</script>
