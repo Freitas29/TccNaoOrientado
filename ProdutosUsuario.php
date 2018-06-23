@@ -728,7 +728,7 @@ ul#categorias{
 
           <?php
           
-            $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where trocado = 1 and ancCod_Criador = '.$_SESSION['Login'];
+            $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where trocado = 0 and ancCod_Criador = '.$_SESSION['Login'];
 
             $DadosDoProdutosAnunciados = mysqli_query($oCon,$SelecionaOsProdutosAnunciados);
 
@@ -794,7 +794,7 @@ ul#categorias{
           <?php
           //Esse loop é para pegar os anuncios que foram trocados
           
-            $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where trocado = 0 and ancCod_Criador = '.$_SESSION['Login'];
+            $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where trocado = 1 and ancCod_Criador = '.$_SESSION['Login'];
 
             $DadosDoProdutosAnunciados = mysqli_query($oCon,$SelecionaOsProdutosAnunciados);
 
