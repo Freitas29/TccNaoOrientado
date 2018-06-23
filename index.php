@@ -102,11 +102,11 @@ nav{
 
 		include './conexoesPhp/Conexao.php';
 		
-		$ConteudoCelular = 'select ancCodigo,ancTitulo,ancDesc from anuncio where ancCod_Categoria=4  order by ancCodigo desc limit 4';
+		$ConteudoCelular = 'select ancCodigo,ancTitulo,ancDesc from anuncio where ancCod_Categoria=4 and trocado = 0  order by ancCodigo desc limit 4';
 		
-		$Conteudo = 'select * from anuncio limit 4';
+		$Conteudo = 'select * from anuncio where trocado = 0 limit 4';
 		
-		$Conteudo2 = 'select * from anuncio order by ancCodigo desc limit 4';
+		$Conteudo2 = 'select * from anuncio where trocado = 0 order by ancCodigo desc limit 4';
 		
 		$Dados = mysqli_query($oCon,$Conteudo);
 		
