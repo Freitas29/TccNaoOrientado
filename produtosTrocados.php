@@ -439,6 +439,36 @@ function reinserir(valor){
 	$(document).ready(function(){
     $('.modal').modal();
   });
+
+	$(function(){
+	$("#pesquisa").keyup(function(){
+		var pesquisa = $(this).val();
+
+		//verifica se algo foi digitado
+		if(pesquisa != ''){
+			var dados = {
+			palavra : pesquisa
+		}
+		
+	
+		$.post('./conexoesPhp/BarraDeBusca.php',dados,function(retorna){
+			$(".resultado").html(retorna);
+			$(".resultado").css("display","inline-grid");
+		});
+	}else{
+		(".resultado").html('');	
+		$(".resultado").css("display","none");
+	}
+	});
+});
+	$(".button-collapse").sideNav();
+
+	$(".button").sideNav();
+
+//Animação da instrução para clilcar no entrar
+$(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
           
 	
 </script>
