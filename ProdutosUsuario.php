@@ -728,7 +728,7 @@ ul#categorias{
 
           <?php
           
-            $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where ancCod_Criador = '.$_SESSION['Login'];
+            $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where trocado = 1 and ancCod_Criador = '.$_SESSION['Login'];
 
             $DadosDoProdutosAnunciados = mysqli_query($oCon,$SelecionaOsProdutosAnunciados);
 
@@ -787,10 +787,77 @@ ul#categorias{
           }
         
           ?>
+
+
+
+
+          <?php
+          //Esse loop é para pegar os anuncios que foram trocados
+          
+            $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where trocado = 0 and ancCod_Criador = '.$_SESSION['Login'];
+
+            $DadosDoProdutosAnunciados = mysqli_query($oCon,$SelecionaOsProdutosAnunciados);
+
+            while ($RegProdutosAnunciado = mysqli_fetch_assoc($DadosDoProdutosAnunciados)) {
+              
+
+                $anunciosDoUsuario = $RegProdutosAnunciado['ancCodigo'];
+
+
+        
+            
+          ?>
+          
+
+          
+              <div class="col l3 m3 s3">
+                <div class="card" style=" word-wrap: break-word;">
+                  <div class="card-image">
+                     <?php 
+
+                     $Fotos = "select ancCodigo,fotoDescricao,foto_cod_usuario,foto_cod_anuncio from anuncio inner join fotosprodutos on ancCodigo = fotosprodutos.foto_cod_anuncio where foto_cod_anuncio =".$anunciosDoUsuario.' order by  foto_cod asc limit 1';
+
+                     $DadosDasFotos = mysqli_query($oCon,$Fotos);
+
+                     while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
+                      
+                      ?>
+                    <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>" id="ImagensAnunciadas">
+                    
+
+                    <?php 
+                   }
+                   ?>
+                  </div>
+
+                  <div class="card-content">
+                    <span class="card-title"><?php echo $RegProdutosAnunciado['ancTitulo']?></span>
+                    <p id="Desc"><?php echo $RegProdutosAnunciado['ancDesc']?></p>
+                    <button class="btn disabled">Produto Trocado</button>
+                  </div>
+
+                </div>
+              </div>
+        
+            
+          <?php
+            
+          }
+        
+          ?>
+
+
+
+
           </div>
 
 
+
+
+
         </div>
+
+
 
       
 
