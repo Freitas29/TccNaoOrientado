@@ -163,7 +163,7 @@ nav{
 				      }
 				          ?>
 			          
-			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2"   ><i class="material-icons">favorite_border</i></a>
+			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2 modal-trigger"   ><i class="material-icons">favorite_border</i></a>
 			        </div>
 			        <div class="card-content">
 			        	<span class="card-title"><?php echo $DadosMostraCelular['ancTitulo']?></span>
@@ -225,7 +225,7 @@ nav{
 				     		 }
 				     	?>
 			          
-			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2"  href="./conexoesPhp/Favoritar.php?id_produto=<?php echo $DadosMostra['ancCodigo'];?>" ><i class="material-icons">favorite_border</i></a>
+			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2 modal-trigger" href="#modal1"><i class="material-icons">favorite_border</i></a>
 			        </div>
 			        <div class="card-content">
 			        	<span class="card-title"><?php echo $DadosMostra['ancTitulo']?></span>
@@ -287,7 +287,7 @@ nav{
 				     		 }
 				     		?>
 			          
-			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2"  href="MostraProduto.php?id_produto=<?php echo $DadosMostra2['ancCodigo'];?>"><i class="material-icons">favorite_border</i></a>
+			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2 modal-trigger" href="#modal1"><i class="material-icons">favorite_border</i></a>
 			        </div>
 			        <div class="card-content">
 			        	<span class="card-title"><?php echo $DadosMostra2['ancTitulo']?></span>
