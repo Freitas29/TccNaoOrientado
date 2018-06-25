@@ -140,6 +140,11 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
         }
       }
   }
+
+function Teste(){
+    alert("a");
+    document.getElementById('SomePedirTroca').style.visibility="visible";
+}
                     
  
 </script>
@@ -246,11 +251,11 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                     $LinhasResultantesQuemEnvia = mysqli_num_rows($ResultadoQuemEnvia);
                     if($RegQuemEnvia = mysqli_fetch_assoc($ResultadoQuemEnvia)){
 
-
               ?>
               
                    <button  class="btn disabled">Pedido pendente</button>
                    <?php
+                   
                  }
                   ?>
                    
@@ -264,12 +269,13 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                   ?>
                  <a href="efetuaTroca.php"><button class="btn blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" >Finalizar</button></a>
                   <?php
-
+                 
                  }
                  //Aqui eu verifico se algum dos selects acima trouxe algo, se não quer dizer que ele pode fazer um pedido de troca
                  if($LinhasResultantesQuemRecebe == 0 and $LinhasResultantesQuemEnvia==0){
+                   echo "<script>Teste();</script>";
                   ?>
-                    <button data-target="modal1" class="btn modal-trigger blue darken-2 waves-effect waves-light btn  N/A-text text-N/A">Pedir troca</button>
+                    <button data-target="modal1" class="btn modal-trigger blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" style="visibility="hidden;" id="SomePedirTroca">Pedir troca</button>
                   <?php
                  }
 
