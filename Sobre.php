@@ -210,6 +210,15 @@ nav .brand-logo.left {
     </div>
     </form>
   </div>
+  <div class="container">
+
+  		<div class="row">
+  		<ul class="collection with-header">
+  			<h2 class="collection-header">O que o site tem a oferecer</h2>
+  			<p>Nosso sistem tem a oferecer a melho comunidade possivel, garantindo segurança em suas negociações</p>
+  		</ul>			
+  		</div>
+  </div>
   <!-- jquery -->
 <script src="./javascript/jQuery.js"></script>
 
