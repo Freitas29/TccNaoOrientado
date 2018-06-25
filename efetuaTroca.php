@@ -453,8 +453,13 @@ function SalvaRegistro(valor,valor2){
 				          
 				          	?>
 				          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
+
 				          <?php
+
 				      }
+				      $codigoParaModal = $RegQuemRecebe['ancCodigo'];
+				    
+				      
 				          ?>
 
 				        </div>
@@ -462,7 +467,7 @@ function SalvaRegistro(valor,valor2){
 				        <div class="card-content">
 				        	<span class="card-title"><?php echo $RegQuemRecebe['ancTitulo']?></span>
 				          <p id="Desc"><?php echo $RegQuemRecebe['ancDesc']?></p>
-				          <button data-target="modal1" class="btn modal-trigger">Finalizar</button>
+				          <button data-target="<?php echo $codigoParaModal ?>" class="btn modal-trigger">Finalizar</button>
 				        </div>
 
 				       
@@ -472,7 +477,7 @@ function SalvaRegistro(valor,valor2){
 				    </div>
 
 				     <!-- Modal Structure -->
-  <div id="modal1" class="modal">
+  <div id="<?php echo $codigoParaModal?>" class="modal">
     <div class="modal-content">
 					     <div class="col l3 m3 s3" style="display: -webkit-inline-box;">
 					 					<a  href="MostraProduto.php?id_produto=<?php echo $RegQuemRecebe['ancCodigo'];?>" >
@@ -482,19 +487,22 @@ function SalvaRegistro(valor,valor2){
 
 									        	 <?php 
 
+									        	 
 									        	 //Nessa linha eu estou fazendo um select para pegar as fotos dos anuncios, porem, trazendo apenas uma
-									        	 $Fotos = "select ancCodigo,fotoDescricao,ancDesc,ancCodigo,foto_cod_usuario,foto_cod_anuncio from anuncio inner join fotosprodutos on ancCodigo = fotosprodutos.foto_cod_anuncio where foto_cod_anuncio =".$RegQuemRecebe['ancCodigo'].' order by  foto_cod asc limit 1';
+									        	 $FotosAnuncio = "select ancCodigo,fotoDescricao,ancDesc,foto_cod_usuario,foto_cod_anuncio from anuncio inner join fotosprodutos on ancCodigo = fotosprodutos.foto_cod_anuncio where foto_cod_anuncio =".$RegQuemRecebe['ancCodigo'].' order by  foto_cod asc limit 1';
 
-									        	 $DadosDasFotos = mysqli_query($oCon,$Fotos);
+									        	 
+
+									        	 $DadosDasFotosAnuncio = mysqli_query($oCon,$FotosAnuncio);
 
 									        	 //Aquie eu estou fazendo o loop para trazer as fotos
-									        	 while ($FotosEnd = mysqli_fetch_assoc($DadosDasFotos)) {
+									        	 while ($FotosEndereco = mysqli_fetch_assoc($DadosDasFotosAnuncio)) {
 									          
 									          	?>
-									          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
+									          <img src="./Produtos/<?php echo $FotosEndereco['fotoDescricao'] ?>">
 									          
 									          <?php
-					}
+												}
 									          ?>
 									        </div>
 											</a>
@@ -547,7 +555,7 @@ function SalvaRegistro(valor,valor2){
 									        </div>
 			
 				  	
-				    </div>
+				   
     </div>
     <div class="modal-footer">
       <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php echo $RegQuemRecebe['ancCodigo'].",". $Reg['ancCodigo'] ?>)">Aceitar</button>
@@ -568,8 +576,10 @@ function SalvaRegistro(valor,valor2){
 
 
   <?php
-  }
+  			}
   	}
+
+  	mysqli_free_result($ResultadoQuemRecebe);
   ?>
 
 </body>
