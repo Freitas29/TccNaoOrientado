@@ -241,27 +241,26 @@ function ComValida(){
 }
 
 
-function MostraFoto(){
-    let campo = document.getElementById('AdicionaFoto');
+//function MostraFoto(){
+   // let campo = document.getElementById('AdicionaFoto');
  
-    for(contador = 0; contador < campo.files.length;contador++){
-      alert(campo.files[contador].name);
-      let arquivo = new FileReader();
+  //  for(contador = 0; contador < campo.files.length;contador++){
+   //   alert(campo.files[contador].name);
+  //    let arquivo = new FileReader();
       
-      arquivo.onloadend = function(){
-        let campo = document.getElementById('AdicionaFoto');
-        document.getElementById("visualizacao").src = campo.files[contador].name;
-        let x = document.createElement("IMG");
-        x.setAttribute("src",arquivo.result);
-        document.body.appendChild(x);
-      }
+    //  arquivo.onloadend = function(){
+   //     let campo = document.getElementById('AdicionaFoto');
+    //    document.getElementById("visualizacao").src = campo.files[contador].name;
+   //     let x = document.createElement("IMG");
+    //    x.setAttribute("src",arquivo.result);
+   //     document.body.appendChild(x);
+     // }
 
 
-    }
+/// }
 
 
-}
-
+//}
 
 function MostraFoto(){
     let campo = document.getElementById('AdicionaFoto');
@@ -880,7 +879,7 @@ label {
 
                           <div class="input-field col s6 m6 l6">
 
-                                      <input id="input_text" type="text" class="validate" name="Nome_Produto" data-length="20" maxlength="20">
+                                      <input id="input_text" type="text" class="validate" name="Nome_Produto" data-length="150" maxlength="150">
                                       <span id="Vazio" style="display: none;">Preencha o campo</span>
 
                                       <label for="icon_prefix">Nome do produto</label>

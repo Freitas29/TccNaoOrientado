@@ -6,7 +6,7 @@ include 'Conexao.php';
 
 $diretorio = '../Produtos/';
 
-$Titulo = $_POST['NomeProduto'];
+$Titulo = addslashes($_POST['NomeProduto']);
 
 if (empty($Titulo)) {
 	$_SESSION['VazioNomeProduto'] = "Por Favor, preecha o campo Nome do Produto";
@@ -23,7 +23,7 @@ if (empty($EstadoItem)) {
 	
 }
 
-$Descricao = $_POST['Descricao'];
+$Descricao = addslashes($_POST['Descricao']);
 
 if (empty($Descricao)) {
 	$_SESSION['VazioDescricao'] = "Por Favor, escreva sobre o seu produto";
@@ -85,16 +85,14 @@ $DadosAnuncio = "insert into anuncio (ancCod_Criador,ancTitulo,ancData,ancEstado
 					for ($controle = 0; $controle < count($arquivo['name']); $controle++){
 						$destino = $arquivo['name'][$controle];
 						if(move_uploaded_file($arquivo['tmp_name'][$controle],$diretorio.$destino)){
-							echo "Upload realizado com sucesso<br>";
 							$DadosImagens = "insert into fotosprodutos(fotoDescricao,foto_cod_usuario,foto_cod_anuncio)values('$destino','$Logado','$DadoDoUltimoRegistro')";
-							echo "Imagem cadastrada";
 						}else{
 								echo "Erro ao cadsatrar imagem";
 								echo mysqli_error($oCon);
 						}
 							if(mysqli_query($oCon,$DadosImagens)){ 
 								echo "sucesso";
-								header("location:../ProdutosUsuario.php#test-swipe-1");
+								//header("location:../ProdutosUsuario.php#test-swipe-1");
 						}else{
 							echo "Erro ao realizar upload";
 						}
