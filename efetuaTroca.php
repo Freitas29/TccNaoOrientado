@@ -92,7 +92,22 @@ function SalvaRegistro(valor,valor2){
 			}
 } 
 
-
+function DeletaNotificacao(valor){
+	if(confirm("aceitar?")){
+		var Objeto = new XMLHttpRequest();
+			alert(valor);
+			
+			with(Objeto){
+			
+			open('GET','./conexoesPhp/excluiNotificacao.php?id_produto='+valor);
+			
+			send();
+				onload = function(){
+					alert(responseText);
+				}
+			}
+	}
+}
 	
 
 	</script>
@@ -520,11 +535,15 @@ function SalvaRegistro(valor,valor2){
 				    	</div>
 				    <?php
 						//Esse bloco traz o anuncio do usuário atual que está sendo solicitado para ser trocado
-						$anuncioEscolhido = ' select ancTitulo,ancCodigo,ancDesc,ancTitulo from anuncio inner join trocas on anuncioRecebe = ancCodigo where anuncioEnvia = '.$RegQuemRecebe['ancCodigo'];
+						$anuncioEscolhido = ' select ancTitulo,ancCodigo,ancDesc,ancTitulo,a.trocado,idTroca from anuncio a inner join trocas on anuncioRecebe = ancCodigo where anuncioEnvia = '.$RegQuemRecebe['ancCodigo'];
 						$ResultadoDoProdutoNoQualFoiSelecionado = mysqli_query($oCon,$anuncioEscolhido);
 
 						if($Reg = mysqli_fetch_assoc($ResultadoDoProdutoNoQualFoiSelecionado)){
+							
+							
 							?>
+
+
 							<a  href="MostraProduto.php?id_produto=<?php echo $Reg['ancCodigo'];?>" >
 									      <div class="card hoverable" style=" word-wrap: break-word;" >
 
@@ -544,6 +563,7 @@ function SalvaRegistro(valor,valor2){
 									          <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>">
 									          
 									          <?php
+
 													}
 									          ?>
 									        </div>
@@ -558,8 +578,24 @@ function SalvaRegistro(valor,valor2){
 				   
     </div>
     <div class="modal-footer">
+    <?php
+    if($Reg['trocado'] == 0)
+    {
+		
+	
+    ?>
       <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php echo $RegQuemRecebe['ancCodigo'].",". $Reg['ancCodigo'] ?>)">Aceitar</button>
     </div>
+    <?php
+}else{
+
+    ?>
+   <button class="btn disabled">Anuncio já trocado</button> 
+   <button class="btn" onclick="DeletaNotificacao(<?php echo $Reg['idTroca']?>)">Excluir notificação?</button>  
+   	
+    <?php
+    }
+    ?>
   </div>
 
 
@@ -592,6 +628,10 @@ function SalvaRegistro(valor,valor2){
 	$(document).ready(function(){
     $('.modal').modal();
   });
+
+	$(".button-collapse").sideNav();
+
+	$(".button").sideNav();
           
 	
 </script>
