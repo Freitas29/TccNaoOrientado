@@ -15,7 +15,7 @@ $AlteraDados = "update anuncio set trocado = 0 where ancCodigo = '$produto'";
 if(mysqli_query($oCon,$AlteraDados)){
 	echo "OKay";
 	echo $produto;
-
+	$_SESSION['reinserirAnuncio'];
 }
 
 

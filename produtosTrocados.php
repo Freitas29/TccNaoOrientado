@@ -257,6 +257,8 @@ function reinserir(valor){
 			$DadosUsuario = mysqli_query($oCon,$Usuario);
 
 			if($RegUsuario = mysqli_fetch_assoc($DadosUsuario)){
+
+
 			
 	?>
 
@@ -372,6 +374,11 @@ function reinserir(valor){
 <!--Conteudo do ste começa aqui -->
 
  <?php
+
+ if(isset($_SESSION['reinserirAnuncio'])){
+ 	echo "<p style='font-size:  30px;color: #1e87e5;'>Produto reinserido com sucesso!</p>";
+ 	unset($_SESSION['reinserirAnuncio']);
+ }
           
             $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where trocado = 1 and ancCod_Criador = '.$_SESSION['Login'];
 
