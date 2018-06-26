@@ -89,12 +89,14 @@ $DadosAnuncio = "insert into anuncio (ancCod_Criador,ancTitulo,ancData,ancEstado
 						}else{
 								echo "Erro ao cadsatrar imagem";
 								echo mysqli_error($oCon);
+								$_SESSION['erroFotos'] = "Não foi possivel cadastrar imagem.";
 						}
 							if(mysqli_query($oCon,$DadosImagens)){ 
 								echo "sucesso";
-								//header("location:../ProdutosUsuario.php#test-swipe-1");
+								header("location:../ProdutosUsuario.php#test-swipe-1");
 						}else{
 							echo "Erro ao realizar upload";
+							$_SESSION['erroFotos'] = "Não foi possivel cadastrar imagem.";
 						}
 						
 					}

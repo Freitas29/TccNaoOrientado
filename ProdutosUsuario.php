@@ -740,8 +740,10 @@ label {
 
 
         
-            
-          ?>
+              if(isset($_SESSION['erroFotos'])){
+                echo $_SESSION['erroFotos'];
+              }
+            ?>
           
 
           

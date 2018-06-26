@@ -356,7 +356,7 @@ function teste(){
                       
                     ?>
    
-              <div class="card-image" style="margin-right:1%;width: 25%;height:  50%;">
+              <div class="card-image col s3 m3 l3" style="margin-right:1%;width: 25%;height:  50%;">
                 <a class="btn-floating btn-small waves-effect waves-light blue darken-2" onclick="DeletaFoto(<?php echo $Fotos['foto_cod'];?>)"><i class="material-icons">clear</i></a>
                 <img src="./Produtos/<?php echo $Fotos['fotoDescricao']?>">
 
