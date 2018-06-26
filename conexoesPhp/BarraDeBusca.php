@@ -2,8 +2,8 @@
 	
 	 include 'Conexao.php';
 	$Pesquisa = $_POST['palavra'];
-
-	$BuscaAnuncio = "select ancTitulo,ancCodigo,fotoDescricao from anuncio inner join fotosprodutos on  ancCodigo = foto_cod where ancTitulo like '%$Pesquisa%' limit 3";
+	$BuscaAnuncio = " select ancTitulo,ancCodigo,fotoDescricao from anuncio inner join fotosprodutos on  ancCodigo = foto_cod inner join usuario on ancCod_Criador = UsrCodigo where ancTitulo like '%$Pesquisa%' and usrCodigo != 1 limit 3";
+	;
 
 
 	$ResultadoBusca = mysqli_query($oCon,$BuscaAnuncio);
