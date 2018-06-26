@@ -212,10 +212,11 @@
 	  <nav class="nav">
     <div class="nav-wrapper container">
   
-	      <a href="#!" class="brand-logo left">Logo</a>
+	       <a href="Logado.php" class="brand-logo left" style="width: 27%;"><img src="./imagens/logotipo.png" style="width: 46%"></a>
+
 
 	      
-	      <a href="#" data-activates="menu-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
+	       <a href="Logado.php" class="brand-logo left"><img src="./imagens/logotipo.png" style="width: 12.3%"></a>
 
 	      <ul class="right hide-on-med-and-down" style="width: 70%;">
 	      	<li style="width: 59%;">

@@ -415,7 +415,8 @@ label {
    <nav>
     <div class="nav-wrapper container">
   
-      <a href="#!" class="brand-logo center">Logo</a>
+       <a href="Logado.php" class="brand-logo left" style="width: 27%;"><img src="./imagens/logotipo.png" style="width: 46%"></a>
+
 
       <a href="#" data-activates="menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 

@@ -102,7 +102,7 @@ nav .brand-logo.left {
 <nav class="nav">
     <div class="nav-wrapper container">
   
-      <a href="#!" class="brand-logo left"><img src="logo.png" style="width: 35%;"></a>
+      <a href="Logado.php" class="brand-logo left" style="width: 27%;"><img src="./imagens/logotipo.png" style="width: 46%"></a>
 
       
       <a href="#" data-activates="menu-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
