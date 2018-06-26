@@ -29,6 +29,7 @@ if(mysqli_query($oCon,$AlteraDadosAnuncio2)){
 	echo "OKay anuncio2";
 	echo $produto;
 	echo $produto2;
+	$_SESSION['trocas'] = "Trocado";
 }
 
 ?>

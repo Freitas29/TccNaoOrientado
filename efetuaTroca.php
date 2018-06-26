@@ -79,15 +79,13 @@
 
 function SalvaRegistro(valor,valor2){
 	var Objeto = new XMLHttpRequest();
-			alert(valor);
-			alert(valor2);
 			with(Objeto){
 			
 			open('GET','./conexoesPhp/efetuaTrocaDoProduto.php?id_produto='+valor+'&id_produto2='+valor2+'');
 			
 			send();
 				onload = function(){
-					alert(responseText);
+					location.reload();
 				}
 			}
 } 
@@ -95,7 +93,7 @@ function SalvaRegistro(valor,valor2){
 function DeletaNotificacao(valor){
 	if(confirm("aceitar?")){
 		var Objeto = new XMLHttpRequest();
-			alert(valor);
+			
 			
 			with(Objeto){
 			
@@ -103,7 +101,7 @@ function DeletaNotificacao(valor){
 			
 			send();
 				onload = function(){
-					alert(responseText);
+					location.reload();
 				}
 			}
 	}
@@ -382,7 +380,10 @@ function DeletaNotificacao(valor){
 <?php
 
 
-
+if(isset($_SESSION['trocas'])){
+					echo "<p style='font-size: 40px;font-weight:  900;color: #00b4ff;'>Troca efetuada com sucesso</p>";
+					unset($_SESSION['trocas']);
+				}
 
 //Trocado é diferente de um pois tudo que for igual a 1 significa que ele já foi trocado e não aparecera no select
 	$DadosQuemRecebe = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas t on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and t.trocado != 1";
@@ -449,7 +450,7 @@ function DeletaNotificacao(valor){
 		}
 		}
 		if($LinhasResultantesQuemEnvia == 0 && $LinhasResultantesQuemRecebe == 0){
-		echo "Você ainda não tem nenhum pedido de troca ou alguma troca pendente!";
+		echo "<p style='font-size: 30px;'>Você não possui nenhum pedido de troca ou alguma troca pendente!</p>";
 	}
 	
 		while($RegQuemRecebe = mysqli_fetch_assoc($ResultadoQuemRecebe)){

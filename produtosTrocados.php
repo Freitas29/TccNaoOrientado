@@ -79,15 +79,13 @@
 
 function SalvaRegistro(valor,valor2){
 	var Objeto = new XMLHttpRequest();
-			alert(valor);
-			alert(valor2);
 			with(Objeto){
 			
 			open('GET','./conexoesPhp/efetuaTrocaDoProduto.php?id_produto='+valor+'&id_produto2='+valor2+'');
 			
 			send();
 				onload = function(){
-					alert(responseText);
+					location.reload();
 				}
 			}
 } 
@@ -102,7 +100,7 @@ function reinserir(valor){
 			
 			send();
 				onload = function(){
-					alert(responseText);
+					location.reload();
 				}
 			}
 }

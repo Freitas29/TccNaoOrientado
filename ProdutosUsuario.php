@@ -262,20 +262,20 @@ function ComValida(){
 
 //}
 
-function MostraFoto(){
-    let campo = document.getElementById('AdicionaFoto');
-    for(contador = 0; contador < campo.files.length;contador++){
-      alert(campo.files[contador].name);
-      let arquivo = new FileReader();
-      alert(campo);
-      arquivo.onloadend = function(){
-        let campo = document.getElementById('AdicionaFoto');
-        let x = document.createElement("IMG");
-        x.setAttribute("src",arquivo.result);
-        document.body.appendChild(x);
-      }
-    }
-}
+//function MostraFoto(){
+//    let campo = document.getElementById('AdicionaFoto');
+ //   for(contador = 0; contador < campo.files.length;contador++){
+ //     alert(campo.files[contador].name);
+ //     let arquivo = new FileReader();
+ //     alert(campo);
+ //     arquivo.onloadend = function(){
+ //       let campo = document.getElementById('AdicionaFoto');
+ //       let x = document.createElement("IMG");
+ //       x.setAttribute("src",arquivo.result);
+  //      document.body.appendChild(x);
+ //     }
+//    }
+//}
 
 </script>
 
@@ -750,9 +750,7 @@ label {
 
 
         
-              if(isset($_SESSION['erroFotos'])){
-                echo $_SESSION['erroFotos'];
-              }
+              
             ?>
           
 
