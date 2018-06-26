@@ -230,6 +230,12 @@
 			
 			$DadosUsuario = mysqli_query($oCon,$Usuario);
 
+			$notificacoes = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas t on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and t.trocado != 1";
+			$resultadoNotificcoes = mysqli_query($oCon,$notificacoes);
+
+			$linhasNotificacoes = mysqli_num_rows($resultadoNotificcoes);
+
+
 			if($RegUsuario = mysqli_fetch_assoc($DadosUsuario)){
 			
 	?>
@@ -246,7 +252,7 @@
 	      
 	      <a href="#" data-activates="menu-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
 
-	      <ul class="right hide-on-med-and-down" style="width: 70%;">
+	      <ul class="right hide-on-med-and-down" style="width: 80%;">
 	      	<li style="width: 59%;">
 
 	        <div class="nav-wrapper" >
@@ -273,9 +279,27 @@
 	       	
 	      	</div>
 
+	      	<!-- Notificação do usuário -->
+	      	<?php
+	      	if($linhasNotificacoes == 0){
+	      		?>
+	      		<li style="width: 5%;height:  100%;border-radius: 0%;background-color: #1e87e5;" > <i class="material-icons">notifications_off</i></li>
+	      		<?php
+
+	      	}else{
+
+
+	      	?>
+	      	<a href="efetuaTroca.php"><li style="width: 5%;height:  100%;border-radius: 0%;background-color: #1e87e5;" class="btn-floating pulse"> <i class="material-icons" style="left: 10%;position:  absolute;">notifications</i><label style="position:  absolute;top: 20%;font-size:  20px;font-weight:  900;left: 60%;color: white;"><?php echo $linhasNotificacoes?></label></li></a>
+		<?php
+		}
+		?>
+
+
 	      <li><a data-activates="slide-out" class="button tooltipped" data-position="bottom" data-tooltip="Clique para abrir o menu de usuário"><?php echo $RegUsuario['usrApelido'];?></a></li>
 		    <li><a href="./conexoesPhp/Deslogar.php">Sair</a></li>
 		     <li><a href="Logado.php">Página Inicial</a></li>
+
 		     <li><a class="dropdown-button" href="#" data-activates="categorias">Categorias</a></li>
 	      </ul>
 

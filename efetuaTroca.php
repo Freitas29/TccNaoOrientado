@@ -261,6 +261,8 @@ function DeletaNotificacao(valor){
 			
 			$DadosUsuario = mysqli_query($oCon,$Usuario);
 
+			
+
 			if($RegUsuario = mysqli_fetch_assoc($DadosUsuario)){
 			
 	?>
@@ -308,6 +310,7 @@ function DeletaNotificacao(valor){
 	      <li><a data-activates="slide-out" class="button tooltipped" data-position="bottom" data-tooltip="Clique para abrir o menu de usuário"><?php echo $RegUsuario['usrApelido'];?></a></li>
 		    <li><a href="./conexoesPhp/Deslogar.php">Sair</a></li>
 		     <li><a href="Logado.php">Página Inicial</a></li>
+		     
 		     <li><a class="dropdown-button" href="#" data-activates="categorias">Categorias</a></li>
 	      </ul>
 
@@ -377,6 +380,9 @@ function DeletaNotificacao(valor){
 <!--Conteudo do ste começa aqui -->
 
 <?php
+
+
+
 
 //Trocado é diferente de um pois tudo que for igual a 1 significa que ele já foi trocado e não aparecera no select
 	$DadosQuemRecebe = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas t on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and t.trocado != 1";
