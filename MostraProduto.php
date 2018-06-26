@@ -142,7 +142,6 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
   }
 
 function Teste(){
-    alert("a");
     document.getElementById('SomePedirTroca').style.visibility="visible";
 }
                     
@@ -291,6 +290,12 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
             $SelecionaOsProdutosAnunciados = 'select ancCodigo,ancTitulo,ancEstadoItem,ancCod_Criador,ancDesc from anuncio where trocado = 0 and ancCod_Criador = '.$_SESSION['Login'];
 
             $DadosDoProdutosAnunciados = mysqli_query($oCon,$SelecionaOsProdutosAnunciados);
+
+            $LinhasResultantesParaQuemEscolheAnuncio = mysqli_num_rows($DadosDoProdutosAnunciados);
+
+            if($LinhasResultantesParaQuemEscolheAnuncio == 0){
+              echo "Você ainda não tem produtos para trocar com esse usuário";
+            }
 
             while ($RegProdutosAnunciado = mysqli_fetch_assoc($DadosDoProdutosAnunciados)) {
               

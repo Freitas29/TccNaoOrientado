@@ -336,6 +336,15 @@ ul#categorias{
       height: 25%;
   }
 
+  .card .card-content p {
+      margin: 0;
+      color: inherit;
+      max-width: 68ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  }
+
   @media only screen and (max-width: 320px) {
     .card .card-image #ImagensAnunciadas {
       display: block;

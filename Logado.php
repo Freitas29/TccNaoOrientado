@@ -209,12 +209,12 @@
 
 			include './conexoesPhp/Conexao.php';
 			
-			$ConteudoCelular = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=4 and ancCod_Criador != '.$_SESSION['Login'].' and trocado = 0 order by ancCodigo desc limit 4';
+			$ConteudoCelular = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=1 and ancCod_Criador != '.$_SESSION['Login'].' and trocado = 0 order by ancCodigo desc limit 4';
 			
 			$Usuario = 'select usrEmail,usrApelido,usrFoto from usuario where UsrCodigo='.$_SESSION['Login'];
 			
 			//jogos
-			$Conteudo = ' select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=5 and ancCod_Criador != '.$_SESSION['Login'].' and trocado = 0 order by ancCodigo desc limit 4';
+			$Conteudo = ' select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=4 and ancCod_Criador != '.$_SESSION['Login'].' and trocado = 0 order by ancCodigo desc limit 4';
 			
 			$Conteudo2 = 'select * from anuncio where ancCod_Criador != '.$_SESSION['Login'].' and trocado = 0 order by ancCodigo desc limit 4';
 
