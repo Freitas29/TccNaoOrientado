@@ -128,6 +128,8 @@ if (empty($Estado)) {
 		if(mysqli_query($oCon,$CadastrandoUsuario)){
 		
 			echo "JFKDSL";
+			header("location:../PaginaDeLogin.php");
+			$_SESSION['nomeUsuario'] = $Nome;
 		
 		}else{
 			
