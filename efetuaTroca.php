@@ -543,7 +543,7 @@ if(isset($_SESSION['trocas'])){
 				    	</div>
 				    <?php
 						//Esse bloco traz o anuncio do usuário atual que está sendo solicitado para ser trocado
-						$anuncioEscolhido = ' select  distinct ancTitulo,ancCodigo,ancDesc,ancTitulo,a.trocado,idTroca from anuncio a inner join trocas on anuncioRecebe = ancCodigo where anuncioEnvia = '.$RegQuemRecebe['ancCodigo'];
+						$anuncioEscolhido = ' select  ancTitulo,ancCodigo,ancDesc,ancTitulo,a.trocado,idTroca from anuncio a inner join trocas on anuncioRecebe = ancCodigo where anuncioEnvia = '.$RegQuemRecebe['ancCodigo'];
 						$ResultadoDoProdutoNoQualFoiSelecionado = mysqli_query($oCon,$anuncioEscolhido);
 						if($Reg = mysqli_fetch_assoc($ResultadoDoProdutoNoQualFoiSelecionado)){
 

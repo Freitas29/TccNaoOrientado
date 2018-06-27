@@ -202,20 +202,24 @@ function Enviar(){
   }
 
     function DeletaAnuncio(valor){
-      var Objeto = new XMLHttpRequest();
-      
-      with(Objeto){
-      
-      open('GET','./conexoesPhp/DeletaAnuncio.php?id_produto='+valor+'');
-      
-      send();
 
-      
-        onload = function(){
-        location.reload();
+      if(confirm("Deseja Realmente exluir esse anuncio? ")){
+    
+        var Objeto = new XMLHttpRequest();
         
+        with(Objeto){
+        
+        open('GET','./conexoesPhp/DeletaAnuncio.php?id_produto='+valor+'');
+        
+        send();
+
+        
+          onload = function(){
+          location.reload();
+          
+          }
         }
-      }
+     }
     
   }
 
@@ -336,10 +340,10 @@ ul#categorias{
       height: 25%;
   }
 
-  .card .card-content p {
+  .card .card-content{
       margin: 0;
       color: inherit;
-      max-width: 68ch;
+      max-width: 64ch;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
