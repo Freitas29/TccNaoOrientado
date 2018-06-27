@@ -294,7 +294,8 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
             $LinhasResultantesParaQuemEscolheAnuncio = mysqli_num_rows($DadosDoProdutosAnunciados);
 
             if($LinhasResultantesParaQuemEscolheAnuncio == 0){
-              echo "Você ainda não tem produtos para trocar com esse usuário";
+              echo "Você não possui produtos para trocar com esse usuário";
+              echo "<br><a href='ProdutosUsuario.php#test-swipe-2'><button class='btn blue darken-2 waves-effect waves-light btn  N/A-text text-N/A' >Cadastrar Produto?</button></a>";
             }
 
             while ($RegProdutosAnunciado = mysqli_fetch_assoc($DadosDoProdutosAnunciados)) {

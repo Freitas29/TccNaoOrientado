@@ -41,7 +41,7 @@ nav{
 
 				<div class="input-field col s12 m12 l12">
 					  <i class="material-icons prefix">account_circle</i>
-					  <input id="icon_prefix" type="text" class="validate" name="UsuarioLogin">
+					  <input id="icon_prefix" type="text" class="validate" name="UsuarioLogin" value="<?php if(isset($_SESSION['nomeUsuario'])){echo $_SESSION['nomeUsuario']; unset($_SESSION['nomeUsuario']);}else{echo "";}?>">
 					  <label for="icon_prefix">Nome de usuário ou email</label>
 					  <?php
 
