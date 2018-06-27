@@ -1122,6 +1122,8 @@ label {
               <div class="col l3 m3 s3">
                 <div class="card" style=" word-wrap: break-word;">
                   <div class="card-image">
+                    <a href="MostraProduto.php?id_produto=<?php echo $RegFav['ancCodigo']?>">
+
   
                      <?php 
 
@@ -1138,7 +1140,7 @@ label {
                       ?>
                     <img src="./Produtos/<?php echo $FotosEnd['fotoDescricao'] ?>" id="ImagensAnunciadas">
                     
-
+                  </a>
                     <?php 
                    }
 
