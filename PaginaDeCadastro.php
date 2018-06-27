@@ -87,13 +87,26 @@ function validaTel(valor){
 	document.getElementById('CampoValue').value =final;
 	document.getElementById('TELE').style.display="block";
 	document.getElementById('TelPrincipal').style.display="none";
+	if(document.getElementById('CampoValue').value.length <= 8){
+		document.getElementById('TelefoneValidacaoDoP').style.display="block";
+	}
+	
+
 }
 
 function ComValida(){
 	document.getElementById('TELE').style.display="none";
 	document.getElementById('TelPrincipal').style.display="block";
+	if(document.getElementById('CampoValue').value.length <= 8){	
+		document.getElementById('TelefoneValidacaoDoP').style.display="block";
+	}
 }
 
+function veValidacao(){
+	if(document.getElementById('CampoValue').value.length <= 8){
+	document.getElementById('TelefoneValidacaoDoP').style.display="block";
+	}
+}
 </script>
 
 <div class="container" style="margin-top: 2%">
@@ -138,18 +151,20 @@ function ComValida(){
 
 								
 								<div class="input-field col s12 m12 l12" id="TelPrincipal">
-									<p>Telefone(opcional)</p>
+									
 									<i class="material-icons prefix">phone</i>
 									   <input id="icon_telephone" type="tel" class="validate" name="TelefoneUsu" id="TelefoneUsu" required maxlength="15" onblur="validaTel(this.value)">
+									   <label for="icon_prefix">Telefone</label>
 									   
 
 								</div>
 
 							
-								<div class="input-field col s12 m12 l12" style="display:none;" id="TELE" onclick="ComValida()">
-									<p>Telefone(opcional)</p>
+								<div class="input-field col s12 m12 l12" style="display:none;" id="TELE" onclick="ComValida()" >
+									
 									<i class="material-icons prefix">phone</i>
-									   <input type="text"  maxlength="15" id="CampoValue">
+									   <input type="text"  maxlength="15" id="CampoValue" required onblur="veValidacao()">
+									    <p style="display:none;color:red;" id="TelefoneValidacaoDoP">Preencha este campo</p>
 
 								</div>
 
