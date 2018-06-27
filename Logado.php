@@ -290,7 +290,7 @@
 
 
 	      	?>
-	      	<a href="efetuaTroca.php"><li style="width: 5%;height:  100%;border-radius: 0%;background-color: #1e87e5;" class="btn-floating pulse"> <i class="material-icons" style="left: 10%;position:  absolute;">notifications</i><label style="position:  absolute;top: 20%;font-size:  20px;font-weight:  900;left: 60%;color: white;"><?php echo $linhasNotificacoes?></label></li></a>
+	      	<a href="efetuaTroca.php"><li style="width: 5%;height:  100%;border-radius: 0%;background-color: #f58614;" class="btn-floating pulse"> <i class="material-icons" style="left: 10%;position:  absolute;">notifications</i><label style="position:  absolute;top: 20%;font-size:  20px;font-weight:  900;left: 60%;color: white;"><?php echo $linhasNotificacoes?></label></li></a>
 		<?php
 		}
 		?>

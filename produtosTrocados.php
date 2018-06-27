@@ -384,6 +384,8 @@ function reinserir(valor){
 
             $DadosDoProdutosAnunciados = mysqli_query($oCon,$SelecionaOsProdutosAnunciados);
 
+            $DadosProdutos = mysqli_num_rows($DadosDoProdutosAnunciados);
+
             while ($RegProdutosAnunciado = mysqli_fetch_assoc($DadosDoProdutosAnunciados)) {
               
 
@@ -430,6 +432,10 @@ function reinserir(valor){
           <?php
             
           }
+        }
+
+        if($DadosProdutos == 0){
+        	echo "<p style='font-size:30px;'>Você não tem nenhum produto trocado!</p>";
         }
  ?>
 
