@@ -102,7 +102,7 @@ nav{
 
 		include './conexoesPhp/Conexao.php';
 		
-		$ConteudoCelular = 'select ancCodigo,ancTitulo,ancDesc from anuncio where ancCod_Categoria=1 and trocado = 0  order by ancCodigo desc limit 4';
+		$ConteudoLivro = 'select ancCodigo,ancTitulo,ancDesc from anuncio where ancCod_Categoria=2 and trocado = 0  order by ancCodigo desc limit 4';
 		
 		$Conteudo = 'select * from anuncio where trocado = 0 limit 4';
 		
@@ -112,7 +112,7 @@ nav{
 		
 		$Dados2 = mysqli_query($oCon,$Conteudo2);
 		
-		$DadosCelular = mysqli_query($oCon,$ConteudoCelular);
+		$DadosLivro = mysqli_query($oCon,$ConteudoLivro);
 
 		//Cabeçalho sem estar logado
 		include 'Header.php';
@@ -127,7 +127,7 @@ nav{
 		<div class="Header">
 		
 			<blockquote>
-				Celulares novos
+				Livros novos
 				<a href="#">Ver mais</a>
 			</blockquote>
 		
@@ -137,7 +137,7 @@ nav{
 			
 			<?php 
 		
-			while($DadosMostraCelular = mysqli_fetch_assoc($DadosCelular)){
+			while($DadosMostraCelular = mysqli_fetch_assoc($DadosLivro)){
 			$anuncioCelularNovoCod = $DadosMostraCelular['ancCodigo'];
 			?>
 			
@@ -368,7 +368,7 @@ $(function(){
 mysqli_close($oCon);
 mysqli_free_result($Dados);
 mysqli_free_result($Dados2);
-mysqli_free_result($DadosCelular);
+mysqli_free_result($DadosLivro);
 
 
 }else{

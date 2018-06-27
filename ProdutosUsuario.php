@@ -438,7 +438,7 @@ label {
 
       <a href="#" data-activates="menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 
-      <ul class="right hide-on-med-and-down" style="width:36%;">
+      <ul class="right hide-on-med-and-down" style="width:40%;">
     
           <!-- Notificação do usuário -->
           <?php
