@@ -543,17 +543,16 @@ if(isset($_SESSION['trocas'])){
 				    	</div>
 				    <?php
 						//Esse bloco traz o anuncio do usuário atual que está sendo solicitado para ser trocado
-						$anuncioEscolhido = ' select ancTitulo,ancCodigo,ancDesc,ancTitulo,a.trocado,idTroca from anuncio a inner join trocas on anuncioRecebe = ancCodigo where anuncioEnvia = '.$RegQuemRecebe['ancCodigo'];
+						$anuncioEscolhido = ' select  distinct ancTitulo,ancCodigo,ancDesc,ancTitulo,a.trocado,idTroca from anuncio a inner join trocas on anuncioRecebe = ancCodigo where anuncioEnvia = '.$RegQuemRecebe['ancCodigo'];
 						$ResultadoDoProdutoNoQualFoiSelecionado = mysqli_query($oCon,$anuncioEscolhido);
-
 						if($Reg = mysqli_fetch_assoc($ResultadoDoProdutoNoQualFoiSelecionado)){
-							
+
 							
 							?>
 
 						
-							<a  href="MostraProduto.php?id_produto=<?php echo $Reg['ancCodigo'];?>" >
-									      <div class="card hoverable" style=" word-wrap: break-word;" >
+							
+									      <div class="card" style=" word-wrap: break-word;" >
 
 									        <div class="card-image">
 
@@ -577,22 +576,23 @@ if(isset($_SESSION['trocas'])){
 									        </div>
 
 
-											</a>
+									
 									        <div class="card-content">
 									        	<span class="card-title"><?php echo $Reg['ancTitulo']?></span>
 									          <p id="Desc"><?php echo $Reg['ancDesc']?></p>
 									        </div> 
 							</div>
 					
-			
+			<?php
+ 			}
+			?>
 				  	
 				   
     </div>
 
     <div class="modal-footer" style="position: relative;top: 250px;">
     <?php
-    if($Reg['trocado'] == 0)
-    {
+    if($Reg['trocado'] == 0){
 		
 	
     ?>
@@ -609,7 +609,8 @@ if(isset($_SESSION['trocas'])){
     }
     ?>
     </div>
-  </div>
+ </div>
+  
   </div>
 
  
@@ -617,7 +618,7 @@ if(isset($_SESSION['trocas'])){
 
 
   <?php
-  			}
+ 			
   	}
 
   	mysqli_free_result($ResultadoQuemRecebe);
@@ -629,6 +630,29 @@ if(isset($_SESSION['trocas'])){
 <!-- Materialize JavaScript -->
 <script src="./Materialize/js/materialize.js"></script>
 <script>
+
+	$(function(){
+	$("#pesquisa").keyup(function(){
+		var pesquisa = $(this).val();
+
+		//verifica se algo foi digitado
+		if(pesquisa != ''){
+			var dados = {
+			palavra : pesquisa
+		}
+		
+	
+		$.post('./conexoesPhp/BarraDeBusca.php',dados,function(retorna){
+			$(".resultado").html(retorna);
+			$(".resultado").css("display","inline-grid");
+		});
+	}else{
+		(".resultado").html('');	
+		$(".resultado").css("display","none");
+	}
+	});
+});
+
 
 	$(document).ready(function(){
     $('.modal').modal();

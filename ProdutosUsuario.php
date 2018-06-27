@@ -434,20 +434,20 @@ label {
 
       <a href="#" data-activates="menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 
-      <ul class="right hide-on-med-and-down">
+      <ul class="right hide-on-med-and-down" style="width:36%;">
     
           <!-- Notificação do usuário -->
           <?php
           if($linhasNotificacoes == 0){
             ?>
-            <li style="width: 5%;height:  100%;border-radius: 0%;background-color: #1e87e5;" > <i class="material-icons">notifications_off</i></li>
+            <li style="width: 13%;height:  100%;border-radius: 0%;background-color: #1e87e5;" > <i class="material-icons">notifications_off</i></li>
             <?php
 
           }else{
 
 
           ?>
-          <a href="efetuaTroca.php"><li style="width: 5%;height:  100%;border-radius: 0%;background-color: #f58614;" class="btn-floating pulse"> <i class="material-icons" style="left: 10%;position:  absolute;">notifications</i><label style="position:  absolute;top: 20%;font-size:  20px;font-weight:  900;left: 60%;color: white;"><?php echo $linhasNotificacoes?></label></li></a>
+          <a href="efetuaTroca.php"><li style="width: 13%;height:  100%;border-radius: 0%;background-color: #f58614;" class="btn-floating pulse"> <i class="material-icons" style="left: 10%;position:  absolute;">notifications</i><label style="position:  absolute;top: 20%;font-size:  20px;font-weight:  900;left: 60%;color: white;"><?php echo $linhasNotificacoes?></label></li></a>
     <?php
     }
     ?>
