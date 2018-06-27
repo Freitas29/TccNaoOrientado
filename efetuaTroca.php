@@ -500,7 +500,7 @@ if(isset($_SESSION['trocas'])){
 				    </div>
 
 				     <!-- Modal Structure -->
-  <div id="<?php echo $codigoParaModal?>" class="modal">
+  <div id="<?php echo $codigoParaModal?>" class="modal" style="top: 10%;height:  50%;">
     <div class="modal-content">
 					     <div class="col l3 m3 s3" style="display: -webkit-inline-box;">
 					 					<a  href="MostraProduto.php?id_produto=<?php echo $RegQuemRecebe['ancCodigo'];?>" >
@@ -551,7 +551,7 @@ if(isset($_SESSION['trocas'])){
 							
 							?>
 
-
+						
 							<a  href="MostraProduto.php?id_produto=<?php echo $Reg['ancCodigo'];?>" >
 									      <div class="card hoverable" style=" word-wrap: break-word;" >
 
@@ -575,17 +575,21 @@ if(isset($_SESSION['trocas'])){
 													}
 									          ?>
 									        </div>
+
+
 											</a>
 									        <div class="card-content">
 									        	<span class="card-title"><?php echo $Reg['ancTitulo']?></span>
 									          <p id="Desc"><?php echo $Reg['ancDesc']?></p>
-									         
-									        </div>
+									        </div> 
+							</div>
+					
 			
 				  	
 				   
     </div>
-    <div class="modal-footer">
+
+    <div class="modal-footer" style="position: relative;top: 250px;">
     <?php
     if($Reg['trocado'] == 0)
     {
@@ -593,7 +597,7 @@ if(isset($_SESSION['trocas'])){
 	
     ?>
       <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php echo $RegQuemRecebe['ancCodigo'].",". $Reg['ancCodigo'] ?>)">Aceitar</button>
-    </div>
+    
     <?php
 }else{
 
@@ -604,18 +608,11 @@ if(isset($_SESSION['trocas'])){
     <?php
     }
     ?>
+    </div>
+  </div>
   </div>
 
-
-
-
-  
-
-
-  </div>
-
-
-  </div>
+ 
 
 
 
