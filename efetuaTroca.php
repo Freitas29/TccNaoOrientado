@@ -386,7 +386,7 @@ if(isset($_SESSION['trocas'])){
 				}
 
 //Trocado é diferente de um pois tudo que for igual a 1 significa que ele já foi trocado e não aparecera no select
-	$DadosQuemRecebe = "select ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas t on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and t.trocado != 1";
+	$DadosQuemRecebe = "select distinct ancTitulo,usrApelido,ancCodigo,ancDesc from anuncio inner join trocas t on anuncioEnvia = ancCodigo inner join usuario on usuarioRecebe = UsrCodigo where usuarioRecebe = ".$_SESSION['Login']."  and t.trocado != 1";
 	$ResultadoQuemRecebe = mysqli_query($oCon,$DadosQuemRecebe);
 
 	$LinhasResultantesQuemRecebe = mysqli_num_rows($ResultadoQuemRecebe);
@@ -502,7 +502,7 @@ if(isset($_SESSION['trocas'])){
 				     <!-- Modal Structure -->
   <div id="<?php echo $codigoParaModal?>" class="modal" style="top: 10%;height:  50%;">
     <div class="modal-content">
-					     <div class="col l3 m3 s3" style="display: -webkit-inline-box;">
+					     <div class="col l3 m3 s3" style="display: inherit;">
 					 					<a  href="MostraProduto.php?id_produto=<?php echo $RegQuemRecebe['ancCodigo'];?>" >
 									      <div class="card hoverable" style=" word-wrap: break-word;" >
 
@@ -538,21 +538,21 @@ if(isset($_SESSION['trocas'])){
 				       
 				      	</div>
 
-				      	<div>
+				      	<div style="position: relative;left: 120%;top: -230px;">
 				      	<i class="material-icons">cached</i>
 				    	</div>
 				    <?php
 						//Esse bloco traz o anuncio do usuário atual que está sendo solicitado para ser trocado
 						$anuncioEscolhido = ' select  ancTitulo,ancCodigo,ancDesc,ancTitulo,a.trocado,idTroca from anuncio a inner join trocas on anuncioRecebe = ancCodigo where anuncioEnvia = '.$RegQuemRecebe['ancCodigo'];
 						$ResultadoDoProdutoNoQualFoiSelecionado = mysqli_query($oCon,$anuncioEscolhido);
-						if($Reg = mysqli_fetch_assoc($ResultadoDoProdutoNoQualFoiSelecionado)){
+						while($Reg = mysqli_fetch_assoc($ResultadoDoProdutoNoQualFoiSelecionado)){
 
 							
 							?>
 
 						
 							
-									      <div class="card" style=" word-wrap: break-word;" >
+									      <div class="card" style="word-wrap: break-word;position:  relative;top: -470px;left: 240%;" >
 
 									        <div class="card-image">
 
@@ -580,6 +580,23 @@ if(isset($_SESSION['trocas'])){
 									        <div class="card-content">
 									        	<span class="card-title"><?php echo $Reg['ancTitulo']?></span>
 									          <p id="Desc"><?php echo $Reg['ancDesc']?></p>
+									           <?php
+											    if($Reg['trocado'] == 0){
+													
+												
+											    ?>
+											      <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php echo $RegQuemRecebe['ancCodigo'].",". $Reg['ancCodigo'] ?>)">Aceitar</button>
+											    
+											    <?php
+											}else{
+
+											    ?>
+											   <button class="btn disabled">Anuncio já trocado</button> 
+											   <button class="btn" onclick="DeletaNotificacao(<?php echo $Reg['idTroca']?>)">Excluir notificação?</button>  
+											   	
+											    <?php
+											    }
+											    ?>
 									        </div> 
 							</div>
 					
@@ -590,25 +607,7 @@ if(isset($_SESSION['trocas'])){
 				   
     </div>
 
-    <div class="modal-footer" style="position: relative;top: 250px;">
-    <?php
-    if($Reg['trocado'] == 0){
-		
-	
-    ?>
-      <button class="blue darken-2 waves-effect waves-light btn  N/A-text text-N/A" onclick="SalvaRegistro(<?php echo $RegQuemRecebe['ancCodigo'].",". $Reg['ancCodigo'] ?>)">Aceitar</button>
-    
-    <?php
-}else{
-
-    ?>
-   <button class="btn disabled">Anuncio já trocado</button> 
-   <button class="btn" onclick="DeletaNotificacao(<?php echo $Reg['idTroca']?>)">Excluir notificação?</button>  
-   	
-    <?php
-    }
-    ?>
-    </div>
+   
  </div>
   
   </div>
