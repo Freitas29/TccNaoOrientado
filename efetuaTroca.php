@@ -78,6 +78,7 @@
 	}
 
 function SalvaRegistro(valor,valor2){
+	if(confirm("Deseja realmente trocar?\nAnote o número do usuário antes de confirmar!\nEnviaremos um e-mail para você com dados de  contato do usuário!")){
 	var Objeto = new XMLHttpRequest();
 			with(Objeto){
 			
@@ -88,10 +89,11 @@ function SalvaRegistro(valor,valor2){
 					location.reload();
 				}
 			}
+		}
 } 
 
 function DeletaNotificacao(valor){
-	if(confirm("aceitar?")){
+	if(confirm("Excluir notificação?")){
 		var Objeto = new XMLHttpRequest();
 			
 			
@@ -471,7 +473,7 @@ if(isset($_SESSION['trocas'])){
 				        </div>
 				        </a>
 				        <div class="card-content">
-				        	<span class="card-title"><?php echo $RegQuemEnvia['ancTitulo']?></span>
+				        	<p class="card-title"><?php echo $RegQuemEnvia['ancTitulo']?></p>
 				          	<p id="Desc"><?php echo $RegQuemEnvia['ancDesc']?></p>
 				        	<button class="btn disabled">Pedido Pendente</button>  	
 				        
@@ -527,7 +529,7 @@ if(isset($_SESSION['trocas'])){
 				        </div>
 						</a>
 				        <div class="card-content">
-				        	<span class="card-title"><?php echo $RegQuemRecebe['ancTitulo']?></span>
+				        	<p class="card-title"><?php echo $RegQuemRecebe['ancTitulo']?></p>
 				          <p id="Desc"><?php echo $RegQuemRecebe['ancDesc']?></p>
 				          <button data-target="<?php echo $codigoParaModal ?>" class="btn modal-trigger">Finalizar</button>
 				        </div>
@@ -569,7 +571,7 @@ if(isset($_SESSION['trocas'])){
 									        </div>
 											</a>
 									        <div class="card-content">
-									        	<span class="card-title"><?php echo $RegQuemRecebe['ancTitulo']?></span>
+									        	<p class="card-title"><?php echo $RegQuemRecebe['ancTitulo']?></p>
 									          <p id="Desc"><?php echo $RegQuemRecebe['ancDesc']?></p>
 									         
 									        </div>
@@ -617,7 +619,7 @@ if(isset($_SESSION['trocas'])){
 
 									
 									        <div class="card-content">
-									        	<span class="card-title"><?php echo $Reg['ancTitulo']?></span>
+									        	<p class="card-title"><?php echo $Reg['ancTitulo']?></p>
 									          <p id="Desc"><?php echo $Reg['ancDesc']?></p>
 									           <?php
 											    if($Reg['trocado'] == 0){
