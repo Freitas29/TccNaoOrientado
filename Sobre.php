@@ -5,7 +5,7 @@
 
 <body>
 
-<<head>
+<head>
 
 <!-- Css do materialize -->
 <link rel="stylesheet" href="./Materialize/css/materialize.css">
