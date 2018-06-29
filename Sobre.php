@@ -221,11 +221,11 @@ nav .brand-logo.left {
   			<h2 class="collection-header">O que o site tem a oferecer</h2>
         <p class="texto-sobre">
   			<h5>
-        Nosso sistema tem a oferecer a melhor experiência possivel, garantindo segurança em suas negociações.
+        Nosso sistema tem a oferecer a melhor experiência possível, garantindo segurança em suas negociações.
         <br>
-        Com o objetivo de facilitar um dos principais meios de transações, que é a “troca”.
+        Com o objetivo de facilitar um dos principais meios de transações, que é a troca.
         <br>
-        Essa ideia veio de um projeto de uma instituição, que se chama INVENI pensamos juntos e decidimos essa ideia, analisamos bem o que faltava no mercado.
+        Essa ideia veio de um projeto de uma instituição, e chama INVENI pensamos juntos e decidimos realizar essa ideia, mas para isso, analisamos bem o que faltava no mercado.
         </h5>
   			</p>
         <h2 class="collection-header">Objetivo do nosso sistema</h2>
