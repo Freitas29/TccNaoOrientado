@@ -203,7 +203,7 @@ nav{
 			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2 modal-trigger"   ><i class="material-icons">favorite_border</i></a>
 			        </div>
 			        <div class="card-content">
-			        	<span class="card-title"><?php echo $DadosMostraCelular['ancTitulo']?></span>
+			        	<span class="card-title" style="width:23ch;"><?php echo $DadosMostraCelular['ancTitulo']?></span>
 						<p id="Desc"><?php echo $DadosMostraCelular['ancDesc']?></p>
 			        </div>
 
@@ -264,8 +264,8 @@ nav{
 			          
 			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2 modal-trigger" href="#modal1"><i class="material-icons">favorite_border</i></a>
 			        </div>
-			        <div class="card-content">
-			        	<span class="card-title"><?php echo $DadosMostra['ancTitulo']?></span>
+			        <div class="card-content" style="overflow:hidden;">
+			        	<span class="card-title" style="width:23ch";><?php echo $DadosMostra['ancTitulo']?></span>
 			         	<p id="Desc"><?php echo $DadosMostra['ancDesc']?></p>
 			        </div>
 					
@@ -326,8 +326,8 @@ nav{
 			          
 			          <a class="btn-floating halfway-fab waves-effect waves-light blue darken-2 modal-trigger" href="#modal1"><i class="material-icons">favorite_border</i></a>
 			        </div>
-			        <div class="card-content">
-			        	<span class="card-title"><?php echo $DadosMostra2['ancTitulo']?></span>
+			        <div class="card-content" style="overflow:hidden;">
+			        	<span class="card-title" style="width:23ch;"><?php echo $DadosMostra2['ancTitulo']?></span>
 			          	<p id="Desc"><?php echo $DadosMostra2['ancDesc']?></p>
 			        </div>
 

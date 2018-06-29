@@ -493,8 +493,8 @@
 
 				        </div>
 
-				        <div class="card-content">
-				        	<span class="card-title"><?php echo $DadosMostraCelular['ancTitulo']?></span>
+				        <div class="card-content" style="overflow:hidden;">
+				        	<span class="card-title" style="width:23ch;"><?php echo $DadosMostraCelular['ancTitulo']?></span>
 				          <p id="Desc"><?php echo $DadosMostraCelular['ancDesc']?></p>
 				        </div>
 
@@ -594,8 +594,8 @@
 				          ?>
 				      	         
 				        </div>
-				        <div class="card-content">
-				        	<span class="card-title"><?php echo $DadosMostra['ancTitulo']?></span>
+				        <div class="card-content" style="overflow:hidden;">
+				        	<span class="card-title" style="width:23ch;"><?php echo $DadosMostra['ancTitulo']?></span>
 				         	<p id="Desc"><?php echo $DadosMostra['ancDesc']?></p>
 				        </div>
 
@@ -688,8 +688,8 @@
 				    
 				          ?>
 				        </div>
-				        <div class="card-content">
-				        	<span class="card-title"><?php echo $DadosMostra2['ancTitulo']?></span>
+				        <div class="card-content" style="overflow:hidden;">
+				        	<span class="card-title" style="width:23ch;"><?php echo $DadosMostra2['ancTitulo']?></span>
 				          <p id="Desc"><?php echo $DadosMostra2['ancDesc']?></p>
 				        </div>
 				      </div>
@@ -783,8 +783,8 @@
 				    
 				          ?>
 				        </div>
-				        <div class="card-content">
-				        	<span class="card-title"><?php echo $MostraLivros['ancTitulo']?></span>
+				        <div class="card-content" style="overflow:hidden;">
+				        	<span class="card-title" style="width:23ch;"><?php echo $MostraLivros['ancTitulo']?></span>
 				          <p id="Desc"><?php echo $MostraLivros['ancDesc']?></p>
 				        </div>
 
