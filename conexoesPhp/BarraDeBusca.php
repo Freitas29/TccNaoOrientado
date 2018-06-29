@@ -3,7 +3,7 @@
 	 include 'Conexao.php';
 	 session_start();
 	$Pesquisa = $_POST['palavra'];
-	$BuscaAnuncio = " select ancTitulo,ancCodigo,fotoDescricao from anuncio inner join fotosprodutos on  ancCodigo = foto_cod_anuncio inner join usuario on ancCod_Criador = UsrCodigo where ancTitulo like '$Pesquisa%' and usrCodigo = ".$_SESSION['Login']." limit 3";
+	$BuscaAnuncio = " select ancTitulo,ancCodigo,fotoDescricao from anuncio inner join fotosprodutos on  ancCodigo = foto_cod_anuncio inner join usuario on ancCod_Criador = UsrCodigo where ancTitulo like '$Pesquisa%' and usrCodigo != ".$_SESSION['Login']." limit 3";
 	;
 
 

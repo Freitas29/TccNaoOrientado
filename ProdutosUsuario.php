@@ -587,7 +587,7 @@ label {
 
 <div class="row">
 
-  <ul id="tabs-swipe-demo" class="tabs" style="background-color: #1e88e5">
+  <ul id="tabs-swipe-demo" class="tabs" style="background-color: #1e88e5;overflow-x:  hidden;">
 
           <li class="tab col s3"><a href="#test-swipe-4" style="color: #fff">Seus Dados</a></li>
 
