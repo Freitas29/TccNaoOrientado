@@ -121,11 +121,11 @@ nav .brand-logo.left {
       <li style="width: 59%;">
         <div class="nav-wrapper">
         <form action="" method="POST" id="formPesquisa" >
-              <div class="input-field" >
+              <div class="input-field" style="background-color:  #fff;">
 
                 <input id="pesquisa" type="search" name="pesquisa" onfocus="AtivaBusca()">
                 
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <label class="label-icon" for="search"><i class="material-icons" style="color:#000;">search</i></label>
                 <i class="material-icons">close</i>
               
              </form>
