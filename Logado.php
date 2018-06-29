@@ -77,7 +77,9 @@
 		}
 	}
 
-	
+	function mostraCategoria(){
+		document.getElementById('categorias').style.display="inline-table";
+	}
 
 	</script>
 
@@ -337,7 +339,7 @@
 		    <li><a href="./conexoesPhp/Deslogar.php">Sair</a></li>
 		     <li><a href="Logado.php">Página Inicial</a></li>
 
-		     <li><a class="dropdown-button" href="#" data-activates="categorias">Categorias</a></li>
+		     <li><a class="dropdown-button" href="#" data-activates="categorias" onclick="mostraCategoria()">Categorias</a></li>
 	      </ul>
 
 
@@ -494,7 +496,7 @@
 				        </div>
 
 				        <div class="card-content" style="overflow:hidden;">
-				        	<span class="card-title" style="width:23ch;"><?php echo $DadosMostraCelular['ancTitulo']?></span>
+				        	<p class="card-title" style="width: 22ch;text-overflow:  ellipsis;"><?php echo $DadosMostraCelular['ancTitulo']?></p>
 				          <p id="Desc"><?php echo $DadosMostraCelular['ancDesc']?></p>
 				        </div>
 
@@ -595,7 +597,7 @@
 				      	         
 				        </div>
 				        <div class="card-content" style="overflow:hidden;">
-				        	<span class="card-title" style="width:23ch;"><?php echo $DadosMostra['ancTitulo']?></span>
+				        	<p class="card-title" style="width: 22ch;text-overflow:  ellipsis;"><?php echo $DadosMostra['ancTitulo']?></p>
 				         	<p id="Desc"><?php echo $DadosMostra['ancDesc']?></p>
 				        </div>
 
@@ -689,7 +691,7 @@
 				          ?>
 				        </div>
 				        <div class="card-content" style="overflow:hidden;">
-				        	<span class="card-title" style="width:23ch;"><?php echo $DadosMostra2['ancTitulo']?></span>
+				        	<p class="card-title" style="width: 22ch;text-overflow:  ellipsis;"><?php echo $DadosMostra2['ancTitulo']?></p>
 				          <p id="Desc"><?php echo $DadosMostra2['ancDesc']?></p>
 				        </div>
 				      </div>
@@ -784,7 +786,7 @@
 				          ?>
 				        </div>
 				        <div class="card-content" style="overflow:hidden;">
-				        	<span class="card-title" style="width:23ch;"><?php echo $MostraLivros['ancTitulo']?></span>
+				        	<p class="card-title" style="width: 22ch;text-overflow:  ellipsis;"><?php echo $MostraLivros['ancTitulo']?></p>
 				          <p id="Desc"><?php echo $MostraLivros['ancDesc']?></p>
 				        </div>
 
@@ -808,7 +810,7 @@
 
 
 			<!-- dropdown de categorias -->
-		<ul id = "categorias" class="dropdown-content">
+		<ul id="categorias" class="dropdown-content" style="display:none;">
 			<?php
 				$Categoria = 'select ctgCodigo,ctgNome from categoria where ctgNome != "Nenhum" ';
 				$DadosCategoria = mysqli_query($oCon,$Categoria);
