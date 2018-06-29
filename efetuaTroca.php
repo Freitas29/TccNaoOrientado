@@ -106,7 +106,10 @@ function DeletaNotificacao(valor){
 			}
 	}
 }
-	
+	function mostraCategoria(){
+		document.getElementById('categorias').style.display="inline-table";
+	}
+
 
 	</script>
 
@@ -345,7 +348,7 @@ function DeletaNotificacao(valor){
 		    <li><a href="./conexoesPhp/Deslogar.php">Sair</a></li>
 		     <li><a href="Logado.php">Página Inicial</a></li>
 		     
-		     <li><a class="dropdown-button" href="#" data-activates="categorias">Categorias</a></li>
+		     <li><a class="dropdown-button" href="#" data-activates="categorias" onclick="mostraCategoria()">Categorias</a></li>
 	      </ul>
 
 

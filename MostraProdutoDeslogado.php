@@ -123,6 +123,12 @@ nav .input-field {
   }
 </style>
 
+<script type="text/javascript">
+  function mostraCategoria(){
+    document.getElementById('categorias').style.display="inline-table";
+  }
+
+</script>
 
 
 <body>

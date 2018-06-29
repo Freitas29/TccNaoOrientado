@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="./Materialize/css/materialize.css">
 
 	<meta charset="utf-8">
-	<<link href="http://localhost/MaterialIcons-Regular.eot" rel="stylesheet">
+	<link href="http://localhost/MaterialIcons-Regular.eot" rel="stylesheet">
 	</head>
 
 	<script>
@@ -76,6 +76,11 @@
 			document.getElementById('ResultadoBusca').style.display="none";
 		}
 	}
+
+	function mostraCategoria(){
+		document.getElementById('categorias').style.display="inline-table";
+	}
+
 	
 
 	</script>
@@ -284,7 +289,7 @@
 	      <li><a data-activates="slide-out" class="button tooltipped" data-position="bottom" data-tooltip="Clique para abrir o menu de usuário"><?php echo $RegUsuario['usrApelido'];?></a></li>
 		    <li><a href="./conexoesPhp/Deslogar.php">Sair</a></li>
 		     <li><a href="Logado.php">Página Inicial</a></li>
-		     <li><a class="dropdown-button" href="#" data-activates="categorias">Categorias
+		     <li><a class="dropdown-button" href="#" data-activates="categorias" onclick="mostraCategoria()">Categorias
          	<i class ="mdi-navigation-arrow-drop-down right"></i></a></li>
 	      </ul>
 

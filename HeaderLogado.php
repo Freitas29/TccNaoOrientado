@@ -143,7 +143,7 @@ $DadosUsuario = mysqli_query($oCon,$Usuario);
         <li><a data-activates="slide-out" class="button tooltipped" data-position="bottom" data-tooltip="Clique para abrir o menu de usuário"><?php echo $RegUsuario['usrApelido'];?></a></li>
         <li><a href="./conexoesPhp/Deslogar.php">Sair</a></li>
          <li><a href="Logado.php">Página Inicial</a></li>
-         <li><a class="dropdown-button" href="#" data-activates="categorias">Categorias</a></li>
+         <li><a class="dropdown-button" href="#" data-activates="categorias" onclick="mostraCategoria()">Categorias</a></li>
         </ul>
 
 

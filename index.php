@@ -130,6 +130,11 @@ nav{
 			document.getElementById('ResultadoBusca').style.display="none"
 		}
 	}
+
+	function mostraCategoria(){
+		document.getElementById('categorias').style.display="inline-table";
+	}
+
 </script>
 
 

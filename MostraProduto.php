@@ -181,7 +181,11 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
 function Teste(){
     document.getElementById('SomePedirTroca').style.visibility="visible";
 }
-                    
+           
+           function mostraCategoria(){
+    document.getElementById('categorias').style.display="inline-table";
+  }
+         
  
 </script>
 

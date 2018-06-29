@@ -105,6 +105,11 @@ nav .brand-logo.left {
     }
 	
   }
+
+  function mostraCategoria(){
+    document.getElementById('categorias').style.display="inline-table";
+  }
+
  
 </script>
 

@@ -281,6 +281,10 @@ function ComValida(){
 //    }
 //}
 
+function mostraCategoria(){
+    document.getElementById('categorias').style.display="inline-table";
+  }
+
 </script>
 
 <style>
@@ -499,7 +503,7 @@ label {
         <li><a href="./conexoesPhp/Deslogar.php">Sair</a></li>
 
          <li><a href="Logado.php">Página Inicial</a></li>
-         <li><a class="dropdown-button" href="#" data-activates="categorias">Categorias
+         <li><a class="dropdown-button" href="#" data-activates="categorias" onclick="mostraCategoria()">Categorias
           <i class ="mdi-navigation-arrow-drop-down right"></i></a></li>
        
       </ul>

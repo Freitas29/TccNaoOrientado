@@ -107,6 +107,11 @@ function veValidacao(){
 	document.getElementById('TelefoneValidacaoDoP').style.display="block";
 	}
 }
+
+function mostraCategoria(){
+		document.getElementById('categorias').style.display="inline-table";
+	}
+
 </script>
 
 <style type="text/css">
