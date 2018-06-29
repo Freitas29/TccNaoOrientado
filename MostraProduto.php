@@ -115,6 +115,14 @@ $DadosDasFotos = mysqli_query($oCon,$Fotos);
   display: none;
 }
 
+.card .card-content p {
+      margin: 0;
+      color: inherit;
+      max-width: 68ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  }
 
 </style>
 
@@ -378,7 +386,7 @@ if($RegProduto = mysqli_fetch_assoc($DadosDoProduto)){
                   </div>
 
                   <div class="card-content">
-                    <span class="card-title"><?php echo $RegProdutosAnunciado['ancTitulo']?></span>
+                    <p class="card-title"><?php echo $RegProdutosAnunciado['ancTitulo']?></p>
                     <p id="Desc"><?php echo $RegProdutosAnunciado['ancDesc']?></p>
                   </div>
 

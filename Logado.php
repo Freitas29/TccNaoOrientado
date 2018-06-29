@@ -129,7 +129,10 @@
 	}
 
 	blockquote{
-		border-left:5px solid #1e88e5 !important
+		border-left:5px solid #1e88e5 !important;
+		border-left:5px solid #1e88e5 !important;
+		font-size: 25px;
+		font-family: arial black;
 	}
 
 
