@@ -237,7 +237,7 @@
 
 
 			<!-- dropdown de categorias -->
-		<ul id = "categorias" class="dropdown-content">
+		<ul id = "categorias" class="dropdown-content" style="display:none;">
 			<?php
 				$Categoria = 'select ctgCodigo,ctgNome from categoria where ctgNome != "Nenhum" ';
 				$DadosCategoria = mysqli_query($oCon,$Categoria);
