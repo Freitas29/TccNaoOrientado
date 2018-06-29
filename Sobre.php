@@ -84,6 +84,10 @@ nav .brand-logo.left {
   #divDaBusca{
     width: 100%;
     height: auto;
+}
+  .texto-sobre{
+    text-align: justify;;
+
   }
 </style>
 
@@ -108,7 +112,7 @@ nav .brand-logo.left {
 <nav class="nav">
     <div class="nav-wrapper container">
   
-      <a href="#!" class="brand-logo left"><img src="logo.png" style="width: 35%;"></a>
+     <a href="Logado.php" class="brand-logo left" style="width: 27%;"><img src="./imagens/logotipo.png" style="width: 46%"></a>
 
       
       <a href="#" data-activates="menu-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
@@ -213,9 +217,23 @@ nav .brand-logo.left {
   <div class="container">
 
   		<div class="row">
-  		<ul class="collection with-header">
+  		<ul class="collection with-header" style="background-color:  #fff;">
   			<h2 class="collection-header">O que o site tem a oferecer</h2>
-  			<p>Nosso sistem tem a oferecer a melho comunidade possivel, garantindo segurança em suas negociações</p>
+        <p class="texto-sobre">
+  			<h5>
+        Nosso sistema tem a oferecer a melhor experiência possivel, garantindo segurança em suas negociações.
+        <br>
+        Com o objetivo de facilitar um dos principais meios de transações, que é a “troca”.
+        <br>
+        Essa ideia veio de um projeto de uma instituição, que se chama INVENI pensamos juntos e decidimos essa ideia, analisamos bem o que faltava no mercado.
+        </h5>
+  			</p>
+        <h2 class="collection-header">Objetivo do nosso sistema</h2>
+        <p class="texto-sobre"><h5>O Projeto foi criado com o intuito de facilitar a troca de produtos entre usuários. Consiste em uma plataforma onde uma pessoa pode divulgar o seu produto e deixar a disposição do sistema, desta forma, o interessado poderá negociar uma troca, e assim sucessivamente. 
+          Para acessar o nosso site é necessário realizar um cadastro, com isso, terá acesso as divulgações de usuários já cadastrados e poderá também publicar o seu produto. O cadastrado também pode colocar o item como favorito, buscar o produto de interesse e até configurar para não ficar amostra na tela aqueles que não deseja.
+          Além destas opções, o site também disponibiliza um chat para a interação dos usuários, havendo privacidade na negociação.</h5></p>
+
+        <img src="">
   		</ul>			
   		</div>
   </div>

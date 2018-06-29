@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="./Materialize/css/materialize.css">
 
 	<meta charset="utf-8">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="http://localhost/MaterialIcons-Regular.eot" rel="stylesheet">
 	</head>
 
 	<script>
@@ -84,6 +84,43 @@
 	</script>
 
 	<style>
+
+	@font-face {
+	  font-family: 'Material Icons';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: url(iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+	  src: local('Material Icons'),
+	    local('MaterialIcons-Regular'),
+	    url(iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+	    url(iconfont/MaterialIcons-Regular.woff) format('woff'),
+	    url(iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
 
 	nav{
 		
@@ -211,7 +248,7 @@
 
 			include './conexoesPhp/Conexao.php';
 			
-			$ConteudoCelular = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=1 and ancCod_Criador != '.$_SESSION['Login'].' and trocado = 0 order by ancCodigo desc limit 4';
+			$ConteudoCelular = 'select ancTitulo,ancDesc,ancCodigo from anuncio  where ancCod_Categoria=6 and ancCod_Criador != '.$_SESSION['Login'].' and trocado = 0 order by ancCodigo desc limit 4';
 			
 			$Usuario = 'select usrEmail,usrApelido,usrFoto from usuario where UsrCodigo='.$_SESSION['Login'];
 			
@@ -378,7 +415,7 @@
 			<div class="Header">
 			
 				<blockquote>
-					Celulares novos
+					Eletrodomésticos novos
 					<a href="#">Ver mais</a>
 				</blockquote>
 			
@@ -458,8 +495,8 @@
 
 				        </div>
 
-				        <div class="card-content">
-				        	<span class="card-title"><?php echo $DadosMostraCelular['ancTitulo']?></span>
+				        <div class="card-content" style="overflow:hidden;">
+				        	<span class="card-title" style="width:23ch;"><?php echo $DadosMostraCelular['ancTitulo']?></span>
 				          <p id="Desc"><?php echo $DadosMostraCelular['ancDesc']?></p>
 				        </div>
 
@@ -559,8 +596,8 @@
 				          ?>
 				      	         
 				        </div>
-				        <div class="card-content">
-				        	<span class="card-title"><?php echo $DadosMostra['ancTitulo']?></span>
+				        <div class="card-content" style="overflow:hidden;">
+				        	<span class="card-title" style="width:23ch;"><?php echo $DadosMostra['ancTitulo']?></span>
 				         	<p id="Desc"><?php echo $DadosMostra['ancDesc']?></p>
 				        </div>
 
@@ -653,8 +690,8 @@
 				    
 				          ?>
 				        </div>
-				        <div class="card-content">
-				        	<span class="card-title"><?php echo $DadosMostra2['ancTitulo']?></span>
+				        <div class="card-content" style="overflow:hidden;">
+				        	<span class="card-title" style="width:23ch;"><?php echo $DadosMostra2['ancTitulo']?></span>
 				          <p id="Desc"><?php echo $DadosMostra2['ancDesc']?></p>
 				        </div>
 				      </div>
@@ -748,8 +785,8 @@
 				    
 				          ?>
 				        </div>
-				        <div class="card-content">
-				        	<span class="card-title"><?php echo $MostraLivros['ancTitulo']?></span>
+				        <div class="card-content" style="overflow:hidden;">
+				        	<span class="card-title" style="width:23ch;"><?php echo $MostraLivros['ancTitulo']?></span>
 				          <p id="Desc"><?php echo $MostraLivros['ancDesc']?></p>
 				        </div>
 
