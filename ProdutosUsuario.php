@@ -466,7 +466,7 @@ label {
         while($RegCategoria = mysqli_fetch_assoc($DadosCategoria)){
       ?>
 
-          <li><a href="ResultadoCategoria.php?categoria=<?php echo $RegCategoria['ctgCodigo']?>"></a><?php echo $RegCategoria['ctgNome'] ?></a></li>
+          <a href="ResultadoCategoria.php?categoria=<?php echo $RegCategoria['ctgCodigo']?>"></a><li><?php echo $RegCategoria['ctgNome'] ?></li></a>
           <?php
          }
           ?>
