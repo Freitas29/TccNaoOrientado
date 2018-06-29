@@ -86,7 +86,7 @@ nav .brand-logo.left {
     height: auto;
 }
   .texto-sobre{
-    text-align: justify;;
+    text-align: justify;
 
   }
 </style>
@@ -121,11 +121,11 @@ nav .brand-logo.left {
       <li style="width: 59%;">
         <div class="nav-wrapper">
         <form action="" method="POST" id="formPesquisa" >
-              <div class="input-field" >
+              <div class="input-field" style="background-color:  #fff;">
 
                 <input id="pesquisa" type="search" name="pesquisa" onfocus="AtivaBusca()">
                 
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <label class="label-icon" for="search"><i class="material-icons" style="color:#000;">search</i></label>
                 <i class="material-icons">close</i>
               
              </form>
@@ -221,11 +221,11 @@ nav .brand-logo.left {
   			<h2 class="collection-header">O que o site tem a oferecer</h2>
         <p class="texto-sobre">
   			<h5>
-        Nosso sistema tem a oferecer a melhor experiência possivel, garantindo segurança em suas negociações.
+        Nosso sistema tem a oferecer a melhor experiência possível, garantindo segurança em suas negociações.
         <br>
-        Com o objetivo de facilitar um dos principais meios de transações, que é a “troca”.
+        Com o objetivo de facilitar um dos principais meios de transações, que é a troca.
         <br>
-        Essa ideia veio de um projeto de uma instituição, que se chama INVENI pensamos juntos e decidimos essa ideia, analisamos bem o que faltava no mercado.
+        Essa ideia veio de um projeto de uma instituição, e chama INVENI pensamos juntos e decidimos realizar essa ideia, mas para isso, analisamos bem o que faltava no mercado.
         </h5>
   			</p>
         <h2 class="collection-header">Objetivo do nosso sistema</h2>
@@ -233,9 +233,14 @@ nav .brand-logo.left {
           Para acessar o nosso site é necessário realizar um cadastro, com isso, terá acesso as divulgações de usuários já cadastrados e poderá também publicar o seu produto. O cadastrado também pode colocar o item como favorito, buscar o produto de interesse e até configurar para não ficar amostra na tela aqueles que não deseja.
           Além destas opções, o site também disponibiliza um chat para a interação dos usuários, havendo privacidade na negociação.</h5></p>
 
-        <img src="">
-  		</ul>			
-  		</div>
+  		</ul>	
+      <div id="imgSobre" style="width: 100%;">
+      <ul class="collection with-header" style="background-color:  #fff;">
+      <h2 class="collection-header">Pesquisa sobre se é viável</h2>
+      <img class="img-sobre" src="./imagens/sobre.png" style="width:100%;">		
+      </ul>
+  		 </div>
+      </div>
   </div>
   <!-- jquery -->
 <script src="./javascript/jQuery.js"></script>
