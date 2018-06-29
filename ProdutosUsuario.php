@@ -324,6 +324,7 @@ function ComValida(){
 nav{
   
   background-color:#1e88e5 !important;
+  font-weight: 900;
 }
 
 blockquote{
