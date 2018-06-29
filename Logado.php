@@ -77,7 +77,9 @@
 		}
 	}
 
-	
+	function mostraCategoria(){
+		document.getElementById('categorias').style.display="inline-table";
+	}
 
 	</script>
 
@@ -300,7 +302,7 @@
 		    <li><a href="./conexoesPhp/Deslogar.php">Sair</a></li>
 		     <li><a href="Logado.php">Página Inicial</a></li>
 
-		     <li><a class="dropdown-button" href="#" data-activates="categorias">Categorias</a></li>
+		     <li><a class="dropdown-button" href="#" data-activates="categorias" onclick="mostraCategoria()">Categorias</a></li>
 	      </ul>
 
 
@@ -771,7 +773,7 @@
 
 
 			<!-- dropdown de categorias -->
-		<ul id = "categorias" class="dropdown-content">
+		<ul id="categorias" class="dropdown-content" style="display:none;">
 			<?php
 				$Categoria = 'select ctgCodigo,ctgNome from categoria where ctgNome != "Nenhum" ';
 				$DadosCategoria = mysqli_query($oCon,$Categoria);
