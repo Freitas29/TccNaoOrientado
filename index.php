@@ -55,10 +55,14 @@ if((!isset ($_SESSION['Login']))){
 nav{
 		
 		background-color:#1e88e5 !important;
+		font-weight: 900;
+
 	}
 
 	blockquote{
-		border-left:5px solid #1e88e5 !important
+		border-left:5px solid #1e88e5 !important;
+		font-size: 25px;
+		font-family: arial black;
 	}
 
 
