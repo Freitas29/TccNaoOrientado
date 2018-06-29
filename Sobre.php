@@ -86,7 +86,7 @@ nav .brand-logo.left {
     height: auto;
 }
   .texto-sobre{
-    text-align: justify;;
+    text-align: justify;
 
   }
 </style>
@@ -233,9 +233,14 @@ nav .brand-logo.left {
           Para acessar o nosso site é necessário realizar um cadastro, com isso, terá acesso as divulgações de usuários já cadastrados e poderá também publicar o seu produto. O cadastrado também pode colocar o item como favorito, buscar o produto de interesse e até configurar para não ficar amostra na tela aqueles que não deseja.
           Além destas opções, o site também disponibiliza um chat para a interação dos usuários, havendo privacidade na negociação.</h5></p>
 
-        <img src="">
-  		</ul>			
-  		</div>
+  		</ul>	
+      <div id="imgSobre" style="width: 100%;">
+      <ul class="collection with-header" style="background-color:  #fff;">
+      <h2 class="collection-header">Pesquisa sobre se é viável</h2>
+      <img class="img-sobre" src="./imagens/sobre.png" style="width:100%;">		
+      </ul>
+  		 </div>
+      </div>
   </div>
   <!-- jquery -->
 <script src="./javascript/jQuery.js"></script>
